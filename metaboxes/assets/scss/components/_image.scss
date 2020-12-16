@@ -1,0 +1,36 @@
+.stm-lms-image {
+    .image-field {
+        display: inline-block;
+        background-color: rgba(255,255,255,0.7);
+        padding: 20px;
+        max-height: 300px;
+        margin-bottom: 10px;
+        overflow: hidden;
+        border-radius: 5px;
+        img {
+            height: 240px;
+            object-fit: cover;
+        }
+    }
+    .actions {
+        .button {
+            display: inline-block;
+            padding: 10px 20px 10px;
+            margin-right: 10px;
+            min-height: auto;
+            height: auto;
+            line-height: 1;
+            text-transform: uppercase;
+            color: #fff;
+            font-size: 13px;
+            border-radius: 5px;
+            background-image: linear-gradient(0deg,#334cb9 0,#4c65d3 100%);
+            cursor: pointer;
+            letter-spacing: 0;
+            &:hover {
+                background-color: #000 !important;
+                border-color: #000 !important;
+            }
+        }
+    }
+}

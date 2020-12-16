@@ -1,0 +1,104 @@
+.stm_metaboxes_grid .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field {
+        min-height: 55px;
+        padding: 8px 19px 8px;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        background-color: #f1f1f1;
+
+        label {
+            font-size: 15px;
+        }
+
+        &_flex_input {
+            display: flex;
+            align-items: center;
+
+            label {
+                width: 30%;
+                min-width: 200px;
+                margin-bottom: 0;
+            }
+
+            .wpcfto_datepicker,
+            select,
+            input {
+                width: 70%;
+                margin-left: auto;
+            }
+
+            .wpcfto_datepicker {
+                .mx-datepicker {
+                    margin-bottom: 0;
+                }
+                input {
+                    width: 100%;
+                }
+            }
+
+
+            textarea,
+            select,
+            input {
+                margin-bottom: 0 !important;
+                border: 1px solid #babcc1;
+                background-color: #fff;
+                box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.31);
+                font-size: 14px;
+                color: #2a3045;
+            }
+
+            &.wpcfto_generic_field__number {
+                input {
+                    width: calc(40% - 15px) !important;
+                }
+            }
+        }
+
+    }
+
+    .wpcfto_field_hint {
+        .wpcfto_generic_field_flex_input {
+            .wpcfto_datepicker,
+            select,
+            input {
+                width: calc(70% - 8px);
+            }
+        }
+    }
+
+    .unflex_fields {
+        .wpcfto_generic_field,
+        .wpcfto_generic_field_flex_input {
+            display: block;
+            padding: 0;
+            margin: 0 0 15px;
+            label {
+                margin: 0 0 10px;
+                font-size: 13px;
+                letter-spacing: 0;
+            }
+            .wpcfto_datepicker,
+            select,
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.stm-lms-admin-select {
+    .stm-lms-radio {
+        margin-left: 10px;
+    }
+}
+
+.image-field-file {
+    i {
+        position: relative;
+        top: 2px;
+        color: #195ec8;
+        font-size: 20px;
+        margin: 0 6px 0 0;
+    }
+}

@@ -1,0 +1,102 @@
+.stm_metaboxes_grid .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field.wpcfto_generic_field_editor {
+
+        background-color: transparent;
+        padding: 0;
+
+        .stm-lms-editor {
+            margin: 0 0 30px;
+
+            > label {
+                margin: 0 0 15px;
+                font-size: 18px;
+            }
+
+            textarea {
+                display: none;
+            }
+
+            .quillWrapper {
+
+                padding: 15px 20px 20px;
+                background-color: #f1f1f1;
+                border-radius: 4px;
+
+                p {
+                    margin-bottom: 30px;
+                }
+
+                .ql-container.ql-snow,
+                .ql-toolbar.ql-snow {
+                    border: 0;
+                }
+
+                .ql-toolbar.ql-snow {
+                    padding: 0;
+                    margin: 0 -10px;
+
+                    .ql-formats {
+                        display: inline-block;
+                        margin-right: 5px;
+
+                        button {
+                            margin-bottom: 0;
+
+                            &:hover {
+                                background-color: transparent;
+                            }
+                        }
+                    }
+                }
+
+                .ql-container.ql-snow {
+                    border-bottom-right-radius: 5px;
+                    border-bottom-left-radius: 5px;
+                }
+
+                .ql-snow .ql-tooltip {
+                    left: -1px !important;
+                }
+
+                .ql-image {
+                    display: none;
+                }
+
+                .ql-snow .ql-picker.ql-header {
+                    width: auto;
+
+                    svg {
+                        display: none;
+                    }
+                }
+
+                /*Hide ITEMS*/
+                .ql-italic,
+                .ql-underline,
+                .ql-strike,
+                .ql-align,
+                .ql-code-block,
+                .ql-list[value="check"],
+                .ql-video,
+                .ql-background,
+                .ql-indent {
+                    display: none;
+                }
+
+                .ql-editor {
+                    margin-top: 10px;
+                    border: 1px solid rgb(186, 188, 193);
+                    border-radius: 4px;
+                    background-color: rgb(255, 255, 255);
+                    box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.31);
+
+                }
+            }
+        }
+
+    }
+}
+
+.stm_lms_manage_course__editor {
+    border-top: 1px solid #e1e2e4!important;
+}

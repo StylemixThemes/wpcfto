@@ -1,0 +1,22 @@
+.stm_metaboxes_grid .stm_metaboxes_grid__inner {
+
+    .wpcfto_generic_field__notice {
+        display: block;
+        padding: 0;
+        margin: 30px 0 15px;
+        background-color: transparent;
+        min-height: auto;
+
+        &.first {
+            margin-top: 0;
+            margin-left: 5px;
+        }
+
+        label {
+            margin-bottom: 0;
+            font-size: 18px;
+        }
+
+    }
+
+}

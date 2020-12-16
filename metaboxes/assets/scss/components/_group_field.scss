@@ -1,0 +1,47 @@
+html body .stm_metaboxes_grid {
+
+    &__inner {
+        .stm_lms_group_started {
+            width: 100%;
+            flex-wrap: wrap;
+            margin: 0 0 10px;
+            border-radius: 5px;
+
+            .wpcfto_field_hint {
+                position: static;
+            }
+
+            .wpcfto_generic_field {
+                min-height: auto;
+                border-radius: 0 !important;
+                margin: 0 0 30px;
+                padding: 0;
+                background-color: transparent;
+
+                &.wpcfto_generic_field_flex_input {
+                    display: block;
+
+                    label {
+                        margin: 0 0 10px;
+                        font-size: 13px;
+                    }
+
+                    .wpcfto_datepicker,
+                    input {
+                        width: 100% !important;
+                    }
+                }
+            }
+
+            .container {
+                padding: 20px 28px 0;
+                background-color: #f1f1f1;
+                border-radius: 5px;
+            }
+
+            .row {
+                flex-wrap: wrap;
+            }
+        }
+    }
+}

@@ -1,0 +1,130 @@
+.stm_metaboxes_grid {
+
+    &__inner {
+        .is_pro {
+            position: relative;
+            //margin-bottom: 10px;
+            .pro-notice {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                margin: -15px 0 0 -60px;
+                width: 150px;
+
+                transition: .3s ease;
+
+                opacity: 0;
+                visibility: hidden;
+
+                z-index: 99999;
+
+                a {
+                    margin-left: 4px;
+                    color: $main_color;
+                }
+            }
+
+            .wpcfto_generic_field {
+
+                label {
+                    &:after {
+                        content: "\f023";
+                        margin: 0 0 0 10px;
+                        font-family: "Font Awesome 5 Free";
+                        font-size: 82%;
+                    }
+                }
+            }
+
+            .field_overlay {
+                position: absolute;
+                right: 4px;
+                left: 4px;
+                bottom: 9px;
+                top: 0;
+                background: rgba(255,255,255,0);
+                border-radius: 5px;
+                z-index: 999;
+
+                border: 1px dashed #aaa;
+
+                cursor: not-allowed;
+            }
+
+            /*DRIP*/
+            &.drip_content {
+                .field_overlay {
+                    top: -8px;
+                    bottom: 0;
+                }
+            }
+
+            &:hover {
+                .pro-notice {
+                    opacity: 1;
+                    visibility: visible;
+                }
+                .field_overlay {
+                    background: rgba(255,255,255,0.4);
+                }
+            }
+            &.certificate_banner {
+
+                .field_overlay {
+                    left: 0;
+                    right: 0;
+                }
+                a {
+                    outline: none;
+                    box-shadow: none;
+                }
+                &:hover {
+                    .field_overlay {
+                        background: rgba(255,255,255,0.8);
+                    }
+                }
+            }
+        }
+
+        .is_pro_in_addon {
+            .pro-notice {
+                opacity: 0;
+                visibility: hidden;
+                a {
+                    padding: 7px 10px;
+                    margin: 0 3px 0 10px;
+                    background: $main_color;
+                    color: #fff;
+                    border-radius: 4px;
+                }
+            }
+            .wpcfto_generic_field label:after {
+                display: none;
+            }
+        }
+
+        .stm_lms_group_started,
+        .preopen_field_wrapper {
+            position: relative;
+
+            .is_pro {
+                position: static;
+                .field_overlay {
+                    right: 0;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+
+            .is_pro {
+                &.sale_price_dates {
+                    position: relative;
+                    margin-bottom: 10px;
+                }
+            }
+
+        }
+
+    }
+
+}
