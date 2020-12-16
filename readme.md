@@ -16,10 +16,10 @@ So, in one framework you can create all options-related stuff in different plugi
 
 ### Installation
 
-Move downloaded folder `wp-custom-fields-theme-options` into your plugin and include it:
+Move downloaded folder `wpcfto` into your plugin and include it:
 
 ```php
-require_once(dirname(__FILE__) . '/wp-custom-fields-theme-options/WPCFTO.php');
+require_once(dirname(__FILE__) . '/wpcfto/WPCFTO.php');
 ```
 
 ### Theme Options
