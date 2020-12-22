@@ -17,7 +17,7 @@ class STM_WPCFTO_FILE_UPLOAD
         $this->create_folder();
 
         $r = array(
-            'error' => apply_filters('wpcfto_file_error_label', esc_html__('Error occurred, please try again', 'wpcfto')),
+            'error' => apply_filters('wpcfto_file_error_label', esc_html__('Error occurred, please try again', 'wp-custom-fields-theme-options')),
             'path' => '',
             'url' => ''
         );
@@ -44,7 +44,7 @@ class STM_WPCFTO_FILE_UPLOAD
 
         if (empty($_FILES['file'])) {
             wp_send_json(array(
-                'error' => apply_filters('wpcfto_empty_file_error_label', esc_html__('Please, select file', 'wpcfto')),
+                'error' => apply_filters('wpcfto_empty_file_error_label', esc_html__('Please, select file', 'wp-custom-fields-theme-options')),
             ));
         };
 
@@ -55,7 +55,7 @@ class STM_WPCFTO_FILE_UPLOAD
         if (!in_array($ext, $allowed_extensions)) {
             wp_send_json(array(
                 'error' => true,
-                'message' => apply_filters('wpcfto_file_error_ext_label', esc_html__('Invalid file extension', 'wpcfto'))
+                'message' => apply_filters('wpcfto_file_error_ext_label', esc_html__('Invalid file extension', 'wp-custom-fields-theme-options'))
             ));
         }
 

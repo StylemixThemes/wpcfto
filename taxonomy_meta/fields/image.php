@@ -43,9 +43,9 @@ function stm_lms_term_meta_field_image($field_key, $value)
                     }
 
                     frame = wp.media({
-                        title: '<?php esc_html_e("Select or Upload Media Of Your Chosen Persuasion", 'wpcfto'); ?>',
+                        title: '<?php esc_html_e("Select or Upload Media Of Your Chosen Persuasion", 'wp-custom-fields-theme-options'); ?>',
                         button: {
-                            text: '<?php esc_html_e("Use this media", 'wpcfto'); ?>'
+                            text: '<?php esc_html_e("Use this media", 'wp-custom-fields-theme-options'); ?>'
                         },
                         multiple: false
                     });
