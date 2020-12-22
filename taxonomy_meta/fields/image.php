@@ -43,9 +43,9 @@ function stm_lms_term_meta_field_image($field_key, $value)
                     }
 
                     frame = wp.media({
-                        title: '<?php esc_html_e("Select or Upload Media Of Your Chosen Persuasion", 'masterstudy-lms-learning-management-system'); ?>',
+                        title: '<?php esc_html_e("Select or Upload Media Of Your Chosen Persuasion", 'wpcfto'); ?>',
                         button: {
-                            text: '<?php esc_html_e("Use this media", 'masterstudy-lms-learning-management-system'); ?>'
+                            text: '<?php esc_html_e("Use this media", 'wpcfto'); ?>'
                         },
                         multiple: false
                     });

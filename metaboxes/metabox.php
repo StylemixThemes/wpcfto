@@ -30,7 +30,7 @@ class STM_Metaboxes
     static function get_users()
     {
         $users = array(
-            '' => esc_html__('Choose User', 'masterstudy-lms-learning-management-system')
+            '' => apply_filters('wpcfto_all_users_label', esc_html__('Choose User', 'wpcfto'))
         );
 
         if (!is_admin()) return $users;
