@@ -1,0 +1,26 @@
+.stm_metaboxes_grid__inner {
+    .wpcfto_button_group {
+        display: flex;
+        label {
+            min-width: auto !important;
+            padding: 5px 10px;
+            margin: 0;
+            background: #fff;
+            input[type="radio"] {
+                display: none !important;
+            }
+            &:first-child {
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+            }
+            &:last-child {
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+            }
+            &.active {
+                background: #4c65d3;
+                color: #fff;
+            }
+        }
+    }
+}
