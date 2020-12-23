@@ -13,11 +13,11 @@ class STM_Metaboxes
 
         require_once STM_WPCFTO_PATH . '/helpers/file_upload.php';
 
-        add_action('add_meta_boxes', array($this, 'stm_lms_register_meta_boxes'));
+        add_action('add_meta_boxes', array($this, 'wpcfto_register_meta_boxes'));
 
-        add_action('admin_enqueue_scripts', array($this, 'stm_lms_scripts'));
+        add_action('admin_enqueue_scripts', array($this, 'wpcfto_scripts'));
 
-        add_action('save_post', array($this, 'stm_lms_save'), 10, 3);
+        add_action('save_post', array($this, 'wpcfto_save'), 10, 3);
 
         add_action('wp_ajax_wpcfto_search_posts', 'STM_Metaboxes::search_posts');
     }
@@ -30,7 +30,7 @@ class STM_Metaboxes
     static function get_users()
     {
         $users = array(
-            '' => esc_html__('Choose User', 'masterstudy-lms-learning-management-system')
+            '' => apply_filters('wpcfto_all_users_label', esc_html__('Choose User', 'wpcfto'))
         );
 
         if (!is_admin()) return $users;
@@ -82,7 +82,7 @@ class STM_Metaboxes
         return $fields;
     }
 
-    function stm_lms_field_sanitize_repeater($value) {
+    function wpcfto_field_sanitize_repeater($value) {
         $decoded = json_decode($value);
         $value = ($decoded === null) ? $value : $decoded;
 
@@ -98,20 +98,20 @@ class STM_Metaboxes
         return $value;
     }
 
-    function stm_lms_save_number($value)
+    function wpcfto_save_number($value)
     {
         $value = floatval($value);
         if($value == 0) return '';
         return $value;
     }
 
-    function stm_lms_sanitize_curriculum($value)
+    function wpcfto_sanitize_curriculum($value)
     {
         $value = str_replace('stm_lms_amp', '&', $value);
         return sanitize_text_field($value);
     }
 
-    function stm_lms_save_dates($value, $field_name)
+    function wpcfto_save_dates($value, $field_name)
     {
         global $post_id;
 
@@ -128,17 +128,16 @@ class STM_Metaboxes
         return $value;
     }
 
-
-    function stm_lms_register_meta_boxes()
+    function wpcfto_register_meta_boxes()
     {
         $boxes = $this->boxes();
         foreach ($boxes as $box_id => $box) {
             $box_name = $box['label'];
-            add_meta_box($box_id, $box_name, array($this, 'stm_lms_display_callback'), $box['post_type'], 'normal', 'high', $this->fields());
+            add_meta_box($box_id, $box_name, array($this, 'wpcfto_display_callback'), $box['post_type'], 'normal', 'high', $this->fields());
         }
     }
 
-    function stm_lms_display_callback($post, $metabox)
+    function wpcfto_display_callback($post, $metabox)
     {
         $meta = $this->convert_meta($post->ID);
         foreach ($metabox['args'] as $metabox_name => $metabox_data) {
@@ -174,7 +173,7 @@ class STM_Metaboxes
         return $metas;
     }
 
-    function stm_lms_scripts($hook)
+    function wpcfto_scripts($hook)
     {
         $v = time();
         $base = STM_WPCFTO_URL . 'metaboxes/assets/';
@@ -232,7 +231,7 @@ class STM_Metaboxes
 
     }
 
-    function stm_lms_post_types()
+    function wpcfto_post_types()
     {
         $post_types = array();
         $boxes = $this->boxes();
@@ -246,17 +245,17 @@ class STM_Metaboxes
 
         $post_types = array_unique($post_types);
 
-        return apply_filters('stm_lms_post_types', $post_types);
+        return apply_filters('wpcfto_post_types', $post_types);
 
     }
 
-    function stm_lms_save($post_id, $post)
+    function wpcfto_save($post_id, $post)
     {
 
 
         $post_type = get_post_type($post_id);
 
-        if (!in_array($post_type, $this->stm_lms_post_types())) return;
+        if (!in_array($post_type, $this->wpcfto_post_types())) return;
 
         if (!empty($_POST) and !empty($_POST['action']) and $_POST['action'] === 'editpost') {
 
@@ -394,7 +393,7 @@ class STM_Metaboxes
 
 new STM_Metaboxes();
 
-function stm_lms_metaboxes_deps($field, $section_name)
+function wpcfto_metaboxes_deps($field, $section_name)
 {
     $dependency = '';
     $dependencies = array();
@@ -404,13 +403,13 @@ function stm_lms_metaboxes_deps($field, $section_name)
         $mode = $field['dependencies'];
 
         foreach($field['dependency'] as $dep) {
-            $dependencies[] = stm_lms_metaboxes_generate_deps($section_name, $dep);
+            $dependencies[] = wpcfto_metaboxes_generate_deps($section_name, $dep);
         }
 
         $dependencies = implode(" {$mode} ", $dependencies);
 
     } else {
-        $dependencies = stm_lms_metaboxes_generate_deps($section_name, $field['dependency']);
+        $dependencies = wpcfto_metaboxes_generate_deps($section_name, $field['dependency']);
     }
 
     $dependency = "v-if=\"{$dependencies}\"";
@@ -418,7 +417,7 @@ function stm_lms_metaboxes_deps($field, $section_name)
     return $dependency;
 }
 
-function stm_lms_metaboxes_generate_deps($section_name, $dep) {
+function wpcfto_metaboxes_generate_deps($section_name, $dep) {
     $key = $dep['key'];
     $compare = $dep['value'];
     if ($compare === 'not_empty') {
@@ -445,10 +444,10 @@ function stm_lms_metaboxes_generate_deps($section_name, $dep) {
     return $dependency;
 }
 
-function stm_lms_metaboxes_display_single_field($section, $section_name, $field, $field_name)
+function wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name)
 {
 
-    $dependency = stm_lms_metaboxes_deps($field, $section_name);
+    $dependency = wpcfto_metaboxes_deps($field, $section_name);
     $width = (empty($field['columns'])) ? 'column-1' : "column-{$field['columns']}";
     $is_pro = (!empty($field['pro'])) ? 'is_pro' : 'not_pro';
     $description = (!empty($field['description'])) ? $field['description'] : '';
@@ -509,16 +508,16 @@ function stm_lms_metaboxes_display_single_field($section, $section_name, $field,
 
 <?php }
 
-function stm_lms_metaboxes_display_group_field($section, $section_name, $field, $field_name)
+function wpcfto_metaboxes_display_group_field($section, $section_name, $field, $field_name)
 { ?>
     <?php if ($field['group'] === 'started') : ?><div class="stm_lms_group_started column-1"><div class="container"><div class="row"><?php endif;
 
-    stm_lms_metaboxes_display_single_field($section, $section_name, $field, $field_name);
+    wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 
     if ($field['group'] === 'ended') : ?></div></div></div><?php endif;
 }
 
-function stm_lms_metaboxes_preopen_field($section, $section_name, $field, $field_name)
+function wpcfto_metaboxes_preopen_field($section, $section_name, $field, $field_name)
 {
     $vue_field = "data['{$section_name}']['fields']['{$field_name}']";
 
@@ -542,7 +541,7 @@ function stm_lms_metaboxes_preopen_field($section, $section_name, $field, $field
 
         <div class="preopen_field"
              v-if="<?php echo esc_attr($vue_field); ?>['opened']">
-            <?php stm_lms_metaboxes_display_single_field($section, $section_name, $field, $field_name); ?>
+            <?php wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name); ?>
         </div>
 
     </div>

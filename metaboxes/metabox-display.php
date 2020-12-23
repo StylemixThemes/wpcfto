@@ -71,16 +71,16 @@ if (empty($id)) {
                                 <?php foreach ($section['fields'] as $field_name => $field) {
 
                                     if(!empty($field['pre_open']) and $field['pre_open']) {
-                                        stm_lms_metaboxes_preopen_field($section, $section_name, $field, $field_name);
+                                        wpcfto_metaboxes_preopen_field($section, $section_name, $field, $field_name);
                                         continue;
                                     }
 
                                     if(!empty($field['group'])) {
-                                        stm_lms_metaboxes_display_group_field($section, $section_name, $field, $field_name);
+                                        wpcfto_metaboxes_display_group_field($section, $section_name, $field, $field_name);
                                         continue;
                                     }
 
-                                    stm_lms_metaboxes_display_single_field($section, $section_name, $field, $field_name);
+                                    wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 
                                 } ?>
                             </div>
