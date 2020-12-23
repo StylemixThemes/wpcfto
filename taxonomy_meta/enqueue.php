@@ -1,5 +1,5 @@
 <?php
-function stm_lms_enqueue_taxonomy_ss() {
+function wpcfto_enqueue_taxonomy_ss() {
 	$v = time();
 	$assets = STM_WPCFTO_URL . '/taxonomy_meta/assets';
 	$base = STM_WPCFTO_URL . '/taxonomy_meta/assets/';
@@ -11,4 +11,4 @@ function stm_lms_enqueue_taxonomy_ss() {
 
 }
 
-add_action( 'admin_enqueue_scripts', 'stm_lms_enqueue_taxonomy_ss' );
+add_action( 'admin_enqueue_scripts', 'wpcfto_enqueue_taxonomy_ss' );
