@@ -7,12 +7,12 @@ Vue.component('wpcfto_checkbox', {
     },
     template: `
         <div class="wpcfto_generic_field">
-            <div class="stm-lms-admin-checkbox" v-bind:class="field_id">
+            <div class="wpcfto-admin-checkbox" v-bind:class="field_id">
                
                <label>
                
-                    <div class="stm-lms-admin-checkbox-wrapper" v-bind:class="{'active' : value}">
-                        <div class="stm-lms-checkbox-switcher"></div>
+                    <div class="wpcfto-admin-checkbox-wrapper" v-bind:class="{'active' : value}">
+                        <div class="wpcfto-checkbox-switcher"></div>
                         <input type="checkbox"
                                :name="field_name"
                                v-bind:id="field_id"

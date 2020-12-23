@@ -10,7 +10,7 @@ $field_key = "data['{$section_name}']['fields']['{$field_name}']";
 ?>
 
 
-<div class="stm-lms-hint">
+<div class="wpcfto-hint">
     <label v-html="<?php echo esc_attr($field_key); ?>['label']"></label>
 
     <textarea name="<?php echo esc_attr($field_name); ?>"

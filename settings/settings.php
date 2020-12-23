@@ -1,6 +1,6 @@
 <?php
 
-class STM_LMS_Settings {
+class WPCFTO_Settings {
 
 	public $option_name;
 	public $page_args;
@@ -12,11 +12,11 @@ class STM_LMS_Settings {
 		$this->page_args   = $page_args;
 		$this->fields      = $fields;
 
-		add_action( 'admin_menu', array( $this, 'stm_lms_settings_page' ), 1000 );
+		add_action( 'admin_menu', array( $this, 'settings_page' ), 1000 );
 		add_action( 'wp_ajax_stm_save_settings', array( $this, 'stm_save_settings' ) );
 	}
 
-	function stm_lms_settings_page() {
+	function settings_page() {
 
 		if ( current_user_can( 'manage_options' ) ) {
 
@@ -27,7 +27,7 @@ class STM_LMS_Settings {
 					$this->page_args['menu_title'],
 					'manage_options',
 					$this->page_args['menu_slug'],
-					array( $this, 'stm_lms_settings_page_view' )
+					array( $this, 'settings_page_view' )
 				);
 			} else {
 				add_menu_page(
@@ -35,7 +35,7 @@ class STM_LMS_Settings {
 					$this->page_args['menu_title'],
 					'manage_options',
 					$this->page_args['menu_slug'],
-					array( $this, 'stm_lms_settings_page_view' ),
+					array( $this, 'settings_page_view' ),
 					$this->page_args['icon'],
 					$this->page_args['position']
 				);
@@ -69,7 +69,7 @@ class STM_LMS_Settings {
 		return $r;
 	}
 
-	function stm_lms_settings() {
+	function wpcfto_settings() {
 
 		$args                       = array();
 		$args[ $this->option_name ] = $this->fields;
@@ -80,13 +80,13 @@ class STM_LMS_Settings {
 		) );
 	}
 
-	function stm_lms_get_settings() {
+	function wpcfto_get_settings() {
 		return get_option( $this->option_name, array() );
 	}
 
-	function stm_lms_settings_page_view() {
-		$metabox  = $this->stm_lms_settings();
-		$settings = $this->stm_lms_get_settings();
+	function settings_page_view() {
+		$metabox  = $this->wpcfto_settings();
+		$settings = $this->wpcfto_get_settings();
 		$page     = $this->page_args;
 
 		foreach ( $metabox['args'][ $this->option_name ] as $section_name => $section ) {
@@ -138,7 +138,7 @@ add_action( 'init', function () {
 				continue;
 			}
 
-			new STM_LMS_Settings( $setup['option_name'], $setup['page'], $setup['fields'] );
+			new WPCFTO_Settings( $setup['option_name'], $setup['page'], $setup['fields'] );
 		}
 	}
 } );

@@ -7,9 +7,9 @@ Vue.component('wpcfto_radio', {
     },
     template: ` 
         <div class="wpcfto_generic_field" v-bind:class="field_id">
-            <div class="stm-lms-admin-select" v-bind:id="field_id">
+            <div class="wpcfto-admin-select" v-bind:id="field_id">
                 <label v-html="field_label"></label>
-                <div class="stm-lms-radio">
+                <div class="wpcfto-radio">
                     <label v-for="(option, key) in fields['options']">
                         <input type="radio"
                                v-bind:name="field_name"
