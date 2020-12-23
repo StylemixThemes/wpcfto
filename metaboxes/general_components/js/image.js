@@ -1,6 +1,6 @@
 Vue.component('wpcfto_image', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
-    mixins: [stm_lms_get_image_mixin],
+    mixins: [wpcfto_get_image_mixin],
     data: function () {
         return {
             value: '',
@@ -17,7 +17,7 @@ Vue.component('wpcfto_image', {
         
             <label v-html="field_label"></label>
         
-            <div class="stm-lms-image">
+            <div class="wpcfto-image">
                 <div class="image-field" v-if="image_url">
                     <img v-bind:src="image_url" v-if="wpcfto_checkURL(image_url)"/>
                     <div class="image-field-file" v-else>

@@ -13,11 +13,11 @@ function stm_wpcfto_add_vc_icons_linear($fonts)
     $icons = json_decode(file_get_contents(STM_WPCFTO_PATH . '/taxonomy_meta/assets/linearicons/selection.json', true), true);
     $icons = $icons['icons'];
 
-    $fonts['STM LMS Linear'] = array();
+    $fonts['Linear'] = array();
 
     foreach ($icons as $icon) {
         $icon_name = $icon['properties']['name'];
-        $fonts['STM LMS Linear'][] = array(
+        $fonts['Linear'][] = array(
             "lnr-{$icon_name}" => $icon_name
         );
     }

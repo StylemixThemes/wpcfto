@@ -37,7 +37,7 @@ Vue.component('wpcfto_autocomplete', {
     
                     </div>
                    
-                    <ul class="stm-lms-autocomplete">
+                    <ul class="wpcfto-autocomplete">
                         <li v-for="(item, index) in items" v-if="typeof item !== 'string'">
                             <div class="item-wrapper">
                                 <img v-bind:src="item.image" v-if="item.image">

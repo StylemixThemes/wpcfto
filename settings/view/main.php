@@ -23,7 +23,7 @@ do_action( "wpcfto_settings_screen_{$id}_before" );
 
 if ( ! empty( $sections ) ) : ?>
 
-	<div class="stm-lms-settings"
+	<div class="wpcfto-settings"
 		 v-bind:class="'data-' + data.length"
 		 data-vue="<?php echo sanitize_text_field( $id ); ?>" <?php echo stm_wpcfto_filtered_output( $source_id ); ?>>
 

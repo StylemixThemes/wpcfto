@@ -1,4 +1,4 @@
-var stm_lms_notice_mounted = false;
+var wpcfto_notice_mounted = false;
 
 Vue.component('wpcfto_notice_banner', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
@@ -15,9 +15,9 @@ Vue.component('wpcfto_notice_banner', {
     `,
     mounted: function () {
 
-        if (!stm_lms_notice_mounted) {
+        if (!wpcfto_notice_mounted) {
 
-            stm_lms_notice_mounted = true;
+            wpcfto_notice_mounted = true;
 
             Vue.nextTick(function () {
 
@@ -31,13 +31,13 @@ Vue.component('wpcfto_notice_banner', {
                         current_notice = $isNotice.attr('data-notice');
                         $this.attr('data-main', current_notice);
                     } else {
-                        $this.addClass(current_notice).addClass('stm_lms_notice_visiblity');
+                        $this.addClass(current_notice).addClass('wpcfto_notice_visiblity');
                     }
                 });
 
                 $('.wpcfto_generic_field__notice').on('click', function () {
 
-                    $('.wpcfto_generic_field__notice, .stm_lms_notice_visiblity').removeClass('opened');
+                    $('.wpcfto_generic_field__notice, .wpcfto_notice_visiblity').removeClass('opened');
 
                     $('.' + $(this).data('notice')).toggleClass('opened');
                 });

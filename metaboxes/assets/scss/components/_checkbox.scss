@@ -1,4 +1,4 @@
-.stm-lms-admin-checkbox {
+.wpcfto-admin-checkbox {
 
     margin-top: 7px;
 
@@ -19,7 +19,7 @@
         opacity: .6;
     }
 
-    .stm-lms-admin-checkbox-wrapper {
+    .wpcfto-admin-checkbox-wrapper {
         position: relative;
         display: inline-block;
         margin: 6px 10px 0 0;
@@ -40,7 +40,7 @@
             z-index: 30;
         }
 
-        .stm-lms-checkbox-switcher {
+        .wpcfto-checkbox-switcher {
             position: absolute;
             left: -2px;
             top: -4px;
@@ -57,7 +57,7 @@
             background-color: #00b163;
             border-color: #00b163;
 
-            .stm-lms-checkbox-switcher {
+            .wpcfto-checkbox-switcher {
                 transform: translateX(16px);
                 background-color: #fff;
 
@@ -69,7 +69,7 @@
     }
 }
 
-.stm_lms_checkbox {
+.wpcfto_checkbox {
     position: relative;
 
     i.fa-check {
@@ -108,7 +108,7 @@
     }
 }
 
-.stm_lms_radio {
+.wpcfto_radio {
     position: relative;
 
     i {
@@ -162,10 +162,10 @@
 
 //HACK FOR OLD FIELD REVERSED!!!!!!
 .section_accessibility-not_single_sale {
-    .stm-lms-admin-checkbox-wrapper {
+    .wpcfto-admin-checkbox-wrapper {
         background-color: #00b163;
         border-color: #00b163;
-        .stm-lms-checkbox-switcher {
+        .wpcfto-checkbox-switcher {
             transform: translateX(16px);
             background-color: #fff;
         }
@@ -173,7 +173,7 @@
         &.active {
             border-color: #bfbfbf;
             background-color: #bfbfbf;
-            .stm-lms-checkbox-switcher {
+            .wpcfto-checkbox-switcher {
                 transform: translateX(0);
                 background-color: #f6f6f6;
             }
