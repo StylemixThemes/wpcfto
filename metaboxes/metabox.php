@@ -479,6 +479,10 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 		$classes = array_merge( $classes, $field['classes'] );
 	}
 
+	if(!empty($field['submenu'])) {
+		$classes[] = $section_name . '_' . sanitize_title($field['submenu']);
+	}
+
 	$classes = apply_filters( 'stm_wpcfto_single_field_classes', $classes, $field_name, $field );
 
 	?>
@@ -508,17 +512,17 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 			$file = apply_filters( "wpcfto_field_{$field_type}", STM_WPCFTO_PATH . '/metaboxes/fields/' . $field_type . '.php' );
 
 			if ( ! empty( $field_data['hint'] ) ) : ?>
-			<div class="field_overlay"></div>
-			<div class="wpcfto_field_hint <?php echo esc_attr( $field_data['type'] ); ?>">
-				<i class="fa fa-info-circle"></i>
-				<div class="hint"><?php echo html_entity_decode( $field_data['hint'] ); ?></div>
-				<?php endif; ?>
+				<div class="field_overlay"></div>
+				<div class="wpcfto_field_hint <?php echo esc_attr( $field_data['type'] ); ?>">
+					<i class="fa fa-info-circle"></i>
+					<div class="hint"><?php echo html_entity_decode( $field_data['hint'] ); ?></div>
+					<?php endif; ?>
 
-				<?php include $file; ?>
+					<?php include $file; ?>
 
-				<?php if ( ! empty( $field_data['hint'] ) ) : ?>
-			</div>
-		<?php endif; ?>
+					<?php if ( ! empty( $field_data['hint'] ) ) : ?>
+				</div>
+			<?php endif; ?>
 
 			<?php if ( ! empty( $description ) ): ?>
 				<p class="description"><?php echo html_entity_decode( $description ); ?></p>
