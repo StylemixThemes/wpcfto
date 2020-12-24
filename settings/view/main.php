@@ -27,19 +27,10 @@ if ( ! empty( $sections ) ) : ?>
 		 v-bind:class="'data-' + data.length"
 		 data-vue="<?php echo sanitize_text_field( $id ); ?>" <?php echo stm_wpcfto_filtered_output( $source_id ); ?>>
 
+
 		<?php require_once( STM_WPCFTO_PATH . '/metaboxes/metabox-display.php' ); ?>
 
-		<div class="stm_metaboxes_grid stm_metaboxes_grid_btn">
-			<div class="stm_metaboxes_grid__inner">
-				<a href="#"
-				   @click.prevent="saveSettings('<?php echo esc_attr( $id ); ?>')"
-				   v-bind:class="{'loading': loading}"
-				   class="button load_button">
-					<span><?php esc_html_e( 'Save Settings', 'wp-custom-fields-theme-options' ); ?></span>
-					<i class="lnr lnr-sync"></i>
-				</a>
-			</div>
-		</div>
+		<?php include STM_WPCFTO_PATH . '/settings/view/header.php'; ?>
 
 	</div>
 

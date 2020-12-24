@@ -1,9 +1,27 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const autoprefixer = require('gulp-autoprefixer');
+const browserSync = require('browser-sync').create();
 const watch = require('gulp-watch');
 const cssmin = require('gulp-cssmin');
 const clean = require('gulp-clean');
+
+gulp.task('serve', function (done) {
+    "use strict";
+
+    browserSync.init({
+        proxy: "http://lms.loc",
+        host: "192.168.0.124",
+        port: 3000,
+        notify: true,
+        ui: {
+            port: 3001
+        },
+        open: false
+    });
+
+    done();
+});
 
 gulp.task('watch', function (done) {
 
@@ -13,13 +31,14 @@ gulp.task('watch', function (done) {
             .pipe(autoprefixer())
             .pipe(cssmin())
             .pipe(gulp.dest('./metaboxes/assets/css'))
+            .pipe(browserSync.stream())
     });
 
     done();
 
 });
 
-gulp.task('default', gulp.series(gulp.parallel('watch')));
+gulp.task('default', gulp.series(gulp.parallel('watch', 'serve')));
 
 
 /*BUILD TASKS*/
