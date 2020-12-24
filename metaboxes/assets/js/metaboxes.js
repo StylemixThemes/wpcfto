@@ -32,11 +32,11 @@
                     },
                     changeTab: function (tab) {
                         let $tab = $('#' + tab);
-                        $tab.closest('.stm_metaboxes_grid__inner').find('.stm-lms-tab').removeClass('active');
+                        $tab.closest('.stm_metaboxes_grid__inner').find('.wpcfto-tab').removeClass('active');
                         $tab.addClass('active');
 
                         let $section = $('div[data-section="' + tab + '"]');
-                        $tab.closest('.stm_metaboxes_grid__inner').find('.stm-lms-nav').removeClass('active');
+                        $tab.closest('.stm_metaboxes_grid__inner').find('.wpcfto-nav').removeClass('active');
                         $section.addClass('active');
 
                         history.pushState(null, null, '#' + tab);
@@ -81,7 +81,6 @@
                         var _this = this;
                         Vue.nextTick(function() {
                             (function($) {
-
 
                                 var currentItem = $($event.target);
 

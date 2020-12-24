@@ -8,7 +8,7 @@ Vue.component('wpcfto_editor', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_editor">
-            <div class="stm-lms-editor">
+            <div class="wpcfto-editor">
                 <label v-html="field_label"></label>
                 
                 <vue-editor :id="'editor' + field_name" v-model="value"></vue-editor>

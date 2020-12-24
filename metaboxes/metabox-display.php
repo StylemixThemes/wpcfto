@@ -31,13 +31,13 @@ if (empty($id)) {
 
         <div class="container">
 
-            <div class="stm-lms-tab-nav">
+            <div class="wpcfto-tab-nav">
                 <?php
                 $i = 0;
                 foreach ($sections as $section_name => $section):
                     if ($i == 0) $active = $section_name;
                     ?>
-                    <div class="stm-lms-nav <?php if ($active == $section_name) echo 'active'; ?> <?php if (empty($section['icon'])) echo 'no-icon'; ?>"
+                    <div class="wpcfto-nav <?php if ($active == $section_name) echo 'active'; ?> <?php if (empty($section['icon'])) echo 'no-icon'; ?>"
                          data-section="<?php echo esc_attr($section_name); ?>"
                          @click="changeTab('<?php echo esc_attr($section_name); ?>')">
 
@@ -55,7 +55,7 @@ if (empty($id)) {
 
             <?php foreach ($sections as $section_name => $section): ?>
                 <div id="<?php echo esc_attr($section_name); ?>"
-                     class="stm-lms-tab <?php if ($section_name == $active) echo 'active'; ?>">
+                     class="wpcfto-tab <?php if ($section_name == $active) echo 'active'; ?>">
                     <div class="container container-constructed">
                         <div class="row">
 
@@ -71,16 +71,16 @@ if (empty($id)) {
                                 <?php foreach ($section['fields'] as $field_name => $field) {
 
                                     if(!empty($field['pre_open']) and $field['pre_open']) {
-                                        stm_lms_metaboxes_preopen_field($section, $section_name, $field, $field_name);
+                                        wpcfto_metaboxes_preopen_field($section, $section_name, $field, $field_name);
                                         continue;
                                     }
 
                                     if(!empty($field['group'])) {
-                                        stm_lms_metaboxes_display_group_field($section, $section_name, $field, $field_name);
+                                        wpcfto_metaboxes_display_group_field($section, $section_name, $field, $field_name);
                                         continue;
                                     }
 
-                                    stm_lms_metaboxes_display_single_field($section, $section_name, $field, $field_name);
+                                    wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 
                                 } ?>
                             </div>

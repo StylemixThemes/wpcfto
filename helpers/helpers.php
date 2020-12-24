@@ -134,7 +134,7 @@ function stm_wpcfto_get_options( $option_name, $option = '', $default_value = nu
 }
 
 
-add_action( 'wp_ajax_stm_lms_get_image_url', 'wpcfto_get_image_url' );
+add_action( 'wp_ajax_wpcfto_get_image_url', 'wpcfto_get_image_url' );
 
 function wpcfto_get_image_url() {
 	if ( empty( $_GET['image_id'] ) ) {
