@@ -215,6 +215,9 @@ class STM_Metaboxes {
 			'file',
 			'notice',
 			'notice_banner',
+			'button_group',
+			'image_select',
+			'spacing',
 		);
 
 		foreach ( $components as $component ) {
