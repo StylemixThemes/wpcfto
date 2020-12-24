@@ -38,11 +38,12 @@ Vue.component('wpcfto_sorter', {
         </div>
     `,
 	mounted: function () {
-		// JSON parse for Post Meta
+
 		this.columns = (typeof this.field_value !== 'undefined') ? this.field_value : this.field_options;
+
 		if(typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) this.columns = JSON.parse(this.field_value);
 
-		console.log(this.columns);
+		if(!this.columns.length) this.columns = this.field_options;
 
 		this.fillNewOptions();
 	},
