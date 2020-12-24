@@ -218,6 +218,7 @@ class STM_Metaboxes {
 			'button_group',
 			'image_select',
 			'spacing',
+			'sorter',
 		);
 
 		foreach ( $components as $component ) {
