@@ -1,0 +1,13 @@
+.wpcfto_gallery {
+    &__items {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    &__item {
+        margin: 0 15px 15px 0;
+        border: 3px solid #fff;
+        img {
+            vertical-align: top;
+        }
+    }
+}
