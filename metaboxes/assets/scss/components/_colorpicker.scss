@@ -1,10 +1,11 @@
 .stm_colorpicker_wrapper {
     position: relative;
-    .vc-photoshop {
+    .vc-photoshop,
+    .vc-chrome {
         position: absolute;
         top: 100%;
-        left: 0;
-        width: 100%;
+        right: 0;
+        width: auto;
         opacity: 0;
         visibility: hidden;
         transform: translateY(5px);
@@ -27,17 +28,21 @@
     }
 
     &.picker-position-top {
-        .vc-photoshop {
+        .vc-photoshop,
+        .vc-chrome {
             top: auto;
             bottom: 100%;
         }
     }
 
     > input[type='text'] {
-        &:focus + div .vc-photoshop {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        &:focus + div {
+            .vc-photoshop,
+            .vc-chrome {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
         }
     }
     > span {
