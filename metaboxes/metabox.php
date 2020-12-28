@@ -220,6 +220,7 @@ class STM_Metaboxes {
 			'spacing',
 			'link_color',
 			'multi_checkbox',
+			'color_gradient',
 		);
 
 		foreach ( $components as $component ) {
