@@ -220,6 +220,9 @@ class STM_Metaboxes {
 			'spacing',
 			'link_color',
 			'multi_checkbox',
+			'sorter',
+			'gallery',
+			'multi_input',
 			'color_gradient',
 		);
 
