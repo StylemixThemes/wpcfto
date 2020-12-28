@@ -21,6 +21,8 @@ Vue.component('wpcfto_gallery', {
 						 v-for="(image, image_key) in gallery"
 						 :key="image_key">
 						 
+						 <i class="wpcfto_gallery__item_delete fa fa-times" @click="gallery.splice(image_key, 1)"></i>
+						 
 					  <img v-bind:src="image.url" />
 					  
 					</div>
@@ -39,6 +41,7 @@ Vue.component('wpcfto_gallery', {
     `,
 	mounted: function () {
 
+		this.gallery = this.field_value;
 		if(typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) this.gallery = JSON.parse(this.field_value);
 
 	},
@@ -74,7 +77,15 @@ Vue.component('wpcfto_gallery', {
 		gallery: {
 		    deep: true,
 		    handler: function (gallery) {
-		        this.$emit('wpcfto-get-value', gallery);
+
+		    	let gallery_value = [];
+
+		    	gallery.forEach(function(gallery_item){
+		    		gallery_value.push(gallery_item.id);
+				});
+
+		        this.$emit('wpcfto-get-value', gallery_value);
+
 		    }
 		}
 	}

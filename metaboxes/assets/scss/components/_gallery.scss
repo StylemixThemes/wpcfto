@@ -4,10 +4,28 @@
         flex-wrap: wrap;
     }
     &__item {
+        position: relative;
         margin: 0 15px 15px 0;
         border: 3px solid #fff;
         img {
             vertical-align: top;
+        }
+        &_delete {
+            position: absolute;
+            right: 5px;
+            top: 5px;
+            width: 25px;
+            height: 25px;
+            line-height: 25px !important;
+            text-align: center;
+            background-color: #fff;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: .3s ease;
+            &:hover {
+                background-color: $main_color;
+                color: #fff;
+            }
         }
     }
 }
