@@ -220,6 +220,7 @@ class STM_Metaboxes {
 			'spacing',
 			'sorter',
 			'gallery',
+			'multi_input',
 		);
 
 		foreach ( $components as $component ) {
