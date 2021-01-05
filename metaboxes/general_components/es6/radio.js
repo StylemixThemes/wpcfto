@@ -19,7 +19,9 @@ Vue.component('wpcfto_radio', {
                         {{ option }}
                         <span
                             v-if="fields.previews && fields.previews[key]"
-                            class="wpcfto_preview">Preview<span class="wpcfto_preview__popup"><img :src="fields.previews[key]" /></span></span>
+                            class="wpcfto_preview">Preview<span
+                            class="wpcfto_preview__popup"><img
+                            :src="fields.previews[key]" /></span></span>
                     </label>
                 </div>
             </div>

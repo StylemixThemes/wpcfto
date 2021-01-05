@@ -56,6 +56,8 @@ if ( empty( $id ) ) {
 						$section_classes[] = 'has-submenu';
 					}
 
+					$submenus = array_unique($submenus);
+
 					?>
 					<div class="wpcfto-nav <?php echo esc_attr( implode( ' ', $section_classes ) ); ?>">
 
@@ -81,6 +83,7 @@ if ( empty( $id ) ) {
 										 class="<?php echo esc_attr(implode(' ', $submenu_classes)); ?>"
 										 @click="changeSubMenu('<?php echo esc_attr( $section_name . '_' . sanitize_title( $submenu ) ); ?>')">
 										<?php echo esc_attr( $submenu ); ?>
+										<i class="fa fa-chevron-right"></i>
 									</div>
 								<?php endforeach; ?>
 							</div>

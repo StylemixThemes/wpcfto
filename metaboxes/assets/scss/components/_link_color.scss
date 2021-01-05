@@ -1,0 +1,13 @@
+.stm_metaboxes_grid__inner {
+    .wpcfto_link_color {
+        display: flex;
+        .wpcfto_link_color_group {
+            input {
+                width: 100% !important;
+            }
+            + .wpcfto_link_color_group {
+                margin-left: 10px;
+            }
+        }
+    }
+}

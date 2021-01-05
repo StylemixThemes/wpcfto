@@ -1,9 +1,11 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field {
         padding: 16px 20px 18px;
+        width: 100%;
 
         label {
             font-size: 16px;
+            margin-right: 15px;
 
             &.disabled {
                 color: $color_muted;
@@ -31,6 +33,7 @@
         &_flex_input {
             display: flex;
             align-items: center;
+            justify-content: space-between;
 
             .wpcfto_datepicker,
             select,

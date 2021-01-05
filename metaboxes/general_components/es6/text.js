@@ -7,7 +7,14 @@ Vue.component('wpcfto_text', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text">
-            <label v-html="field_label"></label>
+            <label>
+                {{ field_label }}
+                <span
+                v-if="fields.preview"
+                class="wpcfto_preview">Preview<span
+                class="wpcfto_preview__popup"><img
+                :src="fields.preview" /></span></span>
+            </label>
             <input type="text"
                 v-bind:name="field_name"
                 v-bind:placeholder="fields.placeholder"

@@ -50,6 +50,8 @@ Vue.component('wpcfto_color', {
                 <div>
                     <slider-picker v-model="value"></slider-picker>
                 </div>
+
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
             </div>
         </div>
     `,

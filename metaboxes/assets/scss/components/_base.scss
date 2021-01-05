@@ -131,13 +131,24 @@
         &:not(.wpcfto_group_started) {
             .wpcfto_generic_field_flex_input {
                 label {
-                    margin: 0;
+                    margin-bottom: 0;
+                }
+            }
+            .wpcfto_generic_field__number {
+                width: 100%;
+                label {
+                    flex-grow: 1;
+                    width: auto;
+                }
+                .description {
+                    flex-grow: 1;
                 }
             }
         }
 
         .pro-notice {
             margin-left: 20px;
+            white-space: nowrap;
         }
 
     }
@@ -167,8 +178,15 @@
             top: 11px;
 
             .hint {
-                right: 0;
+                right: -15px;
                 left: auto;
+                bottom: 25px;
+                transform: translateX(0);
+
+                &::after {
+                    left: auto;
+                    right: 15px;
+                }
             }
         }
         .wpcfto_field_description {
@@ -274,6 +292,7 @@
                 }
                 .wpcfto-nav-title {
                     padding: 13px 32px 13px 34px;
+                    position: relative;
                 }
                 i {
                     display: block;
@@ -292,6 +311,38 @@
                 }
                 &:hover {
                     color: $white;
+                }
+            }
+            .wpcfto-submenus {
+                & {
+                    background-color: $bg_head_side;
+                    padding: 18px 32px 18px 34px;
+                }
+                i {
+                    font-size: 10px;
+                    right: 0;
+                    margin-top: -5px;
+                    display: none;
+                }
+                & > div {
+                    & {
+                        font-size: 15px;
+                        font-weight: 400;
+                        text-transform: initial;
+                        position: relative;
+                        color: $color_muted;
+                    }
+                    &:not(:last-of-type) {
+                        margin-bottom: 15px;
+                    }
+                    &.active {
+                        i {
+                            display: block;
+                        }
+                    }
+                    &.active, &:hover {
+                        color: $white;
+                    }
                 }
             }
         }
@@ -317,6 +368,10 @@
         }
         .wpcfto_generic_field {
             display: inline-block;
+            .wpcfto-admin-checkbox {
+                justify-content: space-between;
+                display: flex;
+            }
         }
         .repeater {
             padding: 16px 20px 18px;
@@ -347,7 +402,7 @@
                 }
             }
             .description {
-                margin: 0 0 15px;
+                margin: 5px 0 15px;
             }
         }
         .wpcfto_generic_field {
@@ -384,14 +439,14 @@
                 width: 100%;
                 label {
                     order: 1;
+                    width: auto;
                 }
                 input {
                     order: 3;
+                    min-width: 280px;
                 }
                 .field-description {
-                    margin: 15px 15px 15px 0;
                     order: 2;
-                    white-space: nowrap;
                 }
             }
         }
@@ -415,6 +470,7 @@
                 position: absolute;
                 bottom: 100%;
                 left: 0;
+                transform: translateX(-50%);
                 max-width: 185px;
                 min-width: 185px;
                 padding: 10px;
@@ -425,6 +481,16 @@
                 opacity: 0;
                 visibility: hidden;
                 transition: .3s ease;
+
+                &::after {
+                    content: "";
+                    border: 5px solid transparent;
+                    border-top-color: $accent;
+                    left: 50%;
+                    bottom: -10px;
+                    position: absolute;
+                    margin: 0 auto;
+                }
             }
             & > i.fa-info-circle {
                 cursor: pointer;

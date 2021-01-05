@@ -218,7 +218,14 @@ class STM_Metaboxes {
 			'button_group',
 			'image_select',
 			'spacing',
-		);
+			'link_color',
+			'multi_checkbox',
+			'sorter',
+			'gallery',
+			'multi_input',
+            'ace_editor',
+			'color_gradient'
+        );
 
 		foreach ( $components as $component ) {
 			wp_enqueue_script(
@@ -430,20 +437,20 @@ function wpcfto_metaboxes_deps( $field, $section_name ) {
 	return $dependency;
 }
 
-function wpcfto_metaboxes_group_deps( $field, $section_name ) {
-	$dependency   = '';
-	$dependencies = array();
-
-	if ( empty( $field['group_dependency'] ) ) {
-		return $dependency;
-	}
-
-	$dependencies = wpcfto_metaboxes_generate_deps( $section_name, $field['group_dependency'] );
-
-	$dependency = "v-if=\"{$dependencies}\"";
-
-	return $dependency;
-}
+// function wpcfto_metaboxes_group_deps( $field, $section_name ) {
+// 	$dependency   = '';
+// 	$dependencies = array();
+//
+// 	if ( empty( $field['group_dependency'] ) ) {
+// 		return $dependency;
+// 	}
+//
+// 	$dependencies = wpcfto_metaboxes_generate_deps( $section_name, $field['group_dependency'] );
+//
+// 	$dependency = "v-if=\"{$dependencies}\"";
+//
+// 	return $dependency;
+// }
 
 
 function wpcfto_metaboxes_generate_deps( $section_name, $dep ) {
@@ -484,11 +491,11 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 		$is_pro = '';
 	}
 
+	$classes = array();
 	$classes[] = ($is_child) ? 'wpcfto-box-child' : 'wpcfto-box';
 
 	$classes[] = $width;
 	$classes[] = $is_pro;
-	// $classes = array( $width, $is_pro );
 
 	$classes[] = $field_name;
 
@@ -512,8 +519,6 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 	<transition name="slide-fade">
 		<div class="<?php echo esc_attr( implode( ' ', $classes ) ); ?>" <?php echo( $dependency ); ?> data-field="<?php echo esc_attr( "wpcfto_addon_option_{$field_name}" ); ?>">
 
-			<?php // do_action( 'stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro ); ?>
-
 			<?php
 
 			$field_data = $field;
@@ -534,9 +539,6 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 				$description = '';
 			}
 
-			// if(!empty( $field['pro'] )) $field_data['hint'] = '';
-			// if(!empty( $field['pro'] )) $field_data['description'] = '';
-
 			$file = apply_filters( "wpcfto_field_{$field_type}", STM_WPCFTO_PATH . '/metaboxes/fields/' . $field_type . '.php' );
 
 			include $file;
@@ -550,25 +552,7 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 				</div>
 			<?php endif; ?>
 
-			<?php if ( ! empty( $description ) ): ?>
-				<div class="wpcfto_field_description description"><?php echo html_entity_decode( $description ); ?></div>
-			<?php endif; ?>
-
 			<?php do_action( 'stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro ); ?>
-
-			<?php /*
-			if ( ! empty( $field_data['hint'] ) ) : ?>
-				<div class="field_overlay"></div>
-				<div class="wpcfto_field_hint <?php echo esc_attr( $field_data['type'] ); ?>">
-					<i class="fa fa-info-circle"></i>
-					<div class="hint"><?php echo html_entity_decode( $field_data['hint'] ); ?></div>
-					<?php endif; ?>
-
-					<?php include $file; ?>
-
-					<?php if ( ! empty( $field_data['hint'] ) ) : ?>
-				</div>
-			<?php endif;*/ ?>
 
 		</div>
 	</transition>
@@ -577,7 +561,7 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 
 function wpcfto_metaboxes_display_group_field( $section, $section_name, $field, $field_name ) { ?>
 	<?php
-		$dependency  = wpcfto_metaboxes_group_deps( $field, $section_name );
+		// $dependency  = wpcfto_metaboxes_group_deps( $field, $section_name );
 		$group_title = (isset($field['group_title']) && !empty($field['group_title'])) ? '<div class="wpcfto_group_title">'.$field['group_title'].'</div>' : '';
 	?>
 	<?php if ( $field['group'] === 'started' ) : ?><div class="wpcfto-box wpcfto_group_started column-1" <?php echo( $dependency ); ?>><div class="container"><div class="row"><?php echo $group_title; ?><?php endif;

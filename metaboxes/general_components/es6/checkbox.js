@@ -23,6 +23,8 @@ Vue.component('wpcfto_checkbox', {
 
                 </label>
 
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+
             </div>
         </div>
     `,

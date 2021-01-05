@@ -1,7 +1,5 @@
 .wpcfto-admin-checkbox {
 
-    // margin-top: 19px;
-
     + p {
         display: block;
         margin-top: -15px !important;
@@ -9,14 +7,13 @@
 
     label {
         display: inline-block !important;
-        margin: 0 !important;
+        margin: 0;
     }
 
     span {
         display: inline-block;
         vertical-align: top;
         line-height: 24px;
-        // opacity: .6;
     }
 
     .wpcfto-admin-checkbox-wrapper {

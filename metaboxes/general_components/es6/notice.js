@@ -11,6 +11,7 @@ Vue.component('wpcfto_notice', {
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field__notice" v-bind:class="field_name" v-bind:data-notice="field_name">
             <label v-html="field_label"></label>
+            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
         </div>
     `,
     mounted: function () {
