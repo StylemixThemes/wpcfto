@@ -1,22 +1,36 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field {
-        // min-height: 80px;
-        // padding: 8px 26px 8px;
-        // position: relative;
-        // padding: 8px 5px 8px 21px;
         padding: 16px 20px 18px;
 
         label {
             font-size: 16px;
+
+            &.disabled {
+                color: $color_muted;
+                position: relative;
+
+                &:hover {
+                    background-color: transparent;
+                }
+
+                &::after {
+                    content: "Soon";
+                    text-transform: uppercase;
+                    position: absolute;
+                    top: 0;
+                    right: -12px;
+                    font-size: 7px;
+                    font-weight: 500;
+                    font-style: normal;
+                    letter-spacing: 0.7px;
+                    line-height: 24px;
+                }
+            }
         }
 
         &_flex_input {
             display: flex;
             align-items: center;
-
-            label {
-
-            }
 
             .wpcfto_datepicker,
             select,
@@ -45,24 +59,10 @@
                 color: $color_main;
             }
 
-            &.wpcfto_generic_field__number {
-                input {
-                    // width: calc(40% - 15px) !important;
-                }
-            }
         }
 
     }
 
-    .wpcfto_field_hint {
-        .wpcfto_generic_field_flex_input {
-            .wpcfto_datepicker,
-            select,
-            input {
-                // width: calc(70% - 8px);
-            }
-        }
-    }
 
     .unflex_fields {
         .wpcfto_generic_field,
