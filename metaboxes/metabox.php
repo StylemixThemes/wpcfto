@@ -224,7 +224,8 @@ class STM_Metaboxes {
 			'gallery',
 			'multi_input',
             'ace_editor',
-		);
+			'color_gradient'
+        );
 
 		foreach ( $components as $component ) {
 			wp_enqueue_script(

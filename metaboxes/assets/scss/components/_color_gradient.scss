@@ -1,0 +1,13 @@
+.stm_metaboxes_grid__inner {
+    .wpcfto_color_gradient {
+        display: flex;
+        .wpcfto_color_gradient_group {
+            input {
+                width: 100% !important;
+            }
+            + .wpcfto_color_gradient_group {
+                margin-left: 10px;
+            }
+        }
+    }
+}
