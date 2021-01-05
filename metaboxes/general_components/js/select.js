@@ -1,0 +1,23 @@
+(function e(t,n,r){function s(o,u){if(!n[o]){if(!t[o]){var a=typeof require=="function"&&require;if(!u&&a)return a(o,!0);if(i)return i(o,!0);throw new Error("Cannot find module '"+o+"'")}var f=n[o]={exports:{}};t[o][0].call(f.exports,function(e){var n=t[o][1][e];return s(n?n:e)},f,f.exports,e,t,n,r)}return n[o].exports}var i=typeof require=="function"&&require;for(var o=0;o<r.length;o++)s(r[o]);return s})({1:[function(require,module,exports){
+"use strict";
+
+Vue.component('wpcfto_select', {
+  props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
+  data: function data() {
+    return {
+      value: ''
+    };
+  },
+  template: "\n        <div class=\"wpcfto_generic_field\">\n            <div class=\"wpcfto-admin-select wpcfto_generic_field_flex_input\">\n                <label>\n                    {{ field_label }}\n                    <span\n                    v-if=\"fields.preview\"\n                    class=\"wpcfto_preview\">Preview<span\n                    class=\"wpcfto_preview__popup\"><img\n                    :src=\"fields.preview\" /></span></span>\n                </label>\n                <select v-bind:name=\"field_name\"\n                        v-model=\"value\"\n                        v-bind:id=\"field_id\">\n                    <option v-for=\"(option, key) in fields['options']\" v-bind:value=\"key\">{{ option }}</option>\n                </select>\n                <span v-if=\"fields.description\" v-html=\"fields.description\" class=\"field-description description\"></span>\n            </div>\n        </div>\n    ",
+  mounted: function mounted() {
+    this.value = this.field_value;
+  },
+  methods: {},
+  watch: {
+    value: function value(_value) {
+      this.$emit('wpcfto-get-value', _value);
+    }
+  }
+});
+//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbImZha2VfMjhiMjdkYTYuanMiXSwibmFtZXMiOlsiVnVlIiwiY29tcG9uZW50IiwicHJvcHMiLCJkYXRhIiwidmFsdWUiLCJ0ZW1wbGF0ZSIsIm1vdW50ZWQiLCJmaWVsZF92YWx1ZSIsIm1ldGhvZHMiLCJ3YXRjaCIsIl92YWx1ZSIsIiRlbWl0Il0sIm1hcHBpbmdzIjoiQUFBQTs7QUFFQUEsR0FBRyxDQUFDQyxTQUFKLENBQWMsZUFBZCxFQUErQjtBQUM3QkMsRUFBQUEsS0FBSyxFQUFFLENBQUMsUUFBRCxFQUFXLGFBQVgsRUFBMEIsWUFBMUIsRUFBd0MsVUFBeEMsRUFBb0QsYUFBcEQsQ0FEc0I7QUFFN0JDLEVBQUFBLElBQUksRUFBRSxTQUFTQSxJQUFULEdBQWdCO0FBQ3BCLFdBQU87QUFDTEMsTUFBQUEsS0FBSyxFQUFFO0FBREYsS0FBUDtBQUdELEdBTjRCO0FBTzdCQyxFQUFBQSxRQUFRLEVBQUUsaTZCQVBtQjtBQVE3QkMsRUFBQUEsT0FBTyxFQUFFLFNBQVNBLE9BQVQsR0FBbUI7QUFDMUIsU0FBS0YsS0FBTCxHQUFhLEtBQUtHLFdBQWxCO0FBQ0QsR0FWNEI7QUFXN0JDLEVBQUFBLE9BQU8sRUFBRSxFQVhvQjtBQVk3QkMsRUFBQUEsS0FBSyxFQUFFO0FBQ0xMLElBQUFBLEtBQUssRUFBRSxTQUFTQSxLQUFULENBQWVNLE1BQWYsRUFBdUI7QUFDNUIsV0FBS0MsS0FBTCxDQUFXLGtCQUFYLEVBQStCRCxNQUEvQjtBQUNEO0FBSEk7QUFac0IsQ0FBL0IiLCJzb3VyY2VzQ29udGVudCI6WyJcInVzZSBzdHJpY3RcIjtcblxuVnVlLmNvbXBvbmVudCgnd3BjZnRvX3NlbGVjdCcsIHtcbiAgcHJvcHM6IFsnZmllbGRzJywgJ2ZpZWxkX2xhYmVsJywgJ2ZpZWxkX25hbWUnLCAnZmllbGRfaWQnLCAnZmllbGRfdmFsdWUnXSxcbiAgZGF0YTogZnVuY3Rpb24gZGF0YSgpIHtcbiAgICByZXR1cm4ge1xuICAgICAgdmFsdWU6ICcnXG4gICAgfTtcbiAgfSxcbiAgdGVtcGxhdGU6IFwiXFxuICAgICAgICA8ZGl2IGNsYXNzPVxcXCJ3cGNmdG9fZ2VuZXJpY19maWVsZFxcXCI+XFxuICAgICAgICAgICAgPGRpdiBjbGFzcz1cXFwid3BjZnRvLWFkbWluLXNlbGVjdCB3cGNmdG9fZ2VuZXJpY19maWVsZF9mbGV4X2lucHV0XFxcIj5cXG4gICAgICAgICAgICAgICAgPGxhYmVsPlxcbiAgICAgICAgICAgICAgICAgICAge3sgZmllbGRfbGFiZWwgfX1cXG4gICAgICAgICAgICAgICAgICAgIDxzcGFuXFxuICAgICAgICAgICAgICAgICAgICB2LWlmPVxcXCJmaWVsZHMucHJldmlld1xcXCJcXG4gICAgICAgICAgICAgICAgICAgIGNsYXNzPVxcXCJ3cGNmdG9fcHJldmlld1xcXCI+UHJldmlldzxzcGFuXFxuICAgICAgICAgICAgICAgICAgICBjbGFzcz1cXFwid3BjZnRvX3ByZXZpZXdfX3BvcHVwXFxcIj48aW1nXFxuICAgICAgICAgICAgICAgICAgICA6c3JjPVxcXCJmaWVsZHMucHJldmlld1xcXCIgLz48L3NwYW4+PC9zcGFuPlxcbiAgICAgICAgICAgICAgICA8L2xhYmVsPlxcbiAgICAgICAgICAgICAgICA8c2VsZWN0IHYtYmluZDpuYW1lPVxcXCJmaWVsZF9uYW1lXFxcIlxcbiAgICAgICAgICAgICAgICAgICAgICAgIHYtbW9kZWw9XFxcInZhbHVlXFxcIlxcbiAgICAgICAgICAgICAgICAgICAgICAgIHYtYmluZDppZD1cXFwiZmllbGRfaWRcXFwiPlxcbiAgICAgICAgICAgICAgICAgICAgPG9wdGlvbiB2LWZvcj1cXFwiKG9wdGlvbiwga2V5KSBpbiBmaWVsZHNbJ29wdGlvbnMnXVxcXCIgdi1iaW5kOnZhbHVlPVxcXCJrZXlcXFwiPnt7IG9wdGlvbiB9fTwvb3B0aW9uPlxcbiAgICAgICAgICAgICAgICA8L3NlbGVjdD5cXG4gICAgICAgICAgICAgICAgPHNwYW4gdi1pZj1cXFwiZmllbGRzLmRlc2NyaXB0aW9uXFxcIiB2LWh0bWw9XFxcImZpZWxkcy5kZXNjcmlwdGlvblxcXCIgY2xhc3M9XFxcImZpZWxkLWRlc2NyaXB0aW9uIGRlc2NyaXB0aW9uXFxcIj48L3NwYW4+XFxuICAgICAgICAgICAgPC9kaXY+XFxuICAgICAgICA8L2Rpdj5cXG4gICAgXCIsXG4gIG1vdW50ZWQ6IGZ1bmN0aW9uIG1vdW50ZWQoKSB7XG4gICAgdGhpcy52YWx1ZSA9IHRoaXMuZmllbGRfdmFsdWU7XG4gIH0sXG4gIG1ldGhvZHM6IHt9LFxuICB3YXRjaDoge1xuICAgIHZhbHVlOiBmdW5jdGlvbiB2YWx1ZShfdmFsdWUpIHtcbiAgICAgIHRoaXMuJGVtaXQoJ3dwY2Z0by1nZXQtdmFsdWUnLCBfdmFsdWUpO1xuICAgIH1cbiAgfVxufSk7Il19
+},{}]},{},[1])
