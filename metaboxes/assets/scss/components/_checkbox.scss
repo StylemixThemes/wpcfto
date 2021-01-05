@@ -1,6 +1,6 @@
 .wpcfto-admin-checkbox {
 
-    margin-top: 7px;
+    // margin-top: 19px;
 
     + p {
         display: block;
@@ -16,56 +16,117 @@
         display: inline-block;
         vertical-align: top;
         line-height: 24px;
-        opacity: .6;
+        // opacity: .6;
     }
 
     .wpcfto-admin-checkbox-wrapper {
-        position: relative;
-        display: inline-block;
-        margin: 6px 10px 0 0;
-        width: 33px;
-        height: 14px;
-        border: 2px solid #bfbfbf;
-        background-color: #bfbfbf;
-        vertical-align: top;
-        border-radius: 20px;
-
-        input {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            display: block;
-            margin: 0 !important;
-            opacity: 0;
-            z-index: 30;
-        }
-
-        .wpcfto-checkbox-switcher {
-            position: absolute;
-            left: -2px;
-            top: -4px;
-            width: 18px;
-            height: 18px;
-            background-color: #f6f6f6;
-            border-radius: 20px;
-            box-shadow: 0px 1px 4px 0px rgba(0, 0, 0, 0.3);
-            z-index: 10;
-            transition: .15s ease;
-        }
-
-        &.active {
-            background-color: #00b163;
-            border-color: #00b163;
+        &.is_toggle {
+            & {
+                position: absolute;
+                right: 12px;
+                display: inline-block;
+                margin: -1px 10px 0 0;
+                width: 50px;
+                height: 26px;
+                border: 1px solid #bec5cb;
+                background-color: transparent;
+                top: 50%;
+                margin-top: -13px;
+                border-radius: 20px;
+            }
+            input {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                display: block;
+                margin: 0 !important;
+                opacity: 0;
+                z-index: 30;
+            }
 
             .wpcfto-checkbox-switcher {
-                transform: translateX(16px);
-                background-color: #fff;
-
+                position: absolute;
+                left: 4px;
+                top: 3px;
+                width: 18px;
+                height: 18px;
+                background-color: #bec5cb;
+                border-radius: 20px;
+                z-index: 10;
+                transition: .15s ease;
             }
-            + span {
-                opacity: 1;
+
+            &:not(.active) {
+                &::after {
+                    content: "Off";
+                    color: $color_muted;
+                    font-size: 10px;
+                    font-weight: 400;
+                    position: absolute;
+                    right: 8px;
+                    top: 3px;
+                }
+            }
+
+            &.active {
+                background-color: $accent;
+                border-color: $accent;
+
+                &::before {
+                    content: "On";
+                    color: $white;
+                    font-size: 10px;
+                    font-weight: 400;
+                    position: absolute;
+                    left: 8px;
+                    top: 3px;
+                }
+
+                .wpcfto-checkbox-switcher {
+                    transform: translateX(22px);
+                    background-color: #fff;
+
+                }
+                + span {
+                    opacity: 1;
+                }
             }
         }
+        &:not(.is_toggle) {
+            & {
+                display: inline-block;
+            }
+            .wpcfto-checkbox-switcher {
+                display: none;
+            }
+            input {
+                width: 16px;
+                height: 16px;
+                border-radius: 2px;
+                border: 1px solid $accent;
+                background-color: #ffffff;
+                &:checked {
+                    background-color: $accent;
+                    &::before {
+                        width: 14px;
+                        margin: 0px;
+                        padding: 1px;
+                        height: 14px;
+                        content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2012%209%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20d%3D%22M1.862%203.988v0l2.086%202.183v0l1.05%201.1v0l4.489-4.74v0l.691-.731v0%22%2F%3E%3C%2Fsvg%3E);
+                    }
+                }
+                &:focus {
+                    outline: none;
+                    box-shadow: 0 0 0 transparent;
+                }
+            }
+            & ~ span {
+                vertical-align: baseline;
+                font-size: 15px;
+                font-weight: 400;
+            }
+        }
+
     }
 }
 

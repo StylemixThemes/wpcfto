@@ -1,11 +1,12 @@
-@import "components/milligram";
+// @import "components/milligram";
+@import "components/variables";
 @import "components/animation";
 @import "components/autocomplete";
 @import "components/button_group";
 @import "components/submenu";
 @import "components/v-select";
-@import "components/theme-milligram";
-@import "components/layout";
+// @import "components/theme-milligram";
+// @import "components/layout";
 @import "components/checkbox";
 @import "components/select";
 @import "components/radio";
@@ -28,3 +29,4 @@
 @import "components/group_field";
 @import "components/preopen_field";
 @import "components/notice_banner";
+@import "components/base";

@@ -117,8 +117,13 @@ if ( empty( $id ) ) {
 									</div>
 								<?php endif; ?>
 
+								<?php $is_group_item = false; ?>
 
 								<?php foreach ( $section['fields'] as $field_name => $field ) {
+
+									if(isset( $field['group'] ) && $field['group'] == 'started') $is_group_item = true;
+
+									$field['is_group_item'] = $is_group_item;
 
 									if ( ! empty( $field['pre_open'] ) and $field['pre_open'] ) {
 										wpcfto_metaboxes_preopen_field( $section, $section_name, $field, $field_name );
@@ -127,10 +132,12 @@ if ( empty( $id ) ) {
 
 									if ( ! empty( $field['group'] ) ) {
 										wpcfto_metaboxes_display_group_field( $section, $section_name, $field, $field_name );
+										if($field['group'] == 'ended') $is_group_item = false;
 										continue;
 									}
 
 									wpcfto_metaboxes_display_single_field( $section, $section_name, $field, $field_name );
+
 
 								} ?>
 

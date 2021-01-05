@@ -34,22 +34,23 @@ Vue.component('wpcfto_color', {
     template: `
         <div class="wpcfto_generic_field">
             <div class="stm_colorpicker_wrapper wpcfto_generic_field_flex_input" v-bind:class="['picker-position-' + position]">
-            
+
                 <label v-html="field_label"></label>
-               
-                <span v-bind:style="{'background-color': input_value}"></span>
-            
+
+                <span v-bind:style="{'background-color': input_value}" @click="$refs.field_name.focus()"></span>
+
                 <input type="text"
                        v-bind:name="field_name"
                        v-bind:placeholder="field_label"
                        v-bind:id="field_id"
                        v-model="input_value"
+                       ref="field_name"
                 />
-                       
+
                 <div>
                     <slider-picker v-model="value"></slider-picker>
                 </div>
-            </div>    
+            </div>
         </div>
     `,
     methods: {},

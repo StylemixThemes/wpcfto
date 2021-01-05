@@ -1,13 +1,13 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field {
-        min-height: 55px;
-        padding: 8px 19px 8px;
-        margin-bottom: 10px;
-        border-radius: 5px;
-        background-color: #f1f1f1;
+        // min-height: 80px;
+        // padding: 8px 26px 8px;
+        // position: relative;
+        // padding: 8px 5px 8px 21px;
+        padding: 16px 20px 18px;
 
         label {
-            font-size: 15px;
+            font-size: 16px;
         }
 
         &_flex_input {
@@ -15,15 +15,12 @@
             align-items: center;
 
             label {
-                width: 30%;
-                min-width: 200px;
-                margin-bottom: 0;
+
             }
 
             .wpcfto_datepicker,
             select,
             input {
-                width: 70%;
                 margin-left: auto;
             }
 
@@ -40,17 +37,17 @@
             textarea,
             select,
             input {
-                margin-bottom: 0 !important;
-                border: 1px solid #babcc1;
-                background-color: #fff;
-                box-shadow: inset 0px 1px 3px 0px rgba(0, 0, 0, 0.31);
-                font-size: 14px;
-                color: #2a3045;
+                margin-bottom: 0;
+                border: 1px solid #bec5cb;
+                background-color: #f6f9fc;
+                box-shadow: 0 0 0 transparent;
+                font-size: 15px;
+                color: $color_main;
             }
 
             &.wpcfto_generic_field__number {
                 input {
-                    width: calc(40% - 15px) !important;
+                    // width: calc(40% - 15px) !important;
                 }
             }
         }
@@ -62,7 +59,7 @@
             .wpcfto_datepicker,
             select,
             input {
-                width: calc(70% - 8px);
+                // width: calc(70% - 8px);
             }
         }
     }

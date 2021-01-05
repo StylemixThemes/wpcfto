@@ -1,8 +1,9 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field.wpcfto_generic_field_editor {
 
-        background-color: transparent;
+        background-color: $bg_blocks;
         padding: 0;
+        border-radius: 10px;
 
         .wpcfto-editor {
             margin: 0 0 30px;
@@ -19,7 +20,7 @@
             .quillWrapper {
 
                 padding: 15px 20px 20px;
-                background-color: #f1f1f1;
+                // background-color: #f1f1f1;
                 border-radius: 4px;
 
                 p {

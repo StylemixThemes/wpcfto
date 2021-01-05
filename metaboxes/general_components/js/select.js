@@ -5,9 +5,9 @@ Vue.component('wpcfto_select', {
             value : '',
         }
     },
-    template: ` 
+    template: `
         <div class="wpcfto_generic_field">
-            <div class="wpcfto-admin-select wpcfto_generic_field_flex_input">  
+            <div class="wpcfto-admin-select wpcfto_generic_field_flex_input">
                 <label v-html="field_label"></label>
                 <select v-bind:name="field_name"
                         v-model="value"

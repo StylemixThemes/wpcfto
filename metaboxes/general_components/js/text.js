@@ -14,6 +14,7 @@ Vue.component('wpcfto_text', {
                 v-bind:id="field_id"
                 v-model="value"
             />
+            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
         </div>
     `,
     mounted: function () {
