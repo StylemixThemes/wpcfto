@@ -223,6 +223,7 @@ class STM_Metaboxes {
 			'sorter',
 			'gallery',
 			'multi_input',
+            'ace_editor',
 		);
 
 		foreach ( $components as $component ) {

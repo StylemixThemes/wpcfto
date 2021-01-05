@@ -49,9 +49,11 @@ gulp.task('watch', function (done) {
 
     });
 
-    watch('./metaboxes/general_components/es6/**/*.js').on('change', (e) => {
+    watch('./metaboxes/general_components/es6/*.js').on('change', (e) => {
 
-        gulp.src('./metaboxes/general_components/es6/**/*.js')
+        console.log(e);
+
+        gulp.src('./metaboxes/general_components/es6/*.js')
             .pipe(babel({
                 presets: ['@babel/env']
             }))
