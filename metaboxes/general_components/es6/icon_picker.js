@@ -1,38 +1,52 @@
-const iconList = '{"icons":[ { "title":"fab fa-500px", "searchTerms":[] } ]}';
-console.log(iconList);
-let icons = JSON.parse(iconList).icons;
 let timeout = undefined;
-
-console.log(icons);
-
-icons = wpcfto_icons_set;
+let icons = wpcfto_icons_set;
 
 Vue.component('wpcfto_icon_picker', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
         return {
-            value: '',
+            value: {
+                icon: '',
+                color: '#000',
+                size: 15,
+            },
             focusOn: false,
             icons: icons,
             hoverPanel: false,
             search: "",
             beforeSelect: "",
             selected: "",
+            inited : false
         }
     },
     components: {
         editor: require('vue2-ace-editor'),
     },
     template: `
-        <div class="form-group">
-            <label for="exampleFormControlInput1">Icon Picker:</label>
-            <input ref="picker" 
-            v-model="search" 
-            @blur="blur" 
-            @focus="focus" 
-            type="email" 
-            class="form-control"
-            placeholder="Search an icon">
+        <div class="wpcfto_generic_field wpcfto_generic_field__iconpicker">
+            <label v-html="field_label"></label>
+            <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text">
+                <input ref="picker" 
+                v-model="search" 
+                @blur="blur"
+                @focus="focus" 
+                type="email" 
+                class="form-control"
+                placeholder="Search an icon">
+                
+                <wpcfto_color @wpcfto-get-value="value['color'] = $event" 
+                    v-if="inited"
+                    :field_value="value['color']">
+                
+                </wpcfto_color>
+                
+                <input 
+                v-model="value['size']" 
+                type="number" 
+                class="form-control"
+                placeholder="Icon size">
+            </div>
+            
             <transition name="icon-preview-fade">
                 <div v-if="focusOn" class="preview-container">
                     <div @click="select(undefined)" @mouseover="hoverPanel = true" @mouseout="hoverPanel = false" :class="['previewer', 'rounded', {'custom-shadow-sm': !hoverPanel}, {'custom-shadow': hoverPanel} ]">
@@ -44,10 +58,23 @@ Vue.component('wpcfto_icon_picker', {
                     </div>
                 </div>
             </transition>
+            
+            <i class="wpcfto_generic_field__iconpicker__icon" 
+            v-bind:class="value.icon" 
+            v-bind:style="{ color: value.color, 'font-size' : value.size + 'px'}"
+            v-if="value.icon"></i>
+            
         </div>
   `,
     mounted: function () {
-        this.selected = this.value = this.field_value;
+        if ( typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value) ) {
+            this.value = JSON.parse(this.field_value);
+        } else if (typeof this.field_value === 'object') {
+            this.value = this.field_value;
+        }
+
+        this.selected = this.value.icon;
+        this.inited = true;
     },
     methods: {
         blur() {
@@ -66,7 +93,7 @@ Vue.component('wpcfto_icon_picker', {
                 this.search = icon.title;
             }
             this.focusOn = false;
-            this.value = this.selected;
+            this.value.icon = this.selected;
 
         }
     },
@@ -79,8 +106,12 @@ Vue.component('wpcfto_icon_picker', {
         }
     },
     watch: {
-        value: function (value) {
-            this.$emit('wpcfto-get-value', value);
+        value: {
+            deep : true,
+            handler : function (value) {
+                console.log(value);
+                this.$emit('wpcfto-get-value', value);
+            }
         }
     }
 });
