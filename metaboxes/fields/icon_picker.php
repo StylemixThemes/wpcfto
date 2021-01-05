@@ -23,3 +23,8 @@ $field = "data['{$section_name}']['fields']['{$field_name}']";
                @wpcfto-get-value="<?php echo esc_attr($field_value); ?> = $event">
 
 </wpcfto_icon_picker>
+
+<input type="hidden"
+       name="<?php echo esc_attr($field_name); ?>"
+       v-bind:id="'<?php echo esc_attr($field_id); ?>'"
+       v-model="JSON.stringify(<?php echo esc_attr(wp_unslash($field_value)); ?>)" />
