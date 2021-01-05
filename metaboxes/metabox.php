@@ -256,7 +256,8 @@ class STM_Metaboxes
         $icons = array();
         $font_awesome = stm_wpcfto_new_fa_icons();
         array_walk($font_awesome, function(&$icon){
-            $title = array_key_first($icon);
+            reset($icon);
+            $title = key($icon);
             $icon = array(
                 'title' => $title,
                 'searchTerms' => array($icon[$title])
