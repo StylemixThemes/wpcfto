@@ -497,7 +497,7 @@ function wpcfto_metaboxes_generate_deps($section_name, $dep)
         $compares = explode('||', $compare);
         $length = count($compares);
         $i = 0;
-        $dependency = '';
+        $dependency = '(';
         foreach ($compares as $compare) {
             $i++;
             $dependency .= "data['{$section_name}']['fields']['{$key}']['value'] === '{$compare}'";
@@ -505,6 +505,7 @@ function wpcfto_metaboxes_generate_deps($section_name, $dep)
                 $dependency .= ' || ';
             }
         }
+		$dependency .= ')';
     } else {
         $dependency = "data['{$section_name}']['fields']['{$key}']['value'] === '{$compare}'";
     }
