@@ -21,7 +21,12 @@ Vue.component('wpcfto_select', {
                         v-bind:id="field_id">
                     <option v-for="(option, key) in fields['options']" v-bind:value="key">{{ option }}</option>
                 </select>
+
                 <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+
+                <div v-if="fields.hint" class="wpcfto_field_hint select">
+                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
+                </div>
             </div>
         </div>
     `,

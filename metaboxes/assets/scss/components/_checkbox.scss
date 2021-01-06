@@ -132,17 +132,17 @@
 
     i.fa-check {
         position: absolute;
-        top: 4px;
+        top: 1px;
         left: 0;
         width: 16px;
         height: 16px;
-        border: 1px solid #bfbfbf;
-        background-color: #f1f1f1;
+        border: 1px solid $accent;
+        background-color: #fff;
         font-size: 8px;
         line-height: 14px;
         text-align: center;
         color: #fff;
-        border-radius: 3px;
+        border-radius: 2px;
         transition: .3s ease;
 
         &:before {
@@ -155,11 +155,24 @@
 
         &:checked {
             + i {
-                background-color: #195ec8;
-                border-color: #195ec8;
+                background-color: $accent;
+                border-color: $accent;
 
                 &:before {
                     content: "\f00c";
+                }
+            }
+        }
+    }
+}
+
+.wpcfto-box {
+    .wpcfto-box-child {
+        &.column-1 {
+            &.checkbox {
+                .wpcfto-admin-checkbox .wpcfto-admin-checkbox-wrapper.is_toggle {
+                    margin-right: 0;
+                    right: 0;
                 }
             }
         }

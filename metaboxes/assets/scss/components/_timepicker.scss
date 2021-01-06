@@ -1,11 +1,11 @@
-.date {
-    .wpcfto_generic_field.wpcfto_generic_field_date {
+.time {
+    .wpcfto_generic_field.wpcfto_generic_field_time {
         .wpcfto_field_title {
             display: block;
         }
     }
     &.column-1 {
-        .wpcfto_generic_field.wpcfto_generic_field_date {
+        .wpcfto_generic_field.wpcfto_generic_field_time {
             & {
                 display: flex;
                 flex-direction: row;
@@ -27,7 +27,7 @@
             .field-description {
                 order: 2;
             }
-            .mx-datepicker {
+            input {
                 width: 30% !important;
                 margin-left: 5%;
                 order: 3;
@@ -35,7 +35,7 @@
         }
     }
     &:not(.column-1) {
-        .wpcfto_generic_field.wpcfto_generic_field_date {
+        .wpcfto_generic_field.wpcfto_generic_field_time {
             .field-description {
                 margin-top: 10px;
             }
@@ -45,36 +45,9 @@
         }
     }
 }
-.mx-datepicker {
-    width: 100% !important;
-    margin: 0 0 30px;
-    input.mx-input {
-        height: 2.6rem;
-        margin-bottom: 0 !important;
-        background-color: transparent;
-        border: .1rem solid #d1d1d1;
-        border-radius: 6px;
-        box-shadow: none;
-    }
-    &-popup {
-        left: 0;
-    }
-}
 
-.mx-calendar-content {
-    .mx-calendar-table {
-        tr {
-            th,
-            td {
-                padding: 0;
-                text-align: center;
-            }
-        }
-    }
-}
-
-.wpcfto_generic_field_date {
-    .mx-datepicker {
+.wpcfto_generic_field_time {
+    input {
         margin-bottom: 0;
     }
 }

@@ -545,12 +545,12 @@ function wpcfto_metaboxes_display_single_field( $section, $section_name, $field,
 
 			?>
 
-			<?php if ( ! empty( $field_data['hint'] ) ) : ?>
+			<?php /* if ( ! empty( $field_data['hint'] ) ) : ?>
 				<div class="wpcfto_field_hint <?php echo esc_attr( $field_data['type'] ); ?>">
 					<i class="fa fa-info-circle"></i>
 					<div class="hint"><?php echo html_entity_decode( $field_data['hint'] ); ?></div>
 				</div>
-			<?php endif; ?>
+			<?php endif;*/  ?>
 
 			<?php do_action( 'stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro ); ?>
 

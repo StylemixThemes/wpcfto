@@ -22,6 +22,10 @@ Vue.component('wpcfto_text', {
                 v-model="value"
             />
             <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+
+            <div v-if="fields.hint" class="wpcfto_field_hint text">
+                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
+            </div>
         </div>
     `,
     mounted: function () {

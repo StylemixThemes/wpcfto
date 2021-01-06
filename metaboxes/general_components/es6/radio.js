@@ -24,6 +24,11 @@ Vue.component('wpcfto_radio', {
                             :src="fields.previews[key]" /></span></span>
                     </label>
                 </div>
+
+                <div v-if="fields.hint" class="wpcfto_field_hint radio">
+                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
+                </div>
+
             </div>
         </div>
     `,

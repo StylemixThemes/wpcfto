@@ -25,6 +25,10 @@ Vue.component('wpcfto_checkbox', {
 
                 <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
 
+                <div v-if="fields.hint" class="wpcfto_field_hint checkbox">
+                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
+                </div>
+
             </div>
         </div>
     `,
