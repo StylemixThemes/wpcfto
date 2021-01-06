@@ -22,6 +22,19 @@ class STM_Metaboxes
         add_action('save_post', array($this, 'wpcfto_save'), 10, 3);
 
         add_action('wp_ajax_wpcfto_search_posts', 'STM_Metaboxes::search_posts');
+
+        add_action('rest_api_init', array($this, 'google_fonts_route'));
+    }
+
+    function google_fonts_route() {
+        register_rest_route('wpcfto/v1', '/google-fonts', array(
+            'callback' => array($this, 'google_fonts'),
+            'permission_callback' => '__return_true'
+        ));
+    }
+
+    function google_fonts() {
+        return 'dedede';
     }
 
     function boxes()
