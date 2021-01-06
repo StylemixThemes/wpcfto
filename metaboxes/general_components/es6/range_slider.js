@@ -1,3 +1,5 @@
+import RangeSlider from 'vue-range-slider'
+
 Vue.component('wpcfto_range_slider', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
@@ -9,12 +11,22 @@ Vue.component('wpcfto_range_slider', {
         }
     },
     components: {
-        VueRangeSlider
+        RangeSlider
     },
     template: ` 
         <div class="wpcfto_generic_field" v-bind:class="field_id">
             <label v-html="field_label"></label>
-            <vue-range-slider v-model="value" :min="min" :max="max" :step="step"></vue-range-slider>
+            
+            <div class="wpcfto_range_slider">
+                <span class="wpcfto_range_slider__pin" v-html="value" v-bind:style="rangeStyles()"></span>
+                <range-slider
+                    class="slider"
+                    :min="min"
+                    :max="max"
+                    :step="step"
+                    v-model="value">
+                </range-slider>
+            </div>
         </div>
     `,
     mounted: function () {
@@ -23,7 +35,14 @@ Vue.component('wpcfto_range_slider', {
          this.max = this.field_data.max;
          this.step = this.field_data.step;
     },
-    methods: {},
+    methods: {
+        rangeStyles : function() {
+            let procent = (this.max - this.min) / 100;
+            return {
+                left: ((this.value - this.min) * 100 / (this.max - this.min)) + '%'
+            }
+        }
+    },
     watch: {
         value: {
             deep: true,
