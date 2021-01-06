@@ -199,6 +199,7 @@ class STM_Metaboxes
         wp_enqueue_script('vue-select.js', $base . 'js/vue-select.js', array('vue.js'), $v);
         wp_enqueue_script('vue2-editor.js', $base . 'js/vue2-editor.min.js', array('vue.js'), $v);
         wp_enqueue_script('vue2-color.js', $base . 'js/vue-color.min.js', array('vue.js'), $v);
+        wp_enqueue_script('vue-range-slider.js', $base . 'js/vue-range-slider.min.js', array('vue.js'), $v);
         wp_enqueue_script('sortable.js', $base . 'js/sortable.min.js', array('vue.js'), $v);
         wp_enqueue_script('vue-draggable.js', $base . 'js/vue-draggable.min.js', array('sortable.js'), $v);
         wp_enqueue_script('wpcfto_mixins.js', $base . 'js/mixins.js', array('vue.js'), $v);
@@ -209,6 +210,7 @@ class STM_Metaboxes
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
         wp_enqueue_style('linear-icons', $base . 'css/linear-icons.css', array('wpcfto-metaboxes.css'), $v);
         wp_enqueue_style('font-awesome-min', $assets . '/vendors/font-awesome.min.css', null, $v, 'all');
+        wp_enqueue_style('vue-range-slider', $assets . '/vendors/vue-range-slider.min.css', null, $v, 'all');
 
         /*GENERAL COMPONENTS*/
         $components = array(
@@ -241,6 +243,7 @@ class STM_Metaboxes
             'ace_editor',
             'color_gradient',
             'icon_picker',
+            'range_slider',
         );
 
         foreach ($components as $component) {
