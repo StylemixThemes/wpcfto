@@ -35,6 +35,7 @@ Vue.component('wpcfto_icon_picker', {
                 placeholder="Search an icon">
                 
                 <wpcfto_color @wpcfto-get-value="value['color'] = $event" 
+                    :fields="{position: 'bottom'}"
                     v-if="inited"
                     :field_value="value['color']">
                 
@@ -109,7 +110,6 @@ Vue.component('wpcfto_icon_picker', {
         value: {
             deep : true,
             handler : function (value) {
-                console.log(value);
                 this.$emit('wpcfto-get-value', value);
             }
         }
