@@ -9,16 +9,18 @@ Vue.component('wpcfto_editor', {
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_editor">
             <div class="wpcfto-editor">
-                <label v-html="field_label"></label>
-                
+                <label v-html="field_label" class="wpcfto_field_title"></label>
+
                 <vue-editor :id="'editor' + field_name" v-model="value"></vue-editor>
-                
+
                 <textarea v-bind:name="field_name"
                       v-bind:placeholder="field_label"
                       v-bind:id="field_id"
                       v-model="value">
                 </textarea>
-                
+
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+
             </div>
         </div>
     `,

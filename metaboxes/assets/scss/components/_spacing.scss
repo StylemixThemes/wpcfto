@@ -4,6 +4,7 @@
             display: flex;
             flex-direction: row;
             align-items: center;
+            justify-content: space-between;
             padding: 20px;
         }
         .wpcfto_field_title {
@@ -25,8 +26,6 @@
     }
     .wpcfto_spacing {
         display: flex;
-        width: 65%;
-        margin-left: 5%;
         align-items: center;
     }
     .wpcfto-spacing-input-wrap {
@@ -61,5 +60,8 @@
             text-align: center;
             border-radius: 0 5px 5px 0;
         }
+    }
+    select {
+        width: 80px;
     }
 }

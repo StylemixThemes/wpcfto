@@ -10,22 +10,27 @@ Vue.component('wpcfto_color_gradient', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
-            <label v-html="field_label"></label>
+        <div class="wpcfto_generic_field wpcfto_generic_field_color_gradient" v-bind:class="field_id">
+            <div class="wpcfto_field_title">
+                <label v-html="field_label"></label>
+
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            </div>
+
             <div class="wpcfto_color_gradient">
                 <div class="wpcfto_color_gradient_group">
                     <label>From</label>
                     <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': gradient.from.input_value}"></span>
-                        <input type="text" name="from" v-model="gradient.from.input_value"/>
+                        <span v-bind:style="{'background-color': gradient.from.input_value}" @click="$refs.field_name_from.focus()"></span>
+                        <input type="text" name="from" v-model="gradient.from.input_value" ref="field_name_from"/>
                         <div><slider-picker v-model="gradient.from.value"></slider-picker></div>
                     </div>
                 </div>
                 <div class="wpcfto_color_gradient_group">
                     <label>To</label>
                     <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': gradient.to.input_value}"></span>
-                        <input type="text" name="to" v-model="gradient.to.input_value"/>
+                        <span v-bind:style="{'background-color': gradient.to.input_value}" @click="$refs.field_name_to.focus()"></span>
+                        <input type="text" name="to" v-model="gradient.to.input_value" ref="field_name_to" />
                         <div><slider-picker v-model="gradient.to.value"></slider-picker></div>
                     </div>
                 </div>

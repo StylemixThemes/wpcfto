@@ -14,9 +14,8 @@
                 align-items: center;
             }
             .wpcfto_field_title {
-                display: inline-block;
-                width: auto;
                 display: flex;
+                width: 20%;
                 order: 1;
             }
             .wpcfto_field_hint {
@@ -29,7 +28,7 @@
             }
             input {
                 width: 30% !important;
-                margin-left: 5%;
+                margin-left: 15px;
                 order: 3;
             }
         }

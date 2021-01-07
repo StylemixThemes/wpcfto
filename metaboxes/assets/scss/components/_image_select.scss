@@ -1,21 +1,71 @@
 .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field.wpcfto_generic_field_image_select {
+        & {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .wpcfto_field_title {
+            label {
+                display: block;
+                margin: 0;
+            }
+            .field-description {
+                margin-top: 15px;
+            }
+        }
+    }
     .wpcfto_image_select {
         display: flex;
+        margin-top: 10px;
         label {
-            min-width: auto !important;
-            border-radius: 5px;
-            margin: 0;
-            border: 2px solid transparent;
+            & {
+                text-align: center;
+                margin: 0 32px 0 0;
+            }
+            .wpcfto-img-wrap {
+                display: block;
+                min-width: auto !important;
+                border-radius: 5px;
+                margin: 0 0 15px;;
+                border: 2px solid transparent;
+            }
             input[type="radio"] {
-                display: none !important;
+                width: auto !important;
+                border-color: $color_muted;
+
+                &:checked {
+                    & {
+                        border-color: $accent;
+                        background-color: $accent;
+                    }
+                    &::before {
+                        background-color: #fff;
+                        width: 6px;
+                        height: 6px;
+                        margin: 4px;
+                    }
+                }
             }
             img {
+                display: block;
+                max-width: 100%;
                 border-radius: 5px;
             }
-            &.active {
-                border-color: #2985f7;
+            .wpcfto-img-alt {
+                color: $color_muted;
+                font-size: 15px;
+                font-weight: 400;
             }
-            + label {
+            &.active {
+                .wpcfto-img-wrap {
+                     border-color: $accent;
+                }
+                .wpcfto-img-alt {
+                    color: $color_main;
+                }
+            }
+            & + label {
                 margin-left: 5px;
             }
         }

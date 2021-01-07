@@ -1,9 +1,10 @@
 .stm_colorpicker_wrapper {
     position: relative;
-    .vc-photoshop {
+    .vc-photoshop,
+    .vc-chrome {
         position: absolute;
         top: 100%;
-        left: 0;
+        right: 0;
         width: 100%;
         min-width: 510px;
         opacity: 0;
@@ -29,7 +30,8 @@
     }
 
     &.picker-position-top {
-        .vc-photoshop {
+        .vc-photoshop,
+        .vc-chrome {
             top: auto;
             bottom: 100%;
         }
@@ -50,10 +52,13 @@
             width: calc(100% - 52px) !important;
             display: initial !important;
         }
-        &:focus + div .vc-photoshop {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        &:focus + div {
+            .vc-photoshop,
+            .vc-chrome {
+                opacity: 1;
+                visibility: visible;
+                transform: translateY(0);
+            }
         }
     }
     > span:not(.description) {

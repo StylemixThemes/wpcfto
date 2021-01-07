@@ -141,11 +141,6 @@
                     flex-grow: 1;
                 }
             }
-            .wpcfto_generic_field__text {
-                input {
-                    min-width: 280px;
-                }
-            }
         }
 
         .pro-notice {
@@ -186,9 +181,6 @@
                     margin: 0;
                 }
             }
-        }
-        .wpcfto_generic_field__text .field-description {
-            margin: 5px 0 5px;
         }
         .wpcfto_field_description {
             margin: 0 20px 15px;
@@ -397,7 +389,7 @@
                 }
             }
             .description {
-                margin: 5px 0 15px;
+                margin: 5px 0;
             }
         }
         .wpcfto_generic_field {
@@ -432,25 +424,6 @@
                 input, select, textarea {
                     box-shadow: 0 0 0 transparent;
                     font-size: 14px;
-                }
-            }
-            &__text {
-                width: 100%;
-                label {
-                    order: 1;
-                    width: auto;
-                    flex-grow: 1;
-                }
-                input {
-                    order: 3;
-                }
-                .field-description {
-                    order: 2;
-                    flex-grow: 1;
-                }
-                .wpcfto_field_hint {
-                    order: 2;
-                    margin: 0 15px;
                 }
             }
             .wpcfto-admin-checkbox {
