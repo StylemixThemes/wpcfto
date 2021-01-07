@@ -36,6 +36,7 @@ add_action('plugins_loaded', function () {
             {
 
                 require_once STM_WPCFTO_PATH . '/metaboxes/metabox.php';
+                require_once STM_WPCFTO_PATH . '/metaboxes/google_fonts.php';
                 require_once STM_WPCFTO_PATH . '/taxonomy_meta/metaboxes.php';
                 require_once STM_WPCFTO_PATH . '/settings/settings.php';
 

@@ -186,6 +186,15 @@ class STM_Metaboxes
         return $metas;
     }
 
+    static function translations() {
+        return array(
+            'font_size' => esc_html__('Font size', 'wpcfto'),
+            'line_height' => esc_html__('Line height', 'wpcfto'),
+            'word_spacing' => esc_html__('Word spacing', 'wpcfto'),
+            'letter_spacing' => esc_html__('Letter spacing', 'wpcfto'),
+        );
+    }
+
     function wpcfto_scripts($hook)
     {
         $v = time();
@@ -199,7 +208,6 @@ class STM_Metaboxes
         wp_enqueue_script('vue-select.js', $base . 'js/vue-select.js', array('vue.js'), $v);
         wp_enqueue_script('vue2-editor.js', $base . 'js/vue2-editor.min.js', array('vue.js'), $v);
         wp_enqueue_script('vue2-color.js', $base . 'js/vue-color.min.js', array('vue.js'), $v);
-        //wp_enqueue_script('vue-range-slider.js', $base . 'js/vue-range-slider.min.js', array('vue.js'), $v);
         wp_enqueue_script('sortable.js', $base . 'js/sortable.min.js', array('vue.js'), $v);
         wp_enqueue_script('vue-draggable.js', $base . 'js/vue-draggable.min.js', array('sortable.js'), $v);
         wp_enqueue_script('wpcfto_mixins.js', $base . 'js/mixins.js', array('vue.js'), $v);
@@ -207,10 +215,17 @@ class STM_Metaboxes
 
         wp_add_inline_script('wpcfto_metaboxes.js', 'const WPCFTO_EventBus = new Vue();');
 
+        wp_localize_script('wpcfto_metaboxes.js', 'wpcfto_global_settings', array(
+            'fonts_list' => WPCFTO_Gfonts::google_fonts(),
+            'variants' => WPCFTO_Gfonts::variants(),
+            'subsets' => WPCFTO_Gfonts::subsets(),
+            'align' => WPCFTO_Gfonts::align(),
+            'translations' => self::translations()
+        ));
+
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
         wp_enqueue_style('linear-icons', $base . 'css/linear-icons.css', array('wpcfto-metaboxes.css'), $v);
         wp_enqueue_style('font-awesome-min', $assets . '/vendors/font-awesome.min.css', null, $v, 'all');
-        //wp_enqueue_style('vue-range-slider', $assets . '/vendors/vue-range-slider.min.css', null, $v, 'all');
 
         /*GENERAL COMPONENTS*/
         $components = array(
@@ -244,6 +259,7 @@ class STM_Metaboxes
             'color_gradient',
             'icon_picker',
             'range_slider',
+            'typography',
         );
 
         foreach ($components as $component) {
