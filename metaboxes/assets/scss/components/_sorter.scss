@@ -1,34 +1,93 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field_sorter {
+        & {
+            padding: 27px 20px;
+        }
+        .wpcfto_field_title {
+            label {
+                display: block;
+            }
+        }
+        .field-description {
+            margin-top: 15px;
+            margin-top: 15px;
+            display: block;
+        }
+        &.columns-2 {
+            & {
+                display: flex;
+                justify-content: space-between;
+            }
+            .wpcfto_sorter {
+
+            }
+        }
+        &:not(.columns-2) {
+            .wpcfto_sorter {
+                & {
+                    justify-content: space-between;
+                }
+                .wpcfto_sorter_single {
+                    width: 100%;
+                }
+            }
+            .wpcfto_sorter_single {
+                min-width: 150px;
+            }
+        }
+    }
 
     .list-group {
         display: flex;
         height: 100%;
         flex-direction: column;
-        padding-left: 0;
+        padding: 15px;
         margin-bottom: 0;
     }
 
     .list-group-item {
         position: relative;
         display: block;
-        padding: .75rem 1.25rem;
-        margin-bottom: -1px;
         background-color: #fff;
-        border: 1px solid rgba(0, 0, 0, .125);
         cursor: move;
+        border-radius: 5px;
+        border: 1px dashed $color_muted;
+        background-color: #f6f9fc;
+        font-size: 15px;
+        font-weight: 500;
+        text-align: center;
+        color: $color_main;
+        padding: 10px;
+
+        &:not(:last-of-type) {
+            margin-bottom: 5px;
+        }
+        &:hover {
+            color: $accent;
+        }
     }
 
     .wpcfto_sorter {
-        margin: 30px 0;
+        margin: 15px 0;
         display: flex;
 
         &_single {
-            min-width: 200px;
-            margin-right: 30px;
+            min-width: 225px;
+            margin-right: 20px;
+            border-radius: 5px;
+            border: 1px solid #bec5cb;
+            background-color: #ffffff;
 
             h6 {
-                margin: 15px 0;
-                font-size: 16px;
+                height: 40px;
+                background-color: $accent;
+                font-size: 13px;
+                font-weight: 600;
+                text-transform: uppercase;
+                color: #fff;
+                text-align: center;
+                padding: 10px;
+                margin: 0;
             }
         }
     }

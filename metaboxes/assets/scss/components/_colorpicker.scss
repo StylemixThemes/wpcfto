@@ -1,3 +1,6 @@
+.wpcfto_generic_field_color {
+    font-size: 0;
+}
 .stm_colorpicker_wrapper {
     position: relative;
     .vc-photoshop,
@@ -42,9 +45,6 @@
         font-size: 16px;
         font-weight: 600;
         margin-bottom: 7px;
-    }
-    .wpcfto_generic_field_flex_input {
-
     }
     > input[type='text'] {
         & {

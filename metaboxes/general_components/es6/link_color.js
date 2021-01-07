@@ -21,8 +21,8 @@ Vue.component('wpcfto_link_color', {
                 <div class="wpcfto_link_color_group">
                     <label>Regular</label>
                     <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.regular.input_value}"></span>
-                        <input type="text" name="regular" v-model="link.regular.input_value"/>
+                        <span v-bind:style="{'background-color': link.regular.input_value}" @click="$refs.field_regular.focus()"></span>
+                        <input type="text" name="regular" v-model="link.regular.input_value" ref="field_regular" />
                         <div><slider-picker v-model="link.regular.value"></slider-picker></div>
                     </div>
                 </div>
@@ -30,8 +30,8 @@ Vue.component('wpcfto_link_color', {
                 <div class="wpcfto_link_color_group">
                     <label>Hover</label>
                     <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.hover.input_value}"></span>
-                        <input type="text" name="hover" v-model="link.hover.input_value"/>
+                        <span v-bind:style="{'background-color': link.hover.input_value}" @click="$refs.field_hover.focus()"></span>
+                        <input type="text" name="hover" v-model="link.hover.input_value" ref="field_hover" />
                         <div><slider-picker v-model="link.hover.value"></slider-picker></div>
                     </div>
                 </div>
@@ -39,8 +39,8 @@ Vue.component('wpcfto_link_color', {
                 <div class="wpcfto_link_color_group">
                     <label>Active</label>
                     <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.active.input_value}"></span>
-                        <input type="text" name="active" v-model="link.active.input_value"/>
+                        <span v-bind:style="{'background-color': link.active.input_value}" @click="$refs.field_active.focus()"></span>
+                        <input type="text" name="active" v-model="link.active.input_value" ref="field_active" />
                         <div><slider-picker v-model="link.active.value"></slider-picker></div>
                     </div>
                 </div>

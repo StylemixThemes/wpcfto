@@ -3,9 +3,9 @@
         &:not(.wpcfto_group_started) {
             &.column-1 {
                 .wpcfto_generic_field__text {
-                    & {
-                        display: block;
-                    }
+                    //& {
+                    //    display: block;
+                    //}
                     .wpcfto_field_title {
                         float: left;
                     }
