@@ -1,13 +1,56 @@
 .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field_link_color {
+        display: flex;
+        align-items: center;
+        font-size: 0;
+        justify-content: space-between;
+        .wpcfto_field_title {
+            max-width: 35%;
+            label {
+                display: block;
+                width: 100%;
+                min-width: unset;
+                font-size: 16px;
+                font-weight: 600;
+                line-height: 1.2;
+            }
+        }
+        .field-description {
+            margin-top: 10px;
+        }
+    }
     .wpcfto_link_color {
         display: flex;
         .wpcfto_link_color_group {
+            & {
+                width: 25%;
+            }
+            label {
+                display: block;
+                margin-bottom: 10px;
+            }
             input {
-                width: 100% !important;
+                vertical-align: middle;
+                width: calc(100% - 52px) !important;
+                display: initial !important;
             }
             + .wpcfto_link_color_group {
-                margin-left: 10px;
+                margin-left: 20px;
             }
+        }
+    }
+    .stm_colorpicker_wrapper {
+        position: relative;
+        & > span:not(.description) {
+            background-color: #f6f9fc;
+            display: inline-block;
+            vertical-align: middle;
+            width: 40px;
+            height: 40px;
+            margin-right: 10px;
+            border: 1px solid #bec5cb;
+            cursor: pointer;
+            border-radius: 5px;
         }
     }
 }

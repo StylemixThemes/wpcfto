@@ -21,6 +21,8 @@
     "emmet": "git+https://github.com/cloud9ide/emmet-core.git#41973fcc70392864c7a469cf5dcd875b88b93d4a",
     "gulp-babel": "^8.0.0",
     "gulp-browserify": "^0.5.1",
+    "vue-range-component": "^1.0.3",
+    "vue-range-slider": "^0.6.0",
     "vuejs-ace-editor": "^1.0.1"
   }
 }

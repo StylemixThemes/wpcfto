@@ -186,6 +186,15 @@ class STM_Metaboxes
         return $metas;
     }
 
+    static function translations() {
+        return array(
+            'font_size' => esc_html__('Font size', 'wpcfto'),
+            'line_height' => esc_html__('Line height', 'wpcfto'),
+            'word_spacing' => esc_html__('Word spacing', 'wpcfto'),
+            'letter_spacing' => esc_html__('Letter spacing', 'wpcfto'),
+        );
+    }
+
     function wpcfto_scripts($hook)
     {
         $v = time();
@@ -205,6 +214,14 @@ class STM_Metaboxes
         wp_enqueue_script('wpcfto_metaboxes.js', $base . 'js/metaboxes.js', array('vue.js'), $v);
 
         wp_add_inline_script('wpcfto_metaboxes.js', 'const WPCFTO_EventBus = new Vue();');
+
+        wp_localize_script('wpcfto_metaboxes.js', 'wpcfto_global_settings', array(
+            'fonts_list' => WPCFTO_Gfonts::google_fonts(),
+            'variants' => WPCFTO_Gfonts::variants(),
+            'subsets' => WPCFTO_Gfonts::subsets(),
+            'align' => WPCFTO_Gfonts::align(),
+            'translations' => self::translations()
+        ));
 
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
         wp_enqueue_style('linear-icons', $base . 'css/linear-icons.css', array('wpcfto-metaboxes.css'), $v);
@@ -239,7 +256,10 @@ class STM_Metaboxes
             'gallery',
             'multi_input',
             'ace_editor',
-            'color_gradient'
+            'color_gradient',
+            'icon_picker',
+            'range_slider',
+            'typography',
         );
 
         foreach ($components as $component) {
@@ -251,6 +271,30 @@ class STM_Metaboxes
                 true
             );
         }
+
+        $icons = array();
+        $font_awesome = stm_wpcfto_new_fa_icons();
+        array_walk($font_awesome, function (&$icon) {
+            reset($icon);
+            $title = key($icon);
+            $icon = array(
+                'title' => $title,
+                'searchTerms' => array($icon[$title])
+            );
+        });
+
+        $icons = array_merge($icons, $font_awesome);
+
+        wp_localize_script(
+            'wpcfto_icon_picker_component',
+            'wpcfto_icons_set',
+            apply_filters('wpcfto_icons_set', $icons)
+        );
+
+        array(
+            'title' => 'icon class',
+            'searchTerms' => ['here', 'array', 'of', 'terms', 'to', 'search']
+        );
 
     }
 
@@ -456,22 +500,6 @@ function wpcfto_metaboxes_deps($field, $section_name)
     return $dependency;
 }
 
-// function wpcfto_metaboxes_group_deps( $field, $section_name ) {
-// 	$dependency   = '';
-// 	$dependencies = array();
-//
-// 	if ( empty( $field['group_dependency'] ) ) {
-// 		return $dependency;
-// 	}
-//
-// 	$dependencies = wpcfto_metaboxes_generate_deps( $section_name, $field['group_dependency'] );
-//
-// 	$dependency = "v-if=\"{$dependencies}\"";
-//
-// 	return $dependency;
-// }
-
-
 function wpcfto_metaboxes_generate_deps($section_name, $dep)
 {
     $key = $dep['key'];
@@ -485,7 +513,7 @@ function wpcfto_metaboxes_generate_deps($section_name, $dep)
         $compares = explode('||', $compare);
         $length = count($compares);
         $i = 0;
-        $dependency = '';
+        $dependency = '(';
         foreach ($compares as $compare) {
             $i++;
             $dependency .= "data['{$section_name}']['fields']['{$key}']['value'] === '{$compare}'";
@@ -493,6 +521,7 @@ function wpcfto_metaboxes_generate_deps($section_name, $dep)
                 $dependency .= ' || ';
             }
         }
+		$dependency .= ')';
     } else {
         $dependency = "data['{$section_name}']['fields']['{$key}']['value'] === '{$compare}'";
     }
@@ -541,6 +570,8 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
         <div class="<?php echo esc_attr(implode(' ', $classes)); ?>" <?php echo($dependency); ?>
              data-field="<?php echo esc_attr("wpcfto_addon_option_{$field_name}"); ?>">
 
+            <?php do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro); ?>
+
             <?php
 
             $field_data = $field;
@@ -557,24 +588,12 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
             $field_label = "{$field}['label']";
             $field_id = $section_name . '-' . $field_name;
 
-            if ($field_type == 'text') {
-                $description = '';
-            }
-
             $file = apply_filters("wpcfto_field_{$field_type}", STM_WPCFTO_PATH . '/metaboxes/fields/' . $field_type . '.php');
 
             include $file;
 
             ?>
 
-            <?php /* if ( ! empty( $field_data['hint'] ) ) : ?>
-				<div class="wpcfto_field_hint <?php echo esc_attr( $field_data['type'] ); ?>">
-					<i class="fa fa-info-circle"></i>
-					<div class="hint"><?php echo html_entity_decode( $field_data['hint'] ); ?></div>
-				</div>
-			<?php endif;*/ ?>
-
-            <?php do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro); ?>
 
         </div>
     </transition>
@@ -584,10 +603,9 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 function wpcfto_metaboxes_display_group_field($section, $section_name, $field, $field_name)
 { ?>
     <?php
-    // $dependency  = wpcfto_metaboxes_group_deps( $field, $section_name );
     $group_title = (isset($field['group_title']) && !empty($field['group_title'])) ? '<div class="wpcfto_group_title">' . $field['group_title'] . '</div>' : '';
     ?>
-    <?php if ($field['group'] === 'started') : ?><div class="wpcfto-box wpcfto_group_started column-1" <?php echo($dependency); ?>><div class="container"><div class="row"><?php echo $group_title; ?><?php endif;
+    <?php if ($field['group'] === 'started') : ?><div class="wpcfto-box wpcfto_group_started column-1"><div class="container"><div class="row"><?php echo $group_title; ?><?php endif;
 
     wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 
