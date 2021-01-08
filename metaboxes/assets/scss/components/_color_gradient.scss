@@ -21,7 +21,12 @@
     }
     .wpcfto_color_gradient {
         display: flex;
+        width: calc(66.66% - 10px)!important;
+
         .wpcfto_color_gradient_group {
+            & {
+                width: 100%;
+            }
             .stm_colorpicker_wrapper {
             }
             label {

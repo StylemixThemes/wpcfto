@@ -6,9 +6,13 @@ Vue.component('wpcfto_sorter', {
 		}
 	},
 	template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
+        <div class="wpcfto_generic_field wpcfto_generic_field_sorter" v-bind:class="field_id" :class="'columns-' + columns.length">
         
-            <label v-html="field_label"></label>
+            <div class="wpcfto_field_title">
+                <label v-html="field_label"></label>
+
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            </div>
                         
 			<div class="wpcfto_sorter">
 			

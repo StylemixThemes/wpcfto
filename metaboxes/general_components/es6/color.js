@@ -32,8 +32,8 @@ Vue.component('wpcfto_color', {
         if(this.fields.position) this.position = this.fields.position;
     },
     template: `
-        <div class="wpcfto_generic_field">
-            <div class="stm_colorpicker_wrapper wpcfto_generic_field_flex_input" v-bind:class="['picker-position-' + position]">
+        <div class="wpcfto_generic_field wpcfto_generic_field_color">
+            <div class="stm_colorpicker_wrapper" v-bind:class="['picker-position-' + position]">
 
                 <label v-html="field_label"></label>
 

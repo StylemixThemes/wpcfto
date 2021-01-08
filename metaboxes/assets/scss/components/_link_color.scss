@@ -1,11 +1,7 @@
 .stm_metaboxes_grid__inner {
     .wpcfto_generic_field_link_color {
-        display: flex;
-        align-items: center;
         font-size: 0;
-        justify-content: space-between;
         .wpcfto_field_title {
-            max-width: 35%;
             label {
                 display: block;
                 width: 100%;
@@ -17,13 +13,14 @@
         }
         .field-description {
             margin-top: 10px;
+            margin-bottom: 15px;
         }
     }
     .wpcfto_link_color {
         display: flex;
         .wpcfto_link_color_group {
             & {
-                width: 25%;
+                width: 100%;
             }
             label {
                 display: block;
