@@ -3,6 +3,9 @@
 /**
  * @var $metabox
  * @var $page
+ * @var $wpcfto_title
+ * @var $wpcfto_sub_title
+ * @var $wpcfto_logo
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
