@@ -1,39 +1,25 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field_sorter {
         & {
+            display: flex;
+            justify-content: space-between;
             padding: 27px 20px;
         }
         .wpcfto_field_title {
+            & {
+                max-width: 40%;
+                padding-right: 15px;
+            }
             label {
                 display: block;
             }
         }
         .field-description {
             margin-top: 15px;
-            margin-top: 15px;
             display: block;
         }
-        &.columns-2 {
-            & {
-                display: flex;
-                justify-content: space-between;
-            }
-            .wpcfto_sorter {
+        .wpcfto_sorter {
 
-            }
-        }
-        &:not(.columns-2) {
-            .wpcfto_sorter {
-                & {
-                    justify-content: space-between;
-                }
-                .wpcfto_sorter_single {
-                    width: 100%;
-                }
-            }
-            .wpcfto_sorter_single {
-                min-width: 150px;
-            }
         }
     }
 
@@ -69,14 +55,31 @@
 
     .wpcfto_sorter {
         margin: 15px 0;
-        display: flex;
+        display: block;
+        text-align: justify;
+        font-size: 0;
+        width: 60%;
+        min-width: 490px;
+
+        &::after {
+            display: inline-block;
+            width: 100%;
+        }
 
         &_single {
+            display: inline-block;
             min-width: 225px;
-            margin-right: 20px;
+            width: calc(50% - 20px);
+            margin-bottom: 20px;
+            font-size: 14px;
             border-radius: 5px;
             border: 1px solid #bec5cb;
             background-color: #ffffff;
+            vertical-align: top;
+
+            &:nth-child(2n + 1) {
+                margin-right: 20px;
+            }
 
             h6 {
                 height: 40px;

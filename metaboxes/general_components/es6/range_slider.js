@@ -14,8 +14,11 @@ Vue.component('wpcfto_range_slider', {
         RangeSlider
     },
     template: ` 
-        <div class="wpcfto_generic_field" v-bind:class="field_id">
-            <label v-html="field_label"></label>
+        <div class="wpcfto_generic_field wpcfto_generic_field_range_slider" v-bind:class="field_id">
+            <div class="wpcfto_field_title">
+                <label v-html="field_label"></label>
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            </div>
             
             <div class="wpcfto_range_slider">
                 <span class="wpcfto_range_slider__pin" v-html="value" v-bind:style="rangeStyles()"></span>
