@@ -33,7 +33,7 @@ Vue.component('wpcfto_typography', {
     template: ` 
         <div class="wpcfto_generic_field wpcfto_generic_field__typography" v-bind:class="field_id">
             <label v-html="field_label"></label>
-            
+                        
             <div v-if="typography['font-family'].length">
                 <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link :href="buildGLink()" rel="stylesheet">
@@ -137,6 +137,7 @@ Vue.component('wpcfto_typography', {
             let current_variants = this.typography['font-data']['variants'];
             if (typeof current_variants !== 'undefined' && !current_variants.includes(current_variant)) {
                 this.$set(this.typography, 'google-weight', current_variants[0]);
+                this.weightChanged();
             }
         },
         editSubset() {

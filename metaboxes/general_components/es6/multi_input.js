@@ -57,8 +57,6 @@ Vue.component('wpcfto_multi_input', {
 
 		});
 
-		console.log(_this.field_value);
-
 		/*Add new items from config*/
 		_this.field_options.forEach(function(config_item) {
 			var stored_item = _this.inputs.find(x => x.key === config_item['key']);
