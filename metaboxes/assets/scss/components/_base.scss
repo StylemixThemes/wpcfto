@@ -25,6 +25,9 @@
             display: block;
             height: auto;
         }
+        &_only {
+            margin: 0 auto;
+        }
     }
     &__label {
         color: $color_head_side;
@@ -667,6 +670,27 @@
     }
 }
 
+.wpcfto-settings.data-0 {
+    &:before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        display: inline-block;
+        border: 5px solid $main_color;
+        border-right-color: transparent;
+        vertical-align: middle;
+        border-radius: 50%;
+        animation: rotation 1s infinite linear;
+    }
+}
+
+[v-cloak] {
+
+    * {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
 
 @keyframes fadeIn {
     0% { opacity:0; transform: translateY(30px); }
