@@ -26,14 +26,17 @@ Vue.component('wpcfto_typography', {
                 'word-spacing': '0',
                 'letter-spacing': '0',
                 'backup-font': '',
-                'font-data': {}
+                'font-data': {
+                    'family' : '',
+                    'variants' : []
+                }
             },
         }
     },
     template: ` 
         <div class="wpcfto_generic_field wpcfto_generic_field__typography" v-bind:class="field_id">
             <label v-html="field_label"></label>
-                        
+            
             <div v-if="typography['font-family'].length">
                 <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link :href="buildGLink()" rel="stylesheet">
