@@ -1,0 +1,65 @@
+.wpcfto_generic_field_demo_import {
+    &.wpcfto_generic_field {
+        width: 100%;
+    }
+    .button {
+        & {
+            background-color: $accent !important;
+            border-color: $accent !important;
+            padding: 13px 18px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease 0s;
+        }
+        i {
+            display: inline !important;
+        }
+        &:hover, &:focus, &:active:focus {
+            background-color: lighten($accent, 5%) !important;
+            border-color: lighten($accent, 5%) !important;
+        }
+    }
+    .import_steps {
+        &.complete .step-complete,
+        &.courses .step-courses,
+        &.lessons .step-lessons,
+        &.questions .step-questions,
+        &.quizzes .step-quizzes {
+            .step-wrap {
+                .bullet {
+                    background: $accent;
+                }
+            }
+        }
+        &::after {
+            background-color: $accent;
+            background-image: linear-gradient(135deg,lighten($accent, 15%) 10%,transparent 10%,transparent 50%,lighten($accent, 15%) 50%,$accent 90%,transparent 90%,transparent);
+        }
+    }
+}
+
+.wpcfto_generic_field {
+    &.wpcfto_generic_field__notice {
+        background-color: transparent;
+        label {
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 40px;
+            color: $color_main;
+            display: block;
+            margin-bottom: 10px;
+        }
+    }
+}
+
+.repeater {
+    padding: 16px 20px 18px;
+    .wpcfto-repeater {
+        display: block;
+        width: 100%;
+    }
+    .wpcfto-repeater-single {
+        display: block;
+        width: 100%;
+    }
+}
+

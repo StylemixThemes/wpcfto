@@ -9,6 +9,9 @@
                 color: $color_muted;
                 position: relative;
                 z-index: 101;
+                margin: 0 10px;
+                white-space: nowrap;
+                order: 2;
 
                 a {
                     margin-left: 4px;

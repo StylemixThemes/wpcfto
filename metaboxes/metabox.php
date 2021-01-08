@@ -272,6 +272,14 @@ class STM_Metaboxes
             );
         }
 
+        wp_enqueue_script(
+            "wpcfto_fields_layout_component",
+            STM_WPCFTO_URL . "/metaboxes/general_components/js/fields_aside.js",
+            array('wpcfto_metaboxes.js'),
+            $v,
+            true
+        );
+
         $icons = array();
         $font_awesome = stm_wpcfto_new_fa_icons();
         array_walk($font_awesome, function (&$icon) {

@@ -8,14 +8,8 @@ Vue.component('wpcfto_number', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__number">
-            <label>
-                {{ field_label }}
-                <span
-                v-if="fields.preview"
-                class="wpcfto_preview">Preview<span
-                class="wpcfto_preview__popup"><img
-                :src="fields.preview" /></span></span>
-            </label>
+            <wpcfto_fields_aside :fields="fields" :field_label="field_label"></wpcfto_fields_aside>
+            
             <input type="number"
                 v-bind:name="field_name"
                 v-bind:placeholder="field_data.placeholder"
@@ -24,11 +18,7 @@ Vue.component('wpcfto_number', {
                 v-model="value"
             />
 
-            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-
-            <div v-if="fields.hint" class="wpcfto_field_hint number">
-                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-            </div>
+            <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
         </div>
     `,
     mounted: function () {

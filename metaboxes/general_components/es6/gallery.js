@@ -6,13 +6,12 @@ Vue.component('wpcfto_gallery', {
 		}
 	},
 	template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
+        <div class="wpcfto_generic_field wpcfto_generic_field_gallery" v-bind:class="field_id">
         
-            <label v-html="field_label"></label>
+            <wpcfto_fields_aside :fields="fields" :field_label="field_label"></wpcfto_fields_aside>
                         
 			<div class="wpcfto_gallery">
-				
-				
+
 				<draggable class="wpcfto_gallery__items" 
 						   :list="gallery" 
 						   group="gallery">
@@ -30,12 +29,13 @@ Vue.component('wpcfto_gallery', {
 				 </draggable>
 				
 				<div class="actions">
-                    <div class="button" @click="addImages()">
-                        Add Images
-                    </div>
+                    <div class="button" @click="addImages()">Add/Edit Gallery</div>
+                    <div class="button button-remove" v-if="gallery.length > 0" @click="gallery = []">Clear Gallery</div>                    
                 </div>
 				
 			</div>
+			
+			<span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
              
         </div>
     `,
@@ -71,7 +71,7 @@ Vue.component('wpcfto_gallery', {
 			}, _this);
 
 			_this.media_modal.open();
-		},
+		}
 	},
 	watch: {
 		gallery: {

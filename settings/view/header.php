@@ -14,7 +14,7 @@
 		</div>
 
 		<div class="wpcfto_settings_head__label">
-			<div class="wpcfto_settings_head__title"><?php echo apply_filters('wpcfto_header_title', esc_html__('Masterstudy', 'wp-custom-fields-theme-options')); ?></div>
+			<div class="wpcfto_settings_head__title"><?php echo apply_filters('wpcfto_header_title', esc_html__('Stylemix Themes', 'wp-custom-fields-theme-options')); ?></div>
 			<div class="wpcfto_settings_head__subtitle"><?php echo apply_filters('wpcfto_header_subtitle', esc_html__('Theme Options', 'wp-custom-fields-theme-options')); ?></div>
 		</div>
 

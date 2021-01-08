@@ -1,5 +1,29 @@
-.stm_metaboxes_grid__inner {
-    select {
-        line-height: 20px;
+.wpcfto-box {
+    &.column-1,
+    .wpcfto-box-child.column-1 {
+        .wpcfto_generic_field {
+            &__select {
+                select {
+                    width: 27%;
+                    line-height: 20px;
+                }
+                .wpcfto-field-aside {
+                    max-width: 70%;
+                }
+            }
+            .wpcfto-admin-select {
+                display: flex;
+                align-items: center;
+            }
+        }
+    }
+    &:not(.column-1),
+    .wpcfto-box-child:not(.column-1) {
+        .wpcfto_generic_field__select {
+            select {
+                width: 100%;
+                margin-bottom: .5em;
+            }
+        }
     }
 }

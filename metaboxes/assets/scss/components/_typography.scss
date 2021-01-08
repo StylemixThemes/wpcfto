@@ -1,4 +1,7 @@
 .wpcfto_generic_field__typography {
+    & {
+        display: block !important;
+    }
     &__preview {
         word-break: break-all;
     }

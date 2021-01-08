@@ -96,6 +96,22 @@
         }
     }
 
+    .wpcfto-field-description {
+        & {
+
+        }
+        &__before {
+
+        }
+        &__after {
+
+        }
+    }
+
+    //.wpcfto_generic_field {
+    //    display: block;
+    //}
+
     &.column-1,
     .wpcfto-box-child.column-1 {
         .wpcfto_generic_field {
@@ -135,7 +151,6 @@
     &:not(.wpcfto_group_started) {
         &.column-1 {
             .wpcfto-field-aside {
-                margin-right: 1em;
                 label {
                     display: inline-block;
                     margin-top: 0.5em;
@@ -160,6 +175,103 @@
             }
         }
     }
+
+    //&.column-1 {
+    //    display: flex;
+    //    justify-content: space-between;
+    //    align-items: center;
+    //    padding: 0 5px;
+    //
+    //    &.checkbox {
+    //        padding-right: 80px;
+    //    }
+    //    &.number {
+    //        //padding-right: 120px;
+    //        //input {
+    //        //    position: absolute;
+    //        //    right: 22px;
+    //        //    width: 85px;
+    //        //}
+    //    }
+    //    &.select {
+    //        padding-right: 180px;
+    //        select {
+    //            position: absolute;
+    //            right: 22px;
+    //            width: 150px;
+    //        }
+    //    }
+    //    &.enable_courses_filter_notice {
+    //        background-color: transparent;
+    //        min-height: unset;
+    //        .wpcfto_generic_field__notice {
+    //            margin: 25px 0 15px 5px;
+    //        }
+    //    }
+    //
+    //    &:not(.wpcfto_group_started) {
+    //        .wpcfto_generic_field_flex_input {
+    //            label {
+    //                margin-bottom: 0;
+    //            }
+    //        }
+    //        .wpcfto_generic_field__number {
+    //            width: 100%;
+    //            label {
+    //                flex-grow: 1;
+    //                width: auto;
+    //            }
+    //            .description {
+    //                flex-grow: 1;
+    //            }
+    //        }
+    //    }
+    //
+    //    .pro-notice {
+    //        margin-left: 20px;
+    //        white-space: nowrap;
+    //        order: 2;
+    //    }
+    //
+    //}
+
+    //&:not(.column-1) {
+    //    &.checkbox {
+    //        display: flex;
+    //        justify-content: space-between;
+    //        align-items: center;
+    //
+    //        &.is_pro {
+    //            & {
+    //                display: block;
+    //            }
+    //            .pro-notice {
+    //                padding: 0px 20px 18px;
+    //                display: block;
+    //            }
+    //            .wpcfto-admin-checkbox .wpcfto-admin-checkbox-wrapper.is_toggle {
+    //                margin-top: 0;
+    //            }
+    //        }
+    //    }
+    //    .wpcfto_generic_field {
+    //        width: 100%;
+    //        display: block;
+    //        &_flex_input {
+    //            width: 100%;
+    //            display: block;
+    //            select, input, textarea {
+    //                width: 100%;
+    //                display: block;
+    //                margin: 0;
+    //            }
+    //        }
+    //    }
+    //    .wpcfto_field_description {
+    //        margin: 0 20px 15px;
+    //    }
+    //}
+
 }
 
 
@@ -198,7 +310,9 @@
         .container-constructed {
             .row {
                 .column-1 {
+                    // padding: 0 5px;
                     width: 100%;
+
                     &.wpcfto-box {
                         display: flex;
                         justify-content: space-between;
@@ -210,6 +324,7 @@
                 .column-50,
                 .column-66,
                 .column-75 {
+                    //padding: 0 5px;
                     padding: 0;
                 }
                 .column-25 {
@@ -254,7 +369,6 @@
                 }
             }
         }
-
         .wpcfto-tab-nav {
             & {
                 background-color: $bg_tab_nav;
@@ -330,7 +444,6 @@
                 }
             }
         }
-
         .wpcfto-tab {
             & {
                 background-color: $bg_content;
@@ -352,6 +465,93 @@
             }
         }
 
+        .repeater {
+            padding: 16px 20px 18px;
+            .wpcfto-repeater {
+                display: block;
+                width: 100%;
+            }
+            .wpcfto-repeater-single {
+                display: block;
+                width: 100%;
+            }
+        }
+        .wpcfto_group_started {
+            //&.column-1 {
+            //    padding: 0;
+            //    .wpcfto_generic_field {
+            //        display: block;
+            //    }
+            //    .wpcfto-box {
+            //        &.course_tabs {
+            //            min-height: unset;
+            //        }
+            //    }
+            //}
+            //.wpcfto_generic_field {
+            //    &_flex_input {
+            //        display: block;
+            //    }
+            //}
+            .description {
+                margin: 5px 0;
+            }
+        }
+        .wpcfto_generic_field {
+            & {
+                //display: inline-block;
+                //display: flex;
+                //align-items: center;
+                //justify-content: space-between;
+            }
+            &.wpcfto_generic_field__notice {
+                background-color: transparent;
+                label {
+                    font-size: 26px;
+                    font-weight: 600;
+                    line-height: 40px;
+                    color: $color_main;
+                    display: block;
+                    margin-bottom: 10px;
+                }
+            }
+            &_flex_input {
+                //display: flex;
+                //align-items: center;
+
+                //flex-wrap: wrap;
+                //label {
+                //    display: block;
+                //    width: 100%;
+                //    min-width: unset;
+                //    margin-bottom: 0;
+                //    font-size: 16px;
+                //    font-weight: 600;
+                //    margin-bottom: 15px;
+                //    line-height: 1.2;
+                //}
+                //input, select, textarea {
+                //    box-shadow: 0 0 0 transparent;
+                //    font-size: 14px;
+                //}
+            }
+            .wpcfto-admin-checkbox {
+                justify-content: space-between;
+                display: flex;
+                align-items: center;
+            }
+        }
+        .column {
+            .wpcfto_group_started {
+                &.column-1 {
+                    padding: 0;
+                    label {
+                        font-size: 15px;
+                    }
+                }
+            }
+        }
+        .wpcfto_generic_field_demo_import p,
         .description {
             & {
                 color: $color_muted;
@@ -360,6 +560,7 @@
                 line-height: 16px;
                 padding-left: 20px;
                 position: relative;
+                // margin: 0 0 10px;
                 display: inline-block;
                 vertical-align: middle;
                 font-style: normal;
@@ -373,6 +574,33 @@
                 left: 0;
                 top: 2px;
             }
+            a {
+                &:hover {
+
+                }
+            }
+        }
+    }
+}
+
+.wpcfto_generic_field_demo_import {
+    &.wpcfto_generic_field {
+        width: 100%;
+    }
+    .button {
+        & {
+            background-color: $accent !important;
+            border-color: $accent !important;
+            padding: 13px 18px !important;
+            font-weight: 600 !important;
+            transition: all 0.3s ease 0s;
+        }
+        i {
+            display: inline !important;
+        }
+        &:hover, &:focus, &:active:focus {
+            background-color: lighten($accent, 5%) !important;
+            border-color: lighten($accent, 5%) !important;
         }
     }
 }
@@ -454,8 +682,27 @@
 .wpcfto_settings_head + .stm_metaboxes_grid {
     .stm_metaboxes_grid__inner .row .column {
         padding-left: 1.8rem;
-        padding-bottom: 1.8rem;
         padding-right: 0;
+    }
+}
+
+.wpcfto_generic_field_demo_import {
+    .import_steps {
+        &.complete .step-complete,
+        &.courses .step-courses,
+        &.lessons .step-lessons,
+        &.questions .step-questions,
+        &.quizzes .step-quizzes {
+            .step-wrap {
+                .bullet {
+                    background: $accent;
+                }
+            }
+        }
+        &::after {
+            background-color: $accent;
+            background-image: linear-gradient(135deg,lighten($accent, 15%) 10%,transparent 10%,transparent 50%,lighten($accent, 15%) 50%,$accent 90%,transparent 90%,transparent);
+        }
     }
 }
 
@@ -466,6 +713,7 @@
         font-size: 9px;
         font-weight: 500;
         text-transform: uppercase;
+        letter-spacing: 0.9px;
         margin: 0 5px;
         vertical-align: middle;
         border-bottom: 1px dashed $color_muted;
@@ -491,9 +739,6 @@
         img {
             max-width: inherit;
         }
-    }
-    &__text {
-        //letter-spacing: 0.9px;
     }
     &::after {
         content: "";
@@ -527,27 +772,6 @@
     }
 }
 
-.wpcfto-settings.data-0 {
-    &:before {
-        content: '';
-        width: 10px;
-        height: 10px;
-        display: inline-block;
-        border: 5px solid $main_color;
-        border-right-color: transparent;
-        vertical-align: middle;
-        border-radius: 50%;
-        animation: rotation 1s infinite linear;
-    }
-}
-
-[v-cloak] {
-
-    * {
-        opacity: 0;
-        visibility: hidden;
-    }
-}
 
 @keyframes fadeIn {
     0% { opacity:0; transform: translateY(30px); }

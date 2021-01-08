@@ -7,18 +7,15 @@ Vue.component('wpcfto_textarea', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_textarea">
-            <div class="wpcfto_field_column">
-                <label v-html="field_label" class="wpcfto_field_title"></label>
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-                <div v-if="fields.hint" class="wpcfto_field_hint text">
-                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-                </div>
-            </div>
+            <wpcfto_fields_aside :fields="fields" :field_label="field_label"></wpcfto_fields_aside>
+            
             <textarea v-bind:name="field_name"
                       v-bind:placeholder="field_label"
                       v-bind:id="field_id"
                       v-model="value">
             </textarea>
+            
+            <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
         </div>
     `,
     mounted: function () {

@@ -1,14 +1,16 @@
-.stm_metaboxes_grid .stm_metaboxes_grid__inner {
+.stm_metaboxes_grid {
     .wpcfto_generic_field_sorter {
         & {
             display: flex;
             justify-content: space-between;
             padding: 27px 20px;
+            align-items: initial;
         }
         .wpcfto_field_title {
             & {
                 max-width: 40%;
                 padding-right: 15px;
+                align-self: start;
             }
             label {
                 display: block;

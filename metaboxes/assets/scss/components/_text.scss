@@ -1,59 +1,27 @@
 .wpcfto-box {
-    &.column-1 {
-        &:not(.wpcfto_group_started) {
-            &.column-1 {
-                .wpcfto_generic_field__text {
-                    //& {
-                    //    display: block;
-                    //}
-                    .wpcfto_field_title {
-                        float: left;
-                    }
-                    .field-description {
-                        margin-top: 5px;
-                        max-width: calc(100% - 290px);
-                    }
-                    input {
-                        float: right;
-                        width: 280px;
-                    }
-                }
-            }
-            .wpcfto_generic_field__text {
-                input {
-                    min-width: 280px;
-                }
-            }
-        }
-    }
-
-    &:not(.column-1) {
-        .wpcfto_generic_field__text .field-description {
-            margin: 5px 0 5px;
-        }
-    }
-}
-
-.stm_metaboxes_grid {
-    &__inner {
+    &.column-1,
+    .wpcfto-box-child.column-1 {
         .wpcfto_generic_field {
-            &__text {
-                width: 100%;
-                label {
-                    order: 1;
-                    width: auto;
-                    flex-grow: 1;
-                }
+            &__text, &__number {
                 input {
-                    order: 3;
+                    width: 27%;
                 }
-                .field-description {
-                    order: 2;
-                    flex-grow: 1;
+                .wpcfto-field-aside {
+                    max-width: 70%;
                 }
-                .wpcfto_field_hint {
-                    order: 2;
-                    margin: 0 15px;
+            }
+        }
+    }
+    &:not(.column-1),
+    .wpcfto-box-child:not(.column-1) {
+        .wpcfto_generic_field {
+            &__text, &__number {
+                input {
+                    width: 100%;
+                    margin-bottom: .5em;
+                }
+                .wpcfto-field-aside {
+                    max-width: 100%;
                 }
             }
         }

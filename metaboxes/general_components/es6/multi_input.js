@@ -6,9 +6,9 @@ Vue.component('wpcfto_multi_input', {
 		}
 	},
 	template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
+        <div class="wpcfto_generic_field wpcfto_generic_field_multi_input" v-bind:class="field_id">
         
-            <label v-html="field_label"></label>
+            <wpcfto_fields_aside :fields="fields" :field_label="field_label"></wpcfto_fields_aside>
                         
 			<div class="wpcfto_sorter">
 						
@@ -24,11 +24,15 @@ Vue.component('wpcfto_multi_input', {
 					  
 					  <input type="text" v-model="input['value']" v-bind:placeholder="input['label']" />
 					  
+					  <span class="wpcfto_multi_input_icon"><i class="fa fa-arrows-alt"></i></span>
+					  
 					</div>
 					
 				 </draggable>
 					 
 			 </div>
+			 
+			 <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
              
         </div>
     `,

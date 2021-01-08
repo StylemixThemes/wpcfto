@@ -6,7 +6,7 @@ Vue.component('wpcfto_checkbox', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field">
+        <div class="wpcfto_generic_field wpcfto_generic_checkbox">
             <div class="wpcfto-admin-checkbox" v-bind:class="field_id">
 
                <label>

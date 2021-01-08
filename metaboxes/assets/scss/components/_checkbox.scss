@@ -88,6 +88,7 @@
                     opacity: 1;
                 }
             }
+
         }
         &:not(.is_toggle) {
             & {
@@ -255,5 +256,24 @@
     }
     span {
         opacity: 1;
+    }
+}
+
+.wocommerce_checkout, .checkbox {
+    &.column-1 {
+        &.is_pro {
+            .wpcfto_generic_checkbox {
+                order: 2;
+            }
+            .pro-notice {
+                order: 1;
+            }
+        }
+        label {
+            display: inline-block;
+            margin-top: .5em;
+            margin-bottom: .5em;
+            margin-right: 1em;
+        }
     }
 }
