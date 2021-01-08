@@ -3,52 +3,26 @@
     &__inner {
         .is_pro {
             position: relative;
-            //margin-bottom: 10px;
             .pro-notice {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                margin: -15px 0 0 -60px;
-                width: 150px;
-
-                transition: .3s ease;
-
-                opacity: 0;
-                visibility: hidden;
-
-                z-index: 99999;
+                font-size: 13px;
+                font-weight: 400;
+                color: $color_muted;
+                position: relative;
+                z-index: 101;
 
                 a {
                     margin-left: 4px;
-                    color: $main_color;
+                    color: $accent;
                 }
             }
 
             .wpcfto_generic_field {
-
                 label {
-                    &:after {
-                        content: "\f023";
-                        margin: 0 0 0 10px;
-                        font-family: "Font Awesome 5 Free";
-                        font-size: 82%;
-                    }
+                    color: $color_muted;
                 }
             }
 
             .field_overlay {
-                position: absolute;
-                right: 4px;
-                left: 4px;
-                bottom: 9px;
-                top: 0;
-                background: rgba(255,255,255,0);
-                border-radius: 5px;
-                z-index: 999;
-
-                border: 1px dashed #aaa;
-
-                cursor: not-allowed;
             }
 
             /*DRIP*/
@@ -83,6 +57,9 @@
                         background: rgba(255,255,255,0.8);
                     }
                 }
+            }
+            .wpcfto_generic_field {
+                background-color: transparent;
             }
         }
 

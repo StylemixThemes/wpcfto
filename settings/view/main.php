@@ -27,10 +27,10 @@ if ( ! empty( $sections ) ) : ?>
 		 v-bind:class="'data-' + data.length"
 		 data-vue="<?php echo sanitize_text_field( $id ); ?>" <?php echo stm_wpcfto_filtered_output( $source_id ); ?>>
 
+		 <?php include STM_WPCFTO_PATH . '/settings/view/header.php'; ?>
 
-		<?php require_once( STM_WPCFTO_PATH . '/metaboxes/metabox-display.php' ); ?>
+		 <?php require_once( STM_WPCFTO_PATH . '/metaboxes/metabox-display.php' ); ?>
 
-		<?php include STM_WPCFTO_PATH . '/settings/view/header.php'; ?>
 
 	</div>
 

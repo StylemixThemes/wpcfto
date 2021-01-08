@@ -18,19 +18,24 @@ Vue.component('wpcfto_date', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field_date">
-        
-            <label v-html="field_label"></label>
-        
+
+            <label v-html="field_label" class="wpcfto_field_title"></label>
+            
+            <div v-if="fields.hint" class="wpcfto_field_hint text">
+                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
+            </div>
+
             <date-picker v-model="value" lang="en" @change="dateChanged(value)"></date-picker>
-           
-          
+
+
             <input type="hidden"
                 v-bind:name="field_name"
                 v-bind:placeholder="field_label"
                 v-bind:id="field_id"
-                v-model="input_value" 
+                v-model="input_value"
             />
-            
+
+            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
         </div>
     `,
     methods: {

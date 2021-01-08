@@ -1,0 +1,105 @@
+.wpcfto_field_hint {
+    & {
+        position: relative;
+        z-index: 101;
+        height: 14px;
+        display: inline;
+    }
+    & > .hint {
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        transform: translate(-50%,-10px);
+        max-width: 185px;
+        min-width: 185px;
+        padding: 10px;
+        background-color: $accent;
+        border-radius: 5px;
+        color: #fff;
+        z-index: 999999;
+        opacity: 0;
+        font-size: 14px;
+        visibility: hidden;
+        transition: .3s ease;
+
+        &::after {
+            content: "";
+            border: 5px solid transparent;
+            border-top-color: $accent;
+            left: 50%;
+            bottom: -10px;
+            position: absolute;
+            margin: 0 auto;
+            transform: translateX(2px);
+        }
+    }
+    & > i.fa-info-circle {
+        cursor: pointer;
+        z-index: 99999;
+        font-size: 14px;
+
+        &:before {
+            color: $accent;
+            opacity: 0.9;
+        }
+
+        &:hover {
+            opacity: 1;
+
+            + .hint {
+                opacity: 1;
+                visibility: visible;
+            }
+        }
+    }
+}
+
+
+
+.wpcfto-box {
+    .wpcfto-box-child {
+
+    }
+    &.column-1 {
+
+    }
+    &:not(.column-1) {
+        .wpcfto_field_hint {
+            position: absolute;
+            right: 25px;
+            top: 11px;
+
+            .hint {
+                right: -15px;
+                left: auto;
+                bottom: 25px;
+                transform: translateX(0);
+
+                &::after {
+                    left: auto;
+                    right: 18px;
+                }
+            }
+        }
+        .wpcfto_generic_field__text {
+            .wpcfto_field_hint {
+                margin: 0;
+                top: 16px;
+            }
+        }
+        &.checkbox {
+            .wpcfto_field_hint {
+                position: static;
+                transform: translateX(-60px);
+            }
+            &.is_pro {
+                & {
+                    display: block;
+                }
+                .wpcfto_field_hint {
+                    transform: translateX(0);
+                }
+            }
+        }
+    }
+}

@@ -10,8 +10,13 @@ Vue.component('wpcfto_link_color', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
-            <label v-html="field_label"></label>
+        <div class="wpcfto_generic_field wpcfto_generic_field_link_color" v-bind:class="field_id">
+            <div class="wpcfto_field_title">
+                <label v-html="field_label"></label>
+
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            </div>
+            
             <div class="wpcfto_link_color">
                 <div class="wpcfto_link_color_group">
                     <label>Regular</label>

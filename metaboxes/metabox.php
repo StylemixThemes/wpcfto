@@ -535,12 +535,17 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
     $dependency = wpcfto_metaboxes_deps($field, $section_name);
     $width = (empty($field['columns'])) ? 'column-1' : "column-{$field['columns']}";
     $is_pro = (!empty($field['pro'])) ? 'is_pro' : 'not_pro';
+    $is_child = (isset($field['is_group_item']) && !empty($field['is_group_item'])) ? true : false;
     $description = (!empty($field['description'])) ? $field['description'] : '';
     if (stm_wpcfto_is_pro()) {
         $is_pro = '';
     }
 
-    $classes = array($width, $is_pro);
+    $classes = array();
+    $classes[] = ($is_child) ? 'wpcfto-box-child' : 'wpcfto-box';
+
+    $classes[] = $width;
+    $classes[] = $is_pro;
 
     $classes[] = $field_name;
 
@@ -585,22 +590,11 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 
             $file = apply_filters("wpcfto_field_{$field_type}", STM_WPCFTO_PATH . '/metaboxes/fields/' . $field_type . '.php');
 
-            if (!empty($field_data['hint'])) : ?>
-            <div class="field_overlay"></div>
-            <div class="wpcfto_field_hint <?php echo esc_attr($field_data['type']); ?>">
-                <i class="fa fa-info-circle"></i>
-                <div class="hint"><?php echo html_entity_decode($field_data['hint']); ?></div>
-                <?php endif; ?>
+            include $file;
 
-                <?php include $file; ?>
+            ?>
 
-                <?php if (!empty($field_data['hint'])) : ?>
-            </div>
-        <?php endif; ?>
 
-            <?php if (!empty($description)): ?>
-                <p class="description"><?php echo html_entity_decode($description); ?></p>
-            <?php endif; ?>
         </div>
     </transition>
 
@@ -608,7 +602,10 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 
 function wpcfto_metaboxes_display_group_field($section, $section_name, $field, $field_name)
 { ?>
-    <?php if ($field['group'] === 'started') : ?><div class="wpcfto_group_started column-1"><div class="container"><div class="row"><?php endif;
+    <?php
+    $group_title = (isset($field['group_title']) && !empty($field['group_title'])) ? '<div class="wpcfto_group_title">' . $field['group_title'] . '</div>' : '';
+    ?>
+    <?php if ($field['group'] === 'started') : ?><div class="wpcfto-box wpcfto_group_started column-1"><div class="container"><div class="row"><?php echo $group_title; ?><?php endif;
 
     wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 
@@ -627,7 +624,7 @@ function wpcfto_metaboxes_preopen_field($section, $section_name, $field, $field_
             <label>
 
                 <div class="wpcfto-admin-checkbox-wrapper"
-                     v-bind:class="{'active' : <?php echo esc_attr($vue_field); ?>['opened']}">
+                     v-bind:class="{'active' : <?php echo esc_attr($vue_field); ?>['opened'], 'is_toggle' : <?php echo (isset($field['toggle'])) ? esc_attr($field['toggle']) : 'true'; ?>}">
                     <div class="wpcfto-checkbox-switcher"></div>
                 </div>
 
