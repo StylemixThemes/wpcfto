@@ -12,7 +12,7 @@ gulp.task('serve', function (done) {
     "use strict";
 
     browserSync.init({
-        proxy: "http://lms.loc",
+        proxy: "http://lms.loc/",
         host: "192.168.0.124",
         port: 3000,
         notify: true,

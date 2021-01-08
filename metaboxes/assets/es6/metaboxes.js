@@ -36,6 +36,13 @@
 
 									$('.' + sub_menu_section).removeAttr('style');
 
+
+									submenu_tab_fields.parents('.wpcfto_group_started').css({
+										display : 'none'
+									});
+
+									$('.' + sub_menu_section).parents('.wpcfto_group_started').removeAttr('style');
+
 								})(jQuery);
 							});
 					},

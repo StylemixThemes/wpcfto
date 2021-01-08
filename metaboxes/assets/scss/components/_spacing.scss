@@ -1,5 +1,67 @@
 .stm_metaboxes_grid__inner {
+    .wpcfto_generic_field.wpcfto_generic_field_spacing {
+        & {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px;
+        }
+        .wpcfto_field_title {
+            display: block;
+        }
+        .wpcfto_field_column {
+            width: 30%;
+            position: relative;
+
+            .wpcfto_field_hint {
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+        }
+        .field-description {
+            margin-top: 12px;
+        }
+    }
     .wpcfto_spacing {
         display: flex;
+        align-items: center;
+    }
+    .wpcfto-spacing-input-wrap {
+        & {
+            width: 90px;
+            margin-right: 20px;
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            position: relative;
+        }
+        &::before {
+            content: "";
+            background-color: $color_muted;
+            width: 40px;
+            height: 40px;
+            display: block;
+            border-radius: 5px 0 0 5px;
+        }
+        i {
+            position: absolute;
+            left: 12px;
+            top: 50%;
+            margin: -9px 0 0 0;
+            font-size: 18px;
+            color: #fff;
+        }
+        input {
+            width: 50px;
+            margin: 0;
+            padding: 8px 4px;
+            text-align: center;
+            border-radius: 0 5px 5px 0;
+        }
+    }
+    select {
+        width: 80px;
     }
 }

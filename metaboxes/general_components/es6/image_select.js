@@ -6,13 +6,17 @@ Vue.component('wpcfto_image_select', {
             style : '',
         }
     },
-    template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
-            <label v-html="field_label"></label>
+    template: `
+        <div class="wpcfto_generic_field wpcfto_generic_field_image_select" v-bind:class="field_id">
+            <div class="wpcfto_field_title">
+                <label v-html="field_label"></label>
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            </div>
             <div class="wpcfto_image_select">
                 <label v-for="(option, key) in fields['options']" v-bind:class="{'active' : value == key}">
+                    <span class="wpcfto-img-wrap"><img v-bind:src="option.img" v-bind:alt="option.alt" v-bind:style="style"></span>
                     <input type="radio" v-bind:name="field_name" v-model="value" v-bind:value="key"/>
-                    <img v-bind:src="option.img" v-bind:alt="option.alt" v-bind:style="style">
+                    <span v-html="option.alt" class="wpcfto-img-alt"></span>
                 </label>
             </div>
         </div>
