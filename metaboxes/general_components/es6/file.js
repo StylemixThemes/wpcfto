@@ -15,11 +15,11 @@ Vue.component('wpcfto_file', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field__file">
-        
-            <label v-html="field_label"></label>
-            
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <label class="file-select" v-if="!value.path">
-            
+
                 <div class="select-button" v-bind:class="{'uploading' : uploading}">
                     <span v-if="!uploading">
                         <i class="fa fa-paperclip"></i>
@@ -27,28 +27,30 @@ Vue.component('wpcfto_file', {
                     </span>
                     <span v-html="field_data.load_labels.loading" v-else></span>
                 </div>
-                
+
                 <input type="file" :accept="field_data['accept'].join(',')" @change="handleFileChange" />
             </label>
-            
+
             <div class="field_label_error" v-if="error" v-html="error"></div>
-          
+
             <div class="field_label__file" v-if="value.url">
                 <a v-bind:href="value.url" target="_blank">
-                    {{generateFileName(value['url'])}} 
+                    {{generateFileName(value['url'])}}
                     <i class="fa fa-times" @click.prevent="deleteFile()"></i>
                 </a>
-                
-            </div>  
-          
-            
+
+            </div>
+
+
             <input type="hidden"
                 v-bind:name="field_name"
                 v-bind:placeholder="field_label"
                 v-bind:id="field_id"
                 v-model="input_value"
             />
-            
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     mounted: function () {

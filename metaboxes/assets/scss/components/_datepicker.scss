@@ -3,6 +3,9 @@
         .wpcfto_field_title {
             display: block;
         }
+        .wpcfto_datepicker {
+            min-width: 30%;
+        }
     }
     &.column-1 {
         .wpcfto_generic_field.wpcfto_generic_field_date {
@@ -41,6 +44,16 @@
             .wpcfto_field_title {
                 margin-bottom: 10px;
             }
+        }
+    }
+}
+.dates {
+    .wpcfto_generic_field.wpcfto_generic_field__date {
+        .wpcfto_field_title {
+            display: block;
+        }
+        .wpcfto_datepicker {
+            min-width: 30%;
         }
     }
 }

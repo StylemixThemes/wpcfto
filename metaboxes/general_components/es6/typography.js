@@ -30,77 +30,80 @@ Vue.component('wpcfto_typography', {
             },
         }
     },
-    template: ` 
+    template: `
         <div class="wpcfto_generic_field wpcfto_generic_field__typography" v-bind:class="field_id">
-            <label v-html="field_label"></label>
-            
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div v-if="typography['font-family'].length">
                 <link rel="preconnect" href="https://fonts.gstatic.com">
                 <link :href="buildGLink()" rel="stylesheet">
             </div>
-            
+
             <select v-model="typography['font-data']" @change="fontChanged()">
                 <option value="">Select font</option>
                 <option v-bind:value="font" v-for="font in google_fonts" v-html="font.family"></option>
             </select>
-            
+
             <select v-model="typography['backup-font']">
                 <option value="">Select backup font</option>
                 <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
             </select>
-            
+
             <select v-model="typography['google-weight']" @change="weightChanged()">
                 <option value="">Select font weight</option>
-                <option 
+                <option
                     v-bind:value="variant_key"
                     :disabled="isFontWeightDisabled(variant_key)"
                     v-for="(variant, variant_key) in variants" v-html="variant"></option>
             </select>
-            
+
             <select v-model="typography['subset']">
                 <option value="">Select subset</option>
-                <option 
+                <option
                     v-bind:value="subset_key"
                     :disabled="isSubsetDisabled(subset_key)"
                     v-for="(subset, subset_key) in subsets" v-html="subset"></option>
             </select>
-            
+
             <select v-model="typography['text-align']">
-                <option 
+                <option
                     v-bind:value="align_key"
                     v-for="(align_label, align_key) in align" v-html="align_label"></option>
             </select>
-            
+
             <label>
                 {{translations['font_size']}}
                 <input type="number" v-model="typography['font-size']">
             </label>
-            
+
             <label>
                 {{translations['line_height']}}
                 <input type="number" v-model="typography['line-height']">
             </label>
-            
+
             <label>
                 {{translations['word_spacing']}}
                 <input type="number" v-model="typography['word-spacing']">
             </label>
-            
+
             <label>
                 {{translations['letter_spacing']}}
                 <input type="number" v-model="typography['letter-spacing']">
             </label>
-            
-            <wpcfto_color @wpcfto-get-value="typography['color'] = $event" 
+
+            <wpcfto_color @wpcfto-get-value="typography['color'] = $event"
                     :fields="{position: 'bottom'}"
                     v-if="inited"
                     :field_value="typography['color']">
             </wpcfto_color>
-                    
+
             <div class="wpcfto_generic_field__typography__preview" :style="previewStyles()">
                 ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890‘?’“!”(%)[#]{@}/&\\<-+÷×=>®©$€£¥¢:;,.*
             </div>
-            
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     mounted: function () {

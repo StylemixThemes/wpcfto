@@ -5,40 +5,38 @@ Vue.component('wpcfto_sorter', {
 			columns : []
 		}
 	},
-	template: ` 
+	template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_sorter" v-bind:class="field_id" :class="'columns-' + columns.length">
-        
-            <div class="wpcfto_field_title">
-                <label v-html="field_label"></label>
 
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-            </div>
-                        
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
 			<div class="wpcfto_sorter">
-			
+
 				<div v-for="(column, column_key) in columns" class="wpcfto_sorter_single">
-				
+
 					<h6 v-html="column['name']"></h6>
-				
-					<draggable class="list-group" 
-							   :list="column['options']" 
+
+					<draggable class="list-group"
+							   :list="column['options']"
 							   group="list"
 							   key="column_key">
-					
+
 						<div class="list-group-item"
 							 v-for="(element, element_key) in column['options']"
 							 :key="element['id']">
-							 
+
 						  {{element['label']}}
-						  
+
 						</div>
-						
+
 					 </draggable>
-					 
+
 				 </div>
-			 
+
 			 </div>
-             
+
+			 <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
 	mounted: function () {

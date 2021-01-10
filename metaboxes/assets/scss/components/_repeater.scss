@@ -1,35 +1,65 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto-repeater {
 
-        margin-bottom: 30px;
-
         > label {
             margin: 0 0 15px;
             font-size: 18px;
         }
+        .separator {
+            border-bottom: 1px solid #d6dade;
+            margin-bottom: 20px;
+        }
 
         &-single {
             position: relative;
-            padding: 25px 20px 20px;
-            margin: 0 0 15px;
-            background-color: #f1f1f1;
+            padding: 0;
+            margin: 0 -25px 20px;
+            background-color: transparent;
             border-radius: 3px;
+
+            .wpcfto_group_title {
+                padding: 0 0px 12px;
+                margin: 10px 25px 17px;
+                width: auto;
+            }
+
+            .wpcfto-field-aside {
+                margin-right: 0;
+            }
 
             .wpcfto_generic_field {
                 padding: 0;
             }
 
+            .wpcfto-admin-select {
+                width: 100%;
+                select {
+                    max-width: 100%
+                }
+            }
+
+            .wpcfto_generic_field {
+                padding: 0 25px;
+                margin-bottom: 0.8em !important;
+            }
+
             .repeater_inner {
+                & {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                }
 
                 &.closed {
                     display: none;
                 }
+
             }
 
             &-delete {
                 position: absolute;
-                top: 15px;
-                right: 15px;
+                top: 0;
+                right: 20px;
                 padding: 5px 7px;
                 opacity: .3;
                 font-size: 16px;
@@ -87,38 +117,34 @@
         }
 
         .addArea {
-            padding: 8px 13px;
-            background-color: #f7f7f7;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            font-weight: 400;
-            color: #23282d;
-            font-size: 14px;
+            height: 40px;
+            background-color: $accent;
+            border-color: $accent;
+            color: $white;
+            padding: 13px;
+            font-size: 13px;
+            font-weight: 600;
+            line-height: 1;
+            display: inline-block;
+            width: auto;
+            text-transform: uppercase;
+            border-radius: 4px;
+            transition: all 0.3s ease 0s;
             cursor: pointer;
 
             i {
-                position: relative;
-                top: -1px;
-                width: 16px;
-                height: 16px;
-                margin-right: 4px;
-                color: #fff;
-                font-size: 11px;
-                text-align: center;
-                line-height: 16px;
-                background-color: $main_color;
-                border-radius: 50%;
+                font-size: 14px;
             }
 
-            &:hover {
-                border-color: $main_color;
-                background-color: $main_color;
-                color: #fff;
-                i {
-                    background-color: #fff;
-                    color: $main_color;
-                }
+            &:hover, &:focus, &:active:focus {
+                background-color: lighten($accent, 5%);
+                border-color: lighten($accent, 5%);
+                color: $white;
             }
         }
     }
+}
+
+.wpcfto_generic_field_repeater {
+    display: block !important;
 }

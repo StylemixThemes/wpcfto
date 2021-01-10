@@ -45,11 +45,11 @@
 
 
     .icon-wrapper {
-        width: 70px;
-        height: 70px;
+        width: 60px;
+        height: 60px;
         padding: 15px;
-        margin: 15px;
-        line-height: 50px;
+        margin: 10px;
+        line-height: 40px;
         cursor: pointer;
         border-radius: 5px;
         transition: ease-in-out all .25s;
@@ -66,7 +66,31 @@
 }
 
 .wpcfto_generic_field__iconpicker__icon {
-    padding: 15px;
+    padding: 10px;
     background-color: rgba(255,255,255,.5);
     font-size: 20px;
+}
+
+.wpcfto-box {
+    &.column-1,
+    .wpcfto-box-child.column-1 {
+        .wpcfto_generic_field {
+            &.wpcfto_generic_field__iconpicker {
+                display: block;
+
+                .wpcfto_generic_field, input {
+                    flex: 1;
+                }
+            }
+            .wpcfto_generic_field__text {
+                // display: block;
+            }
+        }
+    }
+}
+
+.wpcfto_generic_field__iconpicker {
+    .wpcfto_generic_field__text {
+        padding: 0;
+    }
 }

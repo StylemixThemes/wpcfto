@@ -37,20 +37,6 @@
     }
 }
 
-.wpcfto_generic_field {
-    &.wpcfto_generic_field__notice {
-        background-color: transparent;
-        label {
-            font-size: 26px;
-            font-weight: 600;
-            line-height: 40px;
-            color: $color_main;
-            display: block;
-            margin-bottom: 10px;
-        }
-    }
-}
-
 .repeater {
     padding: 16px 20px 18px;
     .wpcfto-repeater {
@@ -62,4 +48,3 @@
         width: 100%;
     }
 }
-

@@ -13,30 +13,30 @@ Vue.component('wpcfto_autocomplete', {
     },
     template: `
         <div class="wpcfto_generic_field__autocomplete_wrapper">
-            
-            <label v-html="field_label"></label>
-        
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div class="wpcfto_generic_field wpcfto_generic_field__autocomplete">
-               
-                <div class="stm-autocomplete-search" v-bind:class="{'loading': loading}">
-          
+
+                <div class="wpcfto-autocomplete-search" v-bind:class="{'loading': loading}">
+
                     <div class="v-select-search">
 
-                        <i class="fa fa-plus"></i>
-    
+                        <i class="fa fa-plus-circle"></i>
+
                         <v-select label="title"
                                   v-model="search"
                                   @input="setSelected($event)"
                                   :options="options"
                                   @search="onSearch($event)">
                         </v-select>
-    
+
                         <span class="v-select-search-label">
                             Add {{field_label}}
                         </span>
-    
+
                     </div>
-                   
+
                     <ul class="wpcfto-autocomplete">
                         <li v-for="(item, index) in items" v-if="typeof item !== 'string'">
                             <div class="item-wrapper">
@@ -46,18 +46,20 @@ Vue.component('wpcfto_autocomplete', {
                                     <span v-html="item.title"></span>
                                 </div>
                             </div>
-                            <i class="lnr lnr-cross" @click="removeItem(index)"></i>
+                            <i class="fa fa-trash-alt" @click="removeItem(index)"></i>
                         </li>
                     </ul>
-                    
-                    
+
+
                     <input type="hidden"
                            v-bind:name="field_name"
                            v-model="value"/>
-                
+
                 </div>
             </div>
-            
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     created: function () {

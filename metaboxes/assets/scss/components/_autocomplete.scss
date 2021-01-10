@@ -1,10 +1,23 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field__autocomplete_wrapper {
-        margin-bottom: 20px;
+        margin-bottom: 0;
+        width: 100%;
+        padding: 20px;
+
+        .wpcfto-field-aside {
+            .wpcfto-field-aside__label {
+                display: block;
+                margin: 0 0 0.8em;
+            }
+        }
 
         .wpcfto_generic_field__autocomplete {
             background-color: transparent;
             padding: 0;
+        }
+
+        .wpcfto-autocomplete-search {
+            width: 100%;
         }
 
         > label {
@@ -60,24 +73,27 @@
         .wpcfto-autocomplete {
             margin-bottom: 0;
             li {
+                background-color: #ffffff;
+                border: 1px solid #bec5cb;
                 position: relative;
                 margin: 0 0 10px;
                 padding: 0;
-                background-color: #fff;
                 font-size: 14px;
                 font-weight: 500;
-                border: 1px solid #dbdbdb;
-                border-radius: 4px;
-                .lnr {
+                border-radius: 5px;
+                i {
                     position: absolute;
                     right: -1px;
                     top: 50%;
                     margin-top: -17px;
                     opacity: .4;
                     font-weight: 900;
+                    padding: 10px;
+                    margin-right: 10px;
                     cursor: pointer;
                     &:hover {
                         opacity: 1;
+                        color: #f32c41;
                     }
                 }
                 .item-wrapper {
@@ -108,5 +124,50 @@
             }
         }
 
+    }
+}
+
+
+.wpcfto-autocomplete-search {
+    .v-select-search {
+        position: relative;
+        & > i {
+            position: absolute;
+            top: 12px !important;
+            left: 11px;
+            font-size: 16px;
+            color: $accent;
+            z-index: 2;
+        }
+        .dropdown {
+            .dropdown-toggle {
+                background-color: #f6f9fc;
+                border: 1px solid #bec5cb;
+                border-radius: 5px;
+                height: 40px !important;
+                .form-control {
+                    background-color: transparent;
+                    height: 40px;
+                    padding-left: 33px !important;
+                }
+                i {
+                    display: none;
+                }
+            }
+            .selected-tag {
+                margin-left: 33px;
+            }
+            &.open {
+                .dropdown-toggle {
+                    border-color: $accent;
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+    .v-select-search-label {
+        color: $color_muted;
+        margin-top: 0.5em;
+        display: block;
     }
 }

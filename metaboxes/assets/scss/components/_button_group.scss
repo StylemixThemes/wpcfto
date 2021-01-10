@@ -1,28 +1,28 @@
 .stm_metaboxes_grid__inner {
-    .wpcfto_generic_field.wpcfto_generic_field_button_group {
-        & {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            padding: 20px;
-        }
-        .wpcfto_field_title {
-            display: block;
-        }
-        .wpcfto_field_column {
-            width: 30%;
-            position: relative;
-
-            .wpcfto_field_hint {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-        }
-        .field-description {
-            margin-top: 12px;
-        }
-    }
+    // .wpcfto_generic_field.wpcfto_generic_field_button_group {
+    //     & {
+    //         display: flex;
+    //         flex-direction: row;
+    //         align-items: center;
+    //         padding: 20px;
+    //     }
+    //     .wpcfto_field_title {
+    //         display: block;
+    //     }
+    //     .wpcfto_field_column {
+    //         width: 30%;
+    //         position: relative;
+    //
+    //         .wpcfto_field_hint {
+    //             position: absolute;
+    //             top: 0;
+    //             right: 0;
+    //         }
+    //     }
+    //     .field-description {
+    //         margin-top: 12px;
+    //     }
+    // }
     .wpcfto_button_group {
         display: flex;
         width: 40%;

@@ -15,15 +15,7 @@ Vue.component('wpcfto_image', {
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_image">
 
-            <div class="wpcfto_field_title">
-                <label v-html="field_label"></label>
-
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-            </div>
-
-            <div v-if="fields.hint" class="wpcfto_field_hint text">
-                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-            </div>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
             <div class="wpcfto-image" :class="{ 'has-image' : image_url && wpcfto_checkURL(image_url) }">
                 <input type="text" v-model="image_url" class="wpcfto-input-url" placeholder="Enter image URL or click upload..." />
@@ -54,6 +46,7 @@ Vue.component('wpcfto_image', {
                    v-bind:name="field_name"
                    v-model="value" />
 
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 
         </div>
     `,

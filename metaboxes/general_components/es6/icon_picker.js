@@ -24,30 +24,32 @@ Vue.component('wpcfto_icon_picker', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field__iconpicker">
-            <label v-html="field_label"></label>
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text">
-                <input ref="picker" 
-                v-model="search" 
+                <input ref="picker"
+                v-model="search"
                 @blur="blur"
-                @focus="focus" 
-                type="email" 
+                @focus="focus"
+                type="email"
                 class="form-control"
                 placeholder="Search an icon">
-                
-                <wpcfto_color @wpcfto-get-value="value['color'] = $event" 
+
+                <wpcfto_color @wpcfto-get-value="value['color'] = $event"
                     :fields="{position: 'bottom'}"
                     v-if="inited"
                     :field_value="value['color']">
-                
+
                 </wpcfto_color>
-                
-                <input 
-                v-model="value['size']" 
-                type="number" 
+
+                <input
+                v-model="value['size']"
+                type="number"
                 class="form-control"
                 placeholder="Icon size">
             </div>
-            
+
             <transition name="icon-preview-fade">
                 <div v-if="focusOn" class="preview-container">
                     <div @click="select(undefined)" @mouseover="hoverPanel = true" @mouseout="hoverPanel = false" :class="['previewer', 'rounded', {'custom-shadow-sm': !hoverPanel}, {'custom-shadow': hoverPanel} ]">
@@ -59,12 +61,14 @@ Vue.component('wpcfto_icon_picker', {
                     </div>
                 </div>
             </transition>
-            
-            <i class="wpcfto_generic_field__iconpicker__icon" 
-            v-bind:class="value.icon" 
+
+            <i class="wpcfto_generic_field__iconpicker__icon"
+            v-bind:class="value.icon"
             v-bind:style="{ color: value.color, 'font-size' : value.size + 'px'}"
             v-if="value.icon"></i>
-            
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
   `,
     mounted: function () {

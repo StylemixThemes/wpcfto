@@ -7,19 +7,22 @@ Vue.component('wpcfto_repeater', {
         }
     },
     template: `
-    <div class="wpcfto-repeater unflex_fields">
-      
-        <label v-html="field_label"></label>
-   
+    <div class="wpcfto_generic_field wpcfto_generic_field_repeater wpcfto-repeater unflex_fields">
+
+        <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
         <div v-for="(area, area_key) in repeater" class="wpcfto-repeater-single" :class="'wpcfto-repeater_' + field_name + '_' + area_key ">
-        
+
             <!--<span class="wpcfto-repeater-single-key" :data-number="area_key + 1" @click="toggleArea(area)" :data-tab="field_label + ' (' + (area_key + 1) + ')'"></span>-->
-            
+
             <!--:class="{'closed' : !area.closed_tab}"-->
+
+            <div class="wpcfto_group_title" v-html="'Item #' + (area_key + 1)"></div>
+
             <div class="repeater_inner">
-           
+
                 <div class="wpcfto-repeater-field" v-for="(field, field_name_inner) in fields.fields">
-                
+
                     <component :is="'wpcfto_' + field.type"
                                :fields="field"
                                :field_name="field_name + '_' + area_key + '_' + field_name_inner"
@@ -30,20 +33,21 @@ Vue.component('wpcfto_repeater', {
                                :field_native_name_inner="field_name_inner"
                                @wpcfto-get-value="$set(repeater[area_key], field_name_inner, $event)">
                     </component>
-                   
+
                 </div>
-                
+
             </div>
-                
-            
-            <i class="fa fa-trash-alt wpcfto-repeater-single-delete" @click="removeArea(area_key)"></i>
-                
+
+            <span class="wpcfto-repeater-single-delete" @click="removeArea(area_key)">
+                <i class="fa fa-trash-alt"></i>Delete
+            </span>
+
         </div>
-        
-       
-       
+
+        <div v-if="repeater && repeater.length > 0" class="separator"></div>
+
         <div class="addArea" @click="addArea">
-            <i class="fa fa-plus"></i>
+            <i class="fa fa-plus-circle"></i>
             <span v-html="field_label"></span>
         </div>
 

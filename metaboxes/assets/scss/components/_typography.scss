@@ -5,4 +5,15 @@
     &__preview {
         word-break: break-all;
     }
+    select {
+        width: 50%;
+        margin-bottom: 1em;
+    }
+
+    .wpcfto_generic_field__typography__preview {
+        border-radius: 5px;
+        border: 1px dashed $color_muted;
+        background-color: #f6f9fc;
+        padding: 8px 15px;
+    }
 }

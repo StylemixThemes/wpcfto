@@ -1,4 +1,4 @@
-Vue.component('wpcfto_fields_aside', {
+Vue.component('wpcfto_fields_aside_before', {
     props: ['fields', 'field_label'],
     data: function () {
         return {
@@ -6,21 +6,40 @@ Vue.component('wpcfto_fields_aside', {
         }
     },
     template: `
-        <div class="wpcfto-field-aside">
+        <div class="wpcfto-field-aside" v-if="field_label || fields.preview || fields.description || fields.hint">
             <label v-html="field_label" class="wpcfto-field-aside__label"></label>
-            
+
             <div
             v-if="fields.preview"
             class="wpcfto_preview"><span class="wpcfto_preview__text">Preview</span><span
             class="wpcfto_preview__popup"><img
             :src="fields.preview" /></span></div>
-            
+
             <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__before description"></span>
-            
+
             <div v-if="fields.hint" class="wpcfto_field_hint text">
                 <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-            </div>                
+            </div>
         </div>
+    `,
+    methods: {},
+    watch: {
+        value: function (value) {
+
+        }
+    }
+});
+
+
+Vue.component('wpcfto_fields_aside_after', {
+    props: ['fields'],
+    data: function () {
+        return {
+            fields: {},
+        }
+    },
+    template: `
+        <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
     `,
     methods: {},
     watch: {

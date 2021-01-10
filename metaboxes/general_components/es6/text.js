@@ -8,7 +8,7 @@ Vue.component('wpcfto_text', {
     template: `
 
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text">
-            <wpcfto_fields_aside :fields="fields" :field_label="field_label"></wpcfto_fields_aside>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
             <input type="text"
                 v-bind:name="field_name"
@@ -17,8 +17,8 @@ Vue.component('wpcfto_text', {
                 v-model="value"
                 placeholder="Enter something..."
             />
-            
-            <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
         </div>
     `,
     mounted: function () {

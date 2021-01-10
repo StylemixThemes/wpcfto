@@ -109,6 +109,25 @@
         .wpcfto_generic_field {
             display: block;
         }
+        .wpcfto-field-aside {
+            margin-bottom: 0.8em;
+        }
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        input[type="number"],
+        input[type="email"],
+        input[type="phone"],
+        select,
+        textarea {
+            display: block;
+            width: 100%;
+        }
+
+        .wpcfto-field-description__after {
+            display: block;
+            margin-top: 0.8em;
+        }
     }
 
     &.wpcfto_group_started {
