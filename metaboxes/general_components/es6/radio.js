@@ -7,6 +7,7 @@ Vue.component('wpcfto_radio', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_radio" v-bind:class="field_id">
+        
             <div class="wpcfto-admin-radio" v-bind:id="field_id">
                 <label v-html="field_label"></label>
                 <div class="wpcfto-radio">

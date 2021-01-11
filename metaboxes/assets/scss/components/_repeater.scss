@@ -13,13 +13,13 @@
         &-single {
             position: relative;
             padding: 0;
-            margin: 0 -25px 20px;
+            margin: 0 0 25px;
             background-color: transparent;
             border-radius: 3px;
 
             .wpcfto_group_title {
-                padding: 0 0px 12px;
-                margin: 10px 25px 17px;
+                padding: 0 0px 10px;
+                margin: 15px 0 15px;
                 width: auto;
             }
 
@@ -39,7 +39,7 @@
             }
 
             .wpcfto_generic_field {
-                padding: 0 25px;
+                padding: 0;
                 margin-bottom: 0.8em !important;
             }
 
@@ -64,6 +64,11 @@
                 opacity: .3;
                 font-size: 16px;
                 cursor: pointer;
+                transition: 0.2s ease 0s;
+                i {
+                    vertical-align: top;
+                    margin-right: 8px;
+                }
                 &:hover {
                     opacity: 1;
                 }
@@ -106,6 +111,26 @@
 
         .wpcfto-repeater-field {
             width: 100%;
+            &:first-of-type {
+                padding-right: 25px;
+            }
+            &:last-of-type {
+                padding-left: 25px;
+            }
+            .wpcfto-admin-checkbox,
+            .wpcfto-radio {
+                & {
+                    position: relative;
+                }
+                label {
+                    margin-bottom: 0;
+                }
+            }
+            input[type=radio],
+            input[type=checkbox]{
+                width: auto;
+                margin-bottom: 0;
+            }
             &:last-child {
                 > div {
                     margin-bottom: 0;

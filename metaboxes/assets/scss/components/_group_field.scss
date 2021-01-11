@@ -48,6 +48,9 @@ html body .stm_metaboxes_grid {
 
             .row {
                 flex-wrap: wrap;
+                //width: auto;
+                margin-left: -10px;
+                margin-right: -10px;
             }
         }
     }

@@ -75,7 +75,8 @@
 
     .wpcfto-box-child {
         position: relative;
-        margin: 0 5px;
+        //margin: 0 5px;
+        margin: 0 10px;
     }
 
     a {
@@ -232,19 +233,19 @@
                     padding: 0;
                 }
                 .column-25 {
-                    width: calc(25% - 10px);
+                    width: calc(25% - 20px);
                 }
                 .column-33 {
-                    width: calc(33.33% - 10px);
+                    width: calc(33.33% - 20px);
                 }
                 .column-50 {
-                    width: calc(50% - 10px);
+                    width: calc(50% - 20px);
                 }
                 .column-66 {
-                    width: calc(66.66% - 10px);
+                    width: calc(66.66% - 20px);
                 }
                 .column-75 {
-                    width: calc(75% - 10px);
+                    width: calc(75% - 20px);
                 }
             }
         }
@@ -377,20 +378,10 @@
                 font-size: 13px;
                 font-weight: 400;
                 line-height: 16px;
-                padding-left: 20px;
                 position: relative;
                 display: inline-block;
                 vertical-align: middle;
                 font-style: normal;
-            }
-            &::before {
-                content: "";
-                background: transparent url(../images/stm-icon-info.svg) no-repeat center center;
-                position: absolute;
-                width: 14px;
-                height: 14px;
-                left: 0;
-                top: 2px;
             }
         }
     }
@@ -400,7 +391,6 @@
     & {
         margin: 30px 30px 0 0;
     }
-
     .button {
         & {
             height: 45px;

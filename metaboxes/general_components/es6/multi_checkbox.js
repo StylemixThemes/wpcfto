@@ -6,7 +6,7 @@ Vue.component('wpcfto_multi_checkbox', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
+        <div class="wpcfto_generic_field wpcfto_generic_field_multi_checkbox" v-bind:class="field_id">
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 

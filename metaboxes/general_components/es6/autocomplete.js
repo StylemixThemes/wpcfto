@@ -8,6 +8,7 @@ Vue.component('wpcfto_autocomplete', {
             search: '',
             options: [],
             loading: true,
+            itemHovered: null,
             value: ''
         }
     },
@@ -31,22 +32,22 @@ Vue.component('wpcfto_autocomplete', {
                                   @search="onSearch($event)">
                         </v-select>
 
-                        <span class="v-select-search-label">
-                            Add {{field_label}}
-                        </span>
+<!--                        <span class="v-select-search-label">-->
+<!--                            Add {{field_label}}-->
+<!--                        </span>-->
 
                     </div>
 
                     <ul class="wpcfto-autocomplete">
-                        <li v-for="(item, index) in items" v-if="typeof item !== 'string'">
+                        <li v-for="(item, index) in items" v-if="typeof item !== 'string'" :class="{ 'hovered' : itemHovered == index }">
                             <div class="item-wrapper">
-                                <img v-bind:src="item.image" v-if="item.image">
+                                <img v-bind:src="item.image" v-if="item.image" class="item-image">
                                 <div class="item-data">
-                                    <span class="item-label" v-html="field_label"></span>
-                                    <span v-html="item.title"></span>
+                                    <span v-html="item.title" class="item-title"></span>
+                                    <span v-html="item.excerpt" class="item-excerpt"></span>
                                 </div>
                             </div>
-                            <i class="fa fa-trash-alt" @click="removeItem(index)"></i>
+                            <i class="fa fa-trash-alt" @click="removeItem(index)" @mouseover="itemHovered = index" @mouseleave="itemHovered = null"></i>
                         </li>
                     </ul>
 
@@ -133,7 +134,7 @@ Vue.component('wpcfto_autocomplete', {
         },
         removeItem(index) {
             this.items.splice(index, 1);
-        }
+        },
     },
     watch: {
         items: function () {

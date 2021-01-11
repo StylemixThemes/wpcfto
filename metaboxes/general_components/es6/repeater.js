@@ -17,7 +17,7 @@ Vue.component('wpcfto_repeater', {
 
             <!--:class="{'closed' : !area.closed_tab}"-->
 
-            <div class="wpcfto_group_title" v-html="'Item #' + (area_key + 1)"></div>
+            <div class="wpcfto_group_title" v-html="field_label + ' #' + (area_key + 1)"></div>
 
             <div class="repeater_inner">
 
@@ -48,7 +48,7 @@ Vue.component('wpcfto_repeater', {
 
         <div class="addArea" @click="addArea">
             <i class="fa fa-plus-circle"></i>
-            <span v-html="field_label"></span>
+            <span v-html="field_label + ' Item'"></span>
         </div>
 
     </div>

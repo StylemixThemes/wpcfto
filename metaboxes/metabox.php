@@ -454,7 +454,9 @@ class STM_Metaboxes
                 $response = array(
                     'id' => get_the_ID(),
                     'title' => get_the_title(),
-                    'post_type' => get_post_type(get_the_ID())
+                    'post_type' => get_post_type(get_the_ID()),
+                    'excerpt' => get_the_excerpt(get_the_ID()),
+                    'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
                 );
 
                 $r[] = apply_filters('wpcfto_search_posts_response', $response, $args['post_type']);
