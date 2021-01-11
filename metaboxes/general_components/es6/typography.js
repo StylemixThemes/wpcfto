@@ -35,71 +35,129 @@ Vue.component('wpcfto_typography', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div v-if="typography['font-family'].length">
-                <link rel="preconnect" href="https://fonts.gstatic.com">
-                <link :href="buildGLink()" rel="stylesheet">
-            </div>
-
-            <select v-model="typography['font-data']" @change="fontChanged()">
-                <option value="">Select font</option>
-                <option v-bind:value="font" v-for="font in google_fonts" v-html="font.family"></option>
-            </select>
-
-            <select v-model="typography['backup-font']">
-                <option value="">Select backup font</option>
-                <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
-            </select>
-
-            <select v-model="typography['google-weight']" @change="weightChanged()">
-                <option value="">Select font weight</option>
-                <option
-                    v-bind:value="variant_key"
-                    :disabled="isFontWeightDisabled(variant_key)"
-                    v-for="(variant, variant_key) in variants" v-html="variant"></option>
-            </select>
-
-            <select v-model="typography['subset']">
-                <option value="">Select subset</option>
-                <option
-                    v-bind:value="subset_key"
-                    :disabled="isSubsetDisabled(subset_key)"
-                    v-for="(subset, subset_key) in subsets" v-html="subset"></option>
-            </select>
-
-            <select v-model="typography['text-align']">
-                <option
-                    v-bind:value="align_key"
-                    v-for="(align_label, align_key) in align" v-html="align_label"></option>
-            </select>
-
-            <label>
-                {{translations['font_size']}}
-                <input type="number" v-model="typography['font-size']">
-            </label>
-
-            <label>
-                {{translations['line_height']}}
-                <input type="number" v-model="typography['line-height']">
-            </label>
-
-            <label>
-                {{translations['word_spacing']}}
-                <input type="number" v-model="typography['word-spacing']">
-            </label>
-
-            <label>
-                {{translations['letter_spacing']}}
-                <input type="number" v-model="typography['letter-spacing']">
-            </label>
-
-            <wpcfto_color @wpcfto-get-value="typography['color'] = $event"
-                    :fields="{position: 'bottom'}"
-                    v-if="inited"
-                    :field_value="typography['color']">
-            </wpcfto_color>
-
-            <div class="wpcfto_generic_field__typography__preview" :style="previewStyles()">
-                ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz1234567890‘?’“!”(%)[#]{@}/&\\<-+÷×=>®©$€£¥¢:;,.*
+            <div class="wpcfto-typography-fields-wrap">
+                <div class="row">
+                    <div class="column">
+                        <div class="column-1" v-if="typography['font-family'].length">
+                            <div v-if="typography['font-family'].length">
+                                <link rel="preconnect" href="https://fonts.gstatic.com">
+                                <link :href="buildGLink()" rel="stylesheet">
+                            </div>
+                        </div>
+            
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['font_family']"></label>                        
+                            <select v-model="typography['font-data']" @change="fontChanged()">
+                                <option value="">Select font</option>
+                                <option v-bind:value="font" v-for="font in google_fonts" v-html="font.family"></option>
+                            </select>
+                        </div>        
+            
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['backup_font_family']"></label>       
+                            <select v-model="typography['backup-font']">
+                                <option value="">Select backup font</option>
+                                <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
+                            </select>
+                        </div>        
+    
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['font_weight']"></label>       
+                            <select v-model="typography['google-weight']" @change="weightChanged()">
+                                <option value="">Select font weight</option>
+                                <option
+                                    v-bind:value="variant_key"
+                                    :disabled="isFontWeightDisabled(variant_key)"
+                                    v-for="(variant, variant_key) in variants" v-html="variant"></option>
+                            </select>
+                        </div>        
+    
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['font_subset']"></label>       
+                            <select v-model="typography['subset']">
+                                <option value="">Select subset</option>
+                                <option
+                                    v-bind:value="subset_key"
+                                    :disabled="isSubsetDisabled(subset_key)"
+                                    v-for="(subset, subset_key) in subsets" v-html="subset"></option>
+                            </select>
+                        </div>        
+    
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['text_align']"></label> 
+                            <select v-model="typography['text-align']">
+                                <option
+                                    v-bind:value="align_key"
+                                    v-for="(align_label, align_key) in align" v-html="align_label"></option>
+                            </select>
+                        </div>        
+    
+                        <div class="column-50">
+                            <div class="row">
+                                <div class="column">
+                                    <div class="column-50">
+                                        <label>
+                                            <span class="field-label" v-html="translations['font_size']"></span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" v-model="typography['font-size']" min="1">
+                                                <span class="input-group-addon">px</span>
+                                            </div>                                                
+                                        </label>                                
+                                    </div>
+                                    <div class="column-50">
+                                        <label>
+                                            <span class="field-label" v-html="translations['line_height']"></span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" v-model="typography['line-height']" min="0">
+                                                <span class="input-group-addon">px</span>
+                                            </div>                                             
+                                        </label>                                   
+                                    </div>
+                                </div>  
+                            </div>                         
+                        </div>
+    
+                        <div class="column-50">
+                            <div class="row">
+                                <div class="column">
+                                    <div class="column-50">
+                                        <label>
+                                            <span class="field-label" v-html="translations['word_spacing']"></span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" v-model="typography['word-spacing']" min="0">
+                                                <span class="input-group-addon">px</span>
+                                            </div>
+                                        </label>                                
+                                    </div>
+                                    <div class="column-50">
+                                        <label>
+                                            <span class="field-label" v-html="translations['letter_spacing']"></span>
+                                            <div class="input-group">
+                                                <input type="number" class="form-control" v-model="typography['letter-spacing']" min="0">
+                                                <span class="input-group-addon">px</span>
+                                            </div>                                            
+                                        </label>                            
+                                    </div>
+                                </div>
+                            </div>                          
+                        </div>     
+    
+                        <div class="column-50">
+                            <label class="field-label" v-html="translations['font_color']"></label> 
+                            <wpcfto_color @wpcfto-get-value="typography['color'] = $event"
+                                    :fields="{position: 'bottom'}"
+                                    v-if="inited"
+                                    :field_value="typography['color']">
+                            </wpcfto_color>
+                        </div>            
+            
+                        <div class="column-1">
+                            <div class="wpcfto_generic_field__typography__preview" :style="previewStyles()">
+                                ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890 ‘?’“!”(%)[#]{@}/&\\<-+÷×=>®©$€£¥¢:;,.*
+                            </div>            
+                        </div>            
+                    </div>
+                </div>
             </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>

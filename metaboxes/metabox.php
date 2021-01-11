@@ -192,6 +192,12 @@ class STM_Metaboxes
             'line_height' => esc_html__('Line height', 'wpcfto'),
             'word_spacing' => esc_html__('Word spacing', 'wpcfto'),
             'letter_spacing' => esc_html__('Letter spacing', 'wpcfto'),
+            'font_family' => esc_html__('Font Family', 'wpcfto'),
+            'backup_font_family' => esc_html__('Backup Font Family', 'wpcfto'),
+            'font_weight' => esc_html__('Font Weignt & Style', 'wpcfto'),
+            'font_subset' => esc_html__('Font Subsets', 'wpcfto'),
+            'text_align' => esc_html__('Text Align', 'wpcfto'),
+            'font_color' => esc_html__('Font Color', 'wpcfto'),
         );
     }
 
