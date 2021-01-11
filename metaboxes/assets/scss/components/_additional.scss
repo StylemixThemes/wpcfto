@@ -1,3 +1,5 @@
+@import "components/payment_methods";
+
 .wpcfto_generic_field_demo_import {
     &.wpcfto_generic_field {
         width: 100%;
@@ -46,5 +48,39 @@
     .wpcfto-repeater-single {
         display: block;
         width: 100%;
+    }
+}
+
+.stm_lms_shortcode_list {
+    padding: 20px;
+    width: 100%;
+
+    & > div {
+        label {
+            display: block;
+            margin-bottom: 15px;
+        }
+        input, select, textarea {
+            margin-bottom: 15px;
+        }
+        ul {
+            & {
+                list-style: circle;
+            }
+            li {
+                line-height: 1.4;
+            }
+            ul {
+                list-style: none;
+                text-indent: -5px;
+                li {
+                    &:before {
+                        content: "-";
+                        text-indent: -5px;
+                        margin-right: 5px;
+                    }
+                }
+            }
+        }
     }
 }
