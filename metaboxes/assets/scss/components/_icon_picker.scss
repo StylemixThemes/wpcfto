@@ -3,7 +3,8 @@
 }
 
 .custom-shadow-sm {
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    //box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.16);
 }
 
 /* In FontawesomePicker.vue <style scoped lang="scss" /> */
@@ -18,9 +19,22 @@
 }
 
 .preview-container {
-    width: 100%;
-    position: relative;
+    position: absolute;
+    left: 20px;
+    right: 20px;
+    top: 120px;
+    background-color: #ffffff;
     z-index: 9999999;
+
+    &::before {
+        content: "";
+        border: 10px solid transparent;
+        border-bottom-color: #fff;
+        position: absolute;
+        top: -40px;
+        left: 40px;
+        z-index: 9;
+    }
 }
 
 .previewer {
@@ -29,44 +43,150 @@
     min-height: 50px;
     max-height: 500px;
     overflow: auto;
+    border: 1px solid #bec5cb;
     background: white;
+    padding: 20px;
     top: -20px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
     align-items: center;
+    border-radius: 10px;
     transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
 }
 
 .icon-preview {
-
     text-align: center;
-
-
     .icon-wrapper {
-        width: 70px;
-        height: 70px;
-        padding: 15px;
-        margin: 15px;
-        line-height: 50px;
+        width: 45px;
+        height: 45px;
+        padding: 10px;
+        margin: 0;
+        line-height: 40px;
         cursor: pointer;
         border-radius: 5px;
+        color: $color_muted;
         transition: ease-in-out all .25s;
 
         &:hover, &.selected {
-            background: #42b883;
-            color: #fbfbfb;
+            background-color: #f2f5f8;
+            color: $color_main;
         }
 
         i {
-            font-size: 30px;
+            font-size: 22px;
         }
     }
 }
 
 .wpcfto_generic_field__iconpicker__icon {
-    padding: 15px;
+    padding: 10px;
     background-color: rgba(255,255,255,.5);
     font-size: 20px;
+}
+
+.wpcfto-box {
+    &.column-1,
+    .wpcfto-box-child.column-1 {
+        .wpcfto_generic_field {
+            &.wpcfto_generic_field__iconpicker {
+                display: block;
+
+                .wpcfto_generic_field, input {
+                    //flex: 1;
+                }
+            }
+            .wpcfto_generic_field__text {
+                // display: block;
+            }
+        }
+    }
+}
+
+.wpcfto_generic_field_iconpicker {
+    & {
+        position: relative;
+    }
+    .wpcfto_generic_field__inner {
+        width: 100%;
+        display: block;
+        align-self: start;
+        padding-right: 35px;
+        .wpcfto_generic_field {
+            padding: 0;
+            display: block;
+            float: left;
+            width: 50%;
+            min-height: 80px;
+            padding-right: 25px;
+            label {
+                display: block !important;
+                margin: 0 0 0.8em !important;
+            }
+            input:not(.range-slider-hidden) {
+                width: 100%;
+            }
+            &.wpcfto_generic_field_range_slider {
+                width: 100%;
+                display: flex;
+                align-self: start;
+                justify-content: space-between;
+
+                .wpcfto_field_title {
+                    label {
+                        margin: 0 !important;
+                    }
+                }
+            }
+        }
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+    }
+    .wpcfto_range_slider {
+        min-width: 335px;
+        width: 100%;
+        max-width: 420px;
+        padding-top: 0;
+        .range-slider-hidden {
+            position: absolute;
+            display: block !important;
+            width: 85px;
+            top: 0;
+            right: -105px;
+        }
+        .wpcfto_range_slider__pin {
+            display: none;
+        }
+        .range-slider {
+            & {
+                padding-right: 105px;
+            }
+            .range-slider-inner {
+                padding-top: 40px;
+            }
+        }
+    }
+    .icon-preview-wrap {
+        & {
+            align-self: start;
+        }
+        label {
+            display: block;
+            margin: 0 0 0.8em;
+        }
+        .icon-preview-inner {
+            min-width: 118px;
+            min-height: 118px;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            border-radius: 5px;
+            border: 1px solid #bec5cb;
+            background-color: #ffffff;
+        }
+    }
 }

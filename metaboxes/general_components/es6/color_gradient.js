@@ -11,11 +11,8 @@ Vue.component('wpcfto_color_gradient', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_color_gradient" v-bind:class="field_id">
-            <div class="wpcfto_field_title">
-                <label v-html="field_label"></label>
 
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-            </div>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
             <div class="wpcfto_color_gradient">
                 <div class="wpcfto_color_gradient_group">
@@ -35,6 +32,9 @@ Vue.component('wpcfto_color_gradient', {
                     </div>
                 </div>
             </div>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     created: function () {

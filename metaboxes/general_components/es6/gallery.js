@@ -5,38 +5,38 @@ Vue.component('wpcfto_gallery', {
 			gallery : []
 		}
 	},
-	template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
-        
-            <label v-html="field_label"></label>
-                        
+	template: `
+        <div class="wpcfto_generic_field wpcfto_generic_field_gallery" v-bind:class="field_id">
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
 			<div class="wpcfto_gallery">
-				
-				
-				<draggable class="wpcfto_gallery__items" 
-						   :list="gallery" 
+
+				<draggable class="wpcfto_gallery__items"
+						   :list="gallery"
 						   group="gallery">
-				
+
 					<div class="wpcfto_gallery__item"
 						 v-for="(image, image_key) in gallery"
 						 :key="image_key">
-						 
+
 						 <i class="wpcfto_gallery__item_delete fa fa-times" @click="gallery.splice(image_key, 1)"></i>
-						 
+
 					  <img v-bind:src="image.url" />
-					  
+
 					</div>
-					
+
 				 </draggable>
-				
+
 				<div class="actions">
-                    <div class="button" @click="addImages()">
-                        Add Images
-                    </div>
+                    <div class="button" @click="addImages()">Add/Edit Gallery</div>
+                    <div class="button button-remove" v-if="gallery.length > 0" @click="gallery = []">Clear Gallery</div>
                 </div>
-				
+
 			</div>
-             
+
+			<wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
 	mounted: function () {
@@ -71,7 +71,7 @@ Vue.component('wpcfto_gallery', {
 			}, _this);
 
 			_this.media_modal.open();
-		},
+		}
 	},
 	watch: {
 		gallery: {

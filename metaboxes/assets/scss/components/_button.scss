@@ -7,23 +7,28 @@
         }
         .button {
             display: inline-block;
-            padding: 11px 20px 9px;
-            margin-right: 10px;
+            padding: 10px 27px;
+            margin-right: 0;
             min-height: auto;
-            height: auto;
-            line-height: 1;
+            height: 40px;
+            line-height: 1.4;
             text-transform: uppercase;
             color: #fff;
             font-size: 13px;
-            border-radius: 5px;
-            background-image: linear-gradient(0deg,#334cb9 0,#4c65d3 100%);
+            font-weight: 600;
+            border-radius: 4px;
+            background: $accent;
+            border-color: $accent;
+            box-shadow: 0 3px 3px rgba(0, 0, 0, 0.16);
             cursor: pointer;
             letter-spacing: 0;
-            border: 0 !important;
-            span {
-                transition: none;
-            }
             &:hover {
+                background-color: lighten($accent, 5%) !important;
+                border-color: lighten($accent, 5%) !important;
+            }
+            i {
+                display: inline;
+                margin-right: 10px;
             }
         }
     }

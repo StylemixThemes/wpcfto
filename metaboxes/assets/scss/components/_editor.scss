@@ -1,12 +1,12 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
     .wpcfto_generic_field.wpcfto_generic_field_editor {
-
+        display: block;
         background-color: $bg_blocks;
-        padding: 0;
         border-radius: 10px;
         padding: 20px;
 
         .wpcfto-editor {
+            width: 100%;
             margin: 0;
 
             > label {
@@ -109,8 +109,10 @@
     .wpcfto_generic_field.wpcfto_generic_field_ace_editor {
         & {
             padding: 20px;
+            display: block;
         }
         .ace_editor {
+            width: 100%;
             border-radius: 5px;
             border: 1px solid #bec5cb;
             .ace_gutter {

@@ -9,7 +9,7 @@
         top: 100%;
         right: 0;
         width: 100%;
-        min-width: 510px;
+        min-width: 540px;
         opacity: 0;
         visibility: hidden;
         transform: translateY(5px);
@@ -64,12 +64,25 @@
     > span:not(.description) {
         background-color: #f6f9fc;
         display: inline-block;
-        vertical-align: middle;
         width: 40px;
         height: 40px;
         margin-right: 10px;
         border: 1px solid #bec5cb;
         cursor: pointer;
+        vertical-align: top;
         border-radius: 5px;
+    }
+}
+
+.wpcfto-box {
+    &.column-1:not(.wpcfto_group_started){
+        .stm_colorpicker_wrapper {
+            min-width: 33%;
+        }
+    }
+    &.wpcfto_group_started .wpcfto-box-child:not(.column-1) {
+        .wpcfto-field-aside {
+            margin-bottom: 12px;
+        }
     }
 }

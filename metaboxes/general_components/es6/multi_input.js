@@ -5,31 +5,35 @@ Vue.component('wpcfto_multi_input', {
 			inputs: []
 		}
 	},
-	template: ` 
-        <div class="wpcfto_generic_field wpcfto_generic_field_flex_input" v-bind:class="field_id">
-        
-            <label v-html="field_label"></label>
-                        
+	template: `
+        <div class="wpcfto_generic_field wpcfto_generic_field_multi_input" v-bind:class="field_id">
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
 			<div class="wpcfto_sorter">
-						
-				<draggable class="list-group" 
-						   :list="inputs" 
+
+				<draggable class="list-group"
+						   :list="inputs"
 						   group="inputs">
-				
+
 					<div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text"
 						 v-for="(input, input_key) in inputs"
 						 :key="input['key']">
-						 
+
 					  <div class="wpcfto_multi_input_label">{{input['label']}}</div>
-					  
+
 					  <input type="text" v-model="input['value']" v-bind:placeholder="input['label']" />
-					  
+
+					  <span class="wpcfto_multi_input_icon"><i class="fa fa-arrows-alt"></i></span>
+
 					</div>
-					
+
 				 </draggable>
-					 
+
 			 </div>
-             
+
+			 <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
 	mounted: function () {

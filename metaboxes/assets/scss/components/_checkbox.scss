@@ -19,16 +19,14 @@
     .wpcfto-admin-checkbox-wrapper {
         &.is_toggle {
             & {
-                position: absolute;
-                right: 12px;
+                position: relative;
                 display: inline-block;
-                margin: -1px 10px 0 0;
+                margin: 0;
                 width: 50px;
                 height: 26px;
                 border: 1px solid #bec5cb;
                 background-color: transparent;
                 top: 50%;
-                margin-top: -13px;
                 border-radius: 20px;
             }
             input {
@@ -88,6 +86,7 @@
                     opacity: 1;
                 }
             }
+
         }
         &:not(.is_toggle) {
             & {
@@ -107,7 +106,7 @@
                     &::before {
                         width: 14px;
                         margin: 0px;
-                        padding: 1px;
+                        padding: 0;
                         height: 14px;
                         content: url(data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2012%209%22%3E%3Cpath%20fill%3D%22none%22%20stroke%3D%22%23fff%22%20d%3D%22M1.862%203.988v0l2.086%202.183v0l1.05%201.1v0l4.489-4.74v0l.691-.731v0%22%2F%3E%3C%2Fsvg%3E);
                     }
@@ -168,12 +167,45 @@
 
 .wpcfto-box {
     .wpcfto-box-child {
+        .wpcfto_generic_field.wpcfto_generic_checkbox {
+            padding: 0;
+            .wpcfto-field-aside {
+                margin-bottom: 0;
+            }
+            .wpcfto-admin-checkbox-wrapper input {
+                margin: 0;
+            }
+        }
         &.column-1 {
             &.checkbox {
                 .wpcfto-admin-checkbox .wpcfto-admin-checkbox-wrapper.is_toggle {
                     margin-right: 0;
                     right: 0;
                 }
+            }
+        }
+        &:not(.column-1){
+            .wpcfto_generic_field.wpcfto_generic_checkbox {
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
+    }
+    &:not(.column-1){
+        .wpcfto_generic_field.wpcfto_generic_checkbox {
+            padding: 25px 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            .wpcfto-field-aside {
+                margin-bottom: 0;
+            }
+        }
+    }
+    .wpcfto-box-child {
+        &.column-1 {
+            .wpcfto_generic_field.wpcfto_generic_checkbox {
+                margin-bottom: 0;
             }
         }
     }
@@ -256,4 +288,52 @@
     span {
         opacity: 1;
     }
+}
+
+.wocommerce_checkout, .checkbox {
+    &.column-1 {
+        &.is_pro {
+            .wpcfto_generic_checkbox {
+                order: 2;
+            }
+            .pro-notice {
+                order: 1;
+            }
+        }
+    }
+}
+
+.wpcfto_generic_field_multi_checkbox {
+    .wpcfto-field-aside {
+        max-width: 35%;
+        align-self: start;
+        label {
+            display: block;
+        }
+    }
+    .wpcfto_multi_checkbox.wpcfto-admin-checkbox {
+        label {
+            width: 50%;
+            display: block;
+            margin-bottom: 1em;
+            input {
+                margin: 0 1em 0 0 !important;
+            }
+        }
+    }
+    .wpcfto-field-description {
+        margin-top: 0 !important;
+        display: block;
+    }
+}
+
+.wpcfto-box {
+     &.column-1,
+     .wpcfto-box-child.column-1 {
+         .wpcfto_multi_checkbox.wpcfto-admin-checkbox {
+             & {
+                 width: 65%;
+             }
+         }
+     }
 }

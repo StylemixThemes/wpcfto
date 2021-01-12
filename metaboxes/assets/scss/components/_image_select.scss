@@ -2,7 +2,7 @@
     .wpcfto_generic_field.wpcfto_generic_field_image_select {
         & {
             display: flex;
-            align-items: center;
+            align-items: initial;
             justify-content: space-between;
         }
         .wpcfto_field_title {
@@ -26,9 +26,10 @@
             .wpcfto-img-wrap {
                 display: block;
                 min-width: auto !important;
-                border-radius: 5px;
+                overflow: hidden;
                 margin: 0 0 15px;;
                 border: 2px solid transparent;
+                border-radius: 5px;
             }
             input[type="radio"] {
                 width: auto !important;
@@ -50,7 +51,6 @@
             img {
                 display: block;
                 max-width: 100%;
-                border-radius: 5px;
             }
             .wpcfto-img-alt {
                 color: $color_muted;

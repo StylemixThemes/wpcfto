@@ -33,28 +33,31 @@
             transform: translateX(2px);
         }
     }
-    & > i.fa-info-circle {
+    & > i {
         cursor: pointer;
         z-index: 99999;
         font-size: 14px;
+        color: $color_muted;
 
         &:before {
-            color: $accent;
             opacity: 0.9;
         }
-
-        &:hover {
+    }
+    &:hover {
+        & > i {
             opacity: 1;
-
-            + .hint {
-                opacity: 1;
-                visibility: visible;
-            }
+            color: $accent;
+        }
+        .hint {
+            opacity: 1;
+            visibility: visible;
         }
     }
 }
 
-
+//.wpcfto-icon-info {
+//    background: transparent url(../images/stm-icon-info.svg) no-repeat center center;
+//}
 
 .wpcfto-box {
     .wpcfto-box-child {

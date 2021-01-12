@@ -8,11 +8,7 @@ Vue.component('wpcfto_time', {
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field_time">
 
-            <label v-html="field_label" class="wpcfto_field_title"></label>
-
-            <div v-if="fields.hint" class="wpcfto_field_hint text">
-                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-            </div>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
             <input type="time"
                 v-bind:name="field_name"
@@ -21,7 +17,8 @@ Vue.component('wpcfto_time', {
                 v-model="value"
             />
 
-            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+            
         </div>
     `,
     mounted: function () {

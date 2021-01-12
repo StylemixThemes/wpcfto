@@ -1,7 +1,7 @@
 import RangeSlider from 'vue-range-slider'
 
 Vue.component('wpcfto_range_slider', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data', 'field_description'],
     data: function () {
         return {
             value: 0,
@@ -18,6 +18,7 @@ Vue.component('wpcfto_range_slider', {
             <div class="wpcfto_field_title">
                 <label v-html="field_label"></label>
                 <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+                <span v-if="field_description && !fields.description" v-html="field_description" class="field-description description"></span>
             </div>
             
             <div class="wpcfto_range_slider">

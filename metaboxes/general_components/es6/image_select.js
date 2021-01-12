@@ -8,10 +8,9 @@ Vue.component('wpcfto_image_select', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_image_select" v-bind:class="field_id">
-            <div class="wpcfto_field_title">
-                <label v-html="field_label"></label>
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-            </div>
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div class="wpcfto_image_select">
                 <label v-for="(option, key) in fields['options']" v-bind:class="{'active' : value == key}">
                     <span class="wpcfto-img-wrap"><img v-bind:src="option.img" v-bind:alt="option.alt" v-bind:style="style"></span>
@@ -19,6 +18,9 @@ Vue.component('wpcfto_image_select', {
                     <span v-html="option.alt" class="wpcfto-img-alt"></span>
                 </label>
             </div>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+            
         </div>
     `,
     mounted: function () {

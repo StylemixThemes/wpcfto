@@ -6,8 +6,9 @@ Vue.component('wpcfto_radio', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field" v-bind:class="field_id">
-            <div class="wpcfto-admin-select" v-bind:id="field_id">
+        <div class="wpcfto_generic_field wpcfto_generic_radio" v-bind:class="field_id">
+        
+            <div class="wpcfto-admin-radio" v-bind:id="field_id">
                 <label v-html="field_label"></label>
                 <div class="wpcfto-radio">
                     <label v-for="(option, key) in fields['options']" :class="{ 'disabled' : fields.soon && fields.soon[key] }">
@@ -24,6 +25,8 @@ Vue.component('wpcfto_radio', {
                             :src="fields.previews[key]" /></span></span>
                     </label>
                 </div>
+                
+                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
 
                 <div v-if="fields.hint" class="wpcfto_field_hint radio">
                     <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>

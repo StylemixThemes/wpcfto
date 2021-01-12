@@ -3,6 +3,9 @@
         .wpcfto_field_title {
             display: block;
         }
+        .wpcfto_datepicker {
+            min-width: 30%;
+        }
     }
     &.column-1 {
         .wpcfto_generic_field.wpcfto_generic_field_date {
@@ -44,6 +47,16 @@
         }
     }
 }
+.dates {
+    .wpcfto_generic_field.wpcfto_generic_field__date {
+        .wpcfto_field_title {
+            display: block;
+        }
+        .wpcfto_datepicker {
+            min-width: 30%;
+        }
+    }
+}
 .mx-datepicker {
     width: 100% !important;
     margin: 0 0 30px;
@@ -76,4 +89,9 @@
     .mx-datepicker {
         margin-bottom: 0;
     }
+}
+
+.mx-datepicker-popup {
+    right: 0 !important;
+    left: auto !important;
 }

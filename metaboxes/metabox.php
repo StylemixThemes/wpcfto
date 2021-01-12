@@ -192,6 +192,12 @@ class STM_Metaboxes
             'line_height' => esc_html__('Line height', 'wpcfto'),
             'word_spacing' => esc_html__('Word spacing', 'wpcfto'),
             'letter_spacing' => esc_html__('Letter spacing', 'wpcfto'),
+            'font_family' => esc_html__('Font Family', 'wpcfto'),
+            'backup_font_family' => esc_html__('Backup Font Family', 'wpcfto'),
+            'font_weight' => esc_html__('Font Weignt & Style', 'wpcfto'),
+            'font_subset' => esc_html__('Font Subsets', 'wpcfto'),
+            'text_align' => esc_html__('Text Align', 'wpcfto'),
+            'font_color' => esc_html__('Font Color', 'wpcfto'),
         );
     }
 
@@ -271,6 +277,14 @@ class STM_Metaboxes
                 true
             );
         }
+
+        wp_enqueue_script(
+            "wpcfto_fields_layout_component",
+            STM_WPCFTO_URL . "/metaboxes/general_components/js/fields_aside.js",
+            array('wpcfto_metaboxes.js'),
+            $v,
+            true
+        );
 
         $icons = array();
         $font_awesome = stm_wpcfto_new_fa_icons();
@@ -440,7 +454,9 @@ class STM_Metaboxes
                 $response = array(
                     'id' => get_the_ID(),
                     'title' => get_the_title(),
-                    'post_type' => get_post_type(get_the_ID())
+                    'post_type' => get_post_type(get_the_ID()),
+                    'excerpt' => get_the_excerpt(get_the_ID()),
+                    'image' => get_the_post_thumbnail_url(get_the_ID(), 'thumbnail')
                 );
 
                 $r[] = apply_filters('wpcfto_search_posts_response', $response, $args['post_type']);

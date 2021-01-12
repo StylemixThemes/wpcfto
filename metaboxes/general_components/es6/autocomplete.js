@@ -8,56 +8,59 @@ Vue.component('wpcfto_autocomplete', {
             search: '',
             options: [],
             loading: true,
+            itemHovered: null,
             value: ''
         }
     },
     template: `
         <div class="wpcfto_generic_field__autocomplete_wrapper">
-            
-            <label v-html="field_label"></label>
-        
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div class="wpcfto_generic_field wpcfto_generic_field__autocomplete">
-               
-                <div class="stm-autocomplete-search" v-bind:class="{'loading': loading}">
-          
+
+                <div class="wpcfto-autocomplete-search" v-bind:class="{'loading': loading}">
+
                     <div class="v-select-search">
 
-                        <i class="fa fa-plus"></i>
-    
+                        <i class="fa fa-plus-circle"></i>
+
                         <v-select label="title"
                                   v-model="search"
                                   @input="setSelected($event)"
                                   :options="options"
                                   @search="onSearch($event)">
                         </v-select>
-    
-                        <span class="v-select-search-label">
-                            Add {{field_label}}
-                        </span>
-    
+
+<!--                        <span class="v-select-search-label">-->
+<!--                            Add {{field_label}}-->
+<!--                        </span>-->
+
                     </div>
-                   
+
                     <ul class="wpcfto-autocomplete">
-                        <li v-for="(item, index) in items" v-if="typeof item !== 'string'">
+                        <li v-for="(item, index) in items" v-if="typeof item !== 'string'" :class="{ 'hovered' : itemHovered == index }">
                             <div class="item-wrapper">
-                                <img v-bind:src="item.image" v-if="item.image">
+                                <img v-bind:src="item.image" v-if="item.image" class="item-image">
                                 <div class="item-data">
-                                    <span class="item-label" v-html="field_label"></span>
-                                    <span v-html="item.title"></span>
+                                    <span v-html="item.title" class="item-title"></span>
+                                    <span v-html="item.excerpt" class="item-excerpt"></span>
                                 </div>
                             </div>
-                            <i class="lnr lnr-cross" @click="removeItem(index)"></i>
+                            <i class="fa fa-trash-alt" @click="removeItem(index)" @mouseover="itemHovered = index" @mouseleave="itemHovered = null"></i>
                         </li>
                     </ul>
-                    
-                    
+
+
                     <input type="hidden"
                            v-bind:name="field_name"
                            v-model="value"/>
-                
+
                 </div>
             </div>
-            
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     created: function () {
@@ -131,7 +134,7 @@ Vue.component('wpcfto_autocomplete', {
         },
         removeItem(index) {
             this.items.splice(index, 1);
-        }
+        },
     },
     watch: {
         items: function () {

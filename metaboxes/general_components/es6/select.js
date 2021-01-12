@@ -6,28 +6,20 @@ Vue.component('wpcfto_select', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field">
-            <div class="wpcfto-admin-select wpcfto_generic_field_flex_input">
-                <label>
-                    {{ field_label }}
-                    <span
-                    v-if="fields.preview"
-                    class="wpcfto_preview">Preview<span
-                    class="wpcfto_preview__popup"><img
-                    :src="fields.preview" /></span></span>
-                </label>
+        <div class="wpcfto_generic_field wpcfto_generic_field__select">
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
+            <div class="wpcfto-admin-select">
                 <select v-bind:name="field_name"
                         v-model="value"
                         v-bind:id="field_id">
                     <option v-for="(option, key) in fields['options']" v-bind:value="key">{{ option }}</option>
                 </select>
-
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-
-                <div v-if="fields.hint" class="wpcfto_field_hint select">
-                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-                </div>
             </div>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+
         </div>
     `,
     mounted: function () {

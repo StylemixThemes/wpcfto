@@ -1,11 +1,18 @@
 .stm_metaboxes_grid {
     .wpcfto_generic_field {
-        padding: 16px 20px 18px;
+        padding: 20px;
         width: 100%;
+
+        input, select, textarea {
+            box-shadow: 0 0 0 transparent;
+            font-size: 14px;
+        }
+        select {
+            line-height: 1;
+        }
 
         label {
             font-size: 16px;
-            margin-right: 15px;
 
             &.disabled {
                 color: $color_muted;

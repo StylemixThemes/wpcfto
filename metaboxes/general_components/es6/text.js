@@ -6,17 +6,10 @@ Vue.component('wpcfto_text', {
         }
     },
     template: `
+
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__text">
-            <div class="wpcfto_field_title">
-                <label>
-                    {{ field_label }}
-                    <span
-                    v-if="fields.preview"
-                    class="wpcfto_preview">Preview<span
-                    class="wpcfto_preview__popup"><img
-                    :src="fields.preview" /></span></span>
-                </label>
-            </div>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <input type="text"
                 v-bind:name="field_name"
                 v-bind:placeholder="fields.placeholder"
@@ -24,11 +17,8 @@ Vue.component('wpcfto_text', {
                 v-model="value"
                 placeholder="Enter something..."
             />
-            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
 
-            <div v-if="fields.hint" class="wpcfto_field_hint text">
-                <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-            </div>
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
         </div>
     `,
     mounted: function () {

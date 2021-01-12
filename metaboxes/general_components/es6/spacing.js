@@ -7,13 +7,9 @@ Vue.component('wpcfto_spacing', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_spacing" v-bind:class="field_id">
-            <div class="wpcfto_field_column">
-                <label v-html="field_label" class="wpcfto_field_title"></label>
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-                <div v-if="fields.hint" class="wpcfto_field_hint text">
-                    <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
-                </div>
-            </div>
+
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+
             <div class="wpcfto_spacing">
 
                 <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-up"></i><input type="number" name="top" v-model="spacing.top"/></div>
@@ -25,6 +21,9 @@ Vue.component('wpcfto_spacing', {
                     <option v-for="option in fields['units']" v-bind:value="option">{{ option }}</option>
                 </select>
             </div>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+            
         </div>
     `,
     mounted: function () {

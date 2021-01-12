@@ -1,6 +1,7 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
 
     .wpcfto_generic_field__notice {
+
         display: block;
         padding: 0;
         margin: 30px 0 15px;
@@ -13,10 +14,18 @@
         }
 
         label {
-            margin-bottom: 0;
-            font-size: 18px;
+            font-size: 26px;
+            font-weight: 600;
+            line-height: 40px;
+            color: $color_main;
+            display: block;
+            margin-bottom: 10px;
         }
 
+    }
+
+    .wpcfto-box.enable_courses_filter_notice {
+        padding: 20px;
     }
 
 }

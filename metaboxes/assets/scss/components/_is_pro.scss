@@ -9,6 +9,9 @@
                 color: $color_muted;
                 position: relative;
                 z-index: 101;
+                margin: 0 10px;
+                white-space: nowrap;
+                order: 2;
 
                 a {
                     margin-left: 4px;
@@ -43,14 +46,23 @@
                 }
             }
             &.certificate_banner {
-
+                & {
+                    padding: 20px;
+                }
                 .field_overlay {
                     left: 0;
                     right: 0;
                 }
+                .pro-notice {
+                    display: block;
+                    margin: 0 0 0.8em;
+                }
                 a {
                     outline: none;
                     box-shadow: none;
+                    img {
+                        max-width: 100%;
+                    }
                 }
                 &:hover {
                     .field_overlay {
