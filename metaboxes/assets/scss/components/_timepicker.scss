@@ -1,52 +1,11 @@
 .time {
-    .wpcfto_generic_field.wpcfto_generic_field_time {
-        .wpcfto_field_title {
-            display: block;
-        }
-    }
-    &.column-1 {
-        .wpcfto_generic_field.wpcfto_generic_field_time {
-            & {
-                display: flex;
-                flex-direction: row;
-                padding: 20px;
-                position: relative;
-                align-items: center;
-            }
-            .wpcfto_field_title {
-                display: flex;
-                width: 20%;
-                order: 1;
-            }
-            .wpcfto_field_hint {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-            .field-description {
-                order: 2;
-            }
+    .wpcfto_generic_field {
+        &.wpcfto_generic_field_time {
             input {
-                width: 30% !important;
-                margin-left: 15px;
-                order: 3;
-            }
-        }
-    }
-    &:not(.column-1) {
-        .wpcfto_generic_field.wpcfto_generic_field_time {
-            .field-description {
-                margin-top: 10px;
-            }
-            .wpcfto_field_title {
-                margin-bottom: 10px;
+                width: auto;
+                min-width: 210px;
             }
         }
     }
 }
 
-.wpcfto_generic_field_time {
-    input {
-        margin-bottom: 0;
-    }
-}

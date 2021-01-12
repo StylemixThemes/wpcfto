@@ -10,45 +10,45 @@ Vue.component('wpcfto_repeater', {
     <div class="wpcfto_generic_field wpcfto_generic_field_repeater wpcfto-repeater unflex_fields">
 
         <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
+        
+        <div class="wpcfto-field-content">
 
-        <div v-for="(area, area_key) in repeater" class="wpcfto-repeater-single" :class="'wpcfto-repeater_' + field_name + '_' + area_key ">
-
-            <!--<span class="wpcfto-repeater-single-key" :data-number="area_key + 1" @click="toggleArea(area)" :data-tab="field_label + ' (' + (area_key + 1) + ')'"></span>-->
-
-            <!--:class="{'closed' : !area.closed_tab}"-->
-
-            <div class="wpcfto_group_title" v-html="field_label + ' #' + (area_key + 1)"></div>
-
-            <div class="repeater_inner">
-
-                <div class="wpcfto-repeater-field" v-for="(field, field_name_inner) in fields.fields">
-
-                    <component :is="'wpcfto_' + field.type"
-                               :fields="field"
-                               :field_name="field_name + '_' + area_key + '_' + field_name_inner"
-                               :field_label="field.label"
-                               :field_value="getFieldValue(area_key, field, field_name_inner)"
-                               :field_data="field"
-                               :field_native_name="field_name"
-                               :field_native_name_inner="field_name_inner"
-                               @wpcfto-get-value="$set(repeater[area_key], field_name_inner, $event)">
-                    </component>
-
+            <div v-for="(area, area_key) in repeater" class="wpcfto-repeater-single" :class="'wpcfto-repeater_' + field_name + '_' + area_key ">
+    
+                <div class="wpcfto_group_title" v-html="field_label + ' #' + (area_key + 1)"></div>
+    
+                <div class="repeater_inner">
+    
+                    <div class="wpcfto-repeater-field" v-for="(field, field_name_inner) in fields.fields">
+    
+                        <component :is="'wpcfto_' + field.type"
+                                   :fields="field"
+                                   :field_name="field_name + '_' + area_key + '_' + field_name_inner"
+                                   :field_label="field.label"
+                                   :field_value="getFieldValue(area_key, field, field_name_inner)"
+                                   :field_data="field"
+                                   :field_native_name="field_name"
+                                   :field_native_name_inner="field_name_inner"
+                                   @wpcfto-get-value="$set(repeater[area_key], field_name_inner, $event)">
+                        </component>
+    
+                    </div>
+    
                 </div>
-
+    
+                <span class="wpcfto-repeater-single-delete" @click="removeArea(area_key)">
+                    <i class="fa fa-trash-alt"></i>Delete
+                </span>
+    
             </div>
-
-            <span class="wpcfto-repeater-single-delete" @click="removeArea(area_key)">
-                <i class="fa fa-trash-alt"></i>Delete
-            </span>
-
-        </div>
-
-        <div v-if="repeater && repeater.length > 0" class="separator"></div>
-
-        <div class="addArea" @click="addArea">
-            <i class="fa fa-plus-circle"></i>
-            <span v-html="field_label + ' Item'"></span>
+    
+            <div v-if="repeater && repeater.length > 0" class="separator"></div>
+    
+            <div class="addArea" @click="addArea">
+                <i class="fa fa-plus-circle"></i>
+                <span v-html="field_label + ' Item'"></span>
+            </div>
+        
         </div>
 
     </div>

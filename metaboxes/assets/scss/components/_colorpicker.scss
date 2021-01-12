@@ -73,16 +73,3 @@
         border-radius: 5px;
     }
 }
-
-.wpcfto-box {
-    &.column-1:not(.wpcfto_group_started){
-        .stm_colorpicker_wrapper {
-            min-width: 33%;
-        }
-    }
-    &.wpcfto_group_started .wpcfto-box-child:not(.column-1) {
-        .wpcfto-field-aside {
-            margin-bottom: 12px;
-        }
-    }
-}

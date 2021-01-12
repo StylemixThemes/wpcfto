@@ -10,12 +10,14 @@ Vue.component('wpcfto_time', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <input type="time"
-                v-bind:name="field_name"
-                v-bind:placeholder="field_label"
-                v-bind:id="field_id"
-                v-model="value"
-            />
+            <div class="wpcfto-field-content">
+                <input type="time"
+                    v-bind:name="field_name"
+                    v-bind:placeholder="field_label"
+                    v-bind:id="field_id"
+                    v-model="value"
+                />
+            </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
             

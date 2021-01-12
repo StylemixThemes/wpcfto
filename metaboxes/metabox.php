@@ -549,7 +549,8 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 {
 
     $dependency = wpcfto_metaboxes_deps($field, $section_name);
-    $width = (empty($field['columns'])) ? 'column-1' : "column-{$field['columns']}";
+//    $width = (empty($field['columns'])) ? 'column-1' : "column-{$field['columns']}";
+    $width = 'column-1';
     $is_pro = (!empty($field['pro'])) ? 'is_pro' : 'not_pro';
     $is_child = (isset($field['is_group_item']) && !empty($field['is_group_item'])) ? true : false;
     $description = (!empty($field['description'])) ? $field['description'] : '';

@@ -57,7 +57,10 @@
         justify-content: space-between;
         border-radius: 0 10px 10px 0;
     }
-
+    .wpcfto_search_group {
+        opacity: 0;
+        visibility: hidden;
+    }
     .wpcfto-search-field {
         min-width: 276px;
         height: 40px;
@@ -78,9 +81,8 @@
 
     .wpcfto-box-child {
         position: relative;
-        margin: 0 10px;
 
-        &.column-1 ~ .wpcfto-box-child.column-1 {
+        & ~ .wpcfto-box-child {
             margin-top: 1em;
         }
     }
@@ -103,86 +105,30 @@
         }
     }
 
-    &.column-1,
-    .wpcfto-box-child.column-1 {
-        .wpcfto_generic_field {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    input[type="text"],
+    input[type="date"],
+    input[type="time"],
+    input[type="number"],
+    input[type="email"],
+    input[type="phone"],
+    select,
+    textarea {
+        display: block;
+        width: 100%;
     }
-    &:not(.column-1),
-    .wpcfto-box-child:not(.column-1) {
-        .wpcfto_generic_field {
-            display: block;
-        }
-        .wpcfto-field-aside {
-            margin-bottom: 0.8em;
-        }
-        input[type="text"],
-        input[type="date"],
-        input[type="time"],
-        input[type="number"],
-        input[type="email"],
-        input[type="phone"],
-        select,
-        textarea {
-            display: block;
-            width: 100%;
-        }
 
-        .wpcfto-field-description__after {
-            display: block;
-            margin-top: 0.8em;
-        }
+    .wpcfto-field-description__after {
+        display: block;
+        margin-top: 0.8em;
     }
 
     &.wpcfto_group_started {
-        .wpcfto-box-child {
-            &.column-1 {
-                .wpcfto-field-description__after {
-                    display: none !important;
-                }
+        .container {
+            & {
+                padding: 0;
             }
-            &:not(.column-1) {
-                .wpcfto-field-aside {
-                    display: block;
-                    margin-bottom: 0.8em;
-                }
-                input {
-                    margin-bottom: 0.5em;
-                }
-                .wpcfto-field-description__before {
-                    display: none !important;
-                }
-            }
-        }
-    }
-    &:not(.wpcfto_group_started) {
-        &.column-1 {
-            .wpcfto-field-aside {
-                margin-right: 1em;
-                label {
-                    display: inline-block;
-                    margin-top: 0.5em;
-                    margin-bottom: 0.5em;
-                    margin-right: 1em;
-                }
-            }
-            .wpcfto_field_hint {
-                margin-left: 1em;
-                margin-right: 1em;
-                i {
-                    margin-top: 4px;
-                }
-            }
-            .wpcfto-field-description__after {
-                display: none !important;
-            }
-        }
-        &:not(.column-1) {
-            .wpcfto-field-description__before {
-                display: none !important;
+            .row {
+                margin: 0;
             }
         }
     }
@@ -190,6 +136,10 @@
 
 
 .wpcfto-field-aside {
+    & {
+        width: $fields_aside_width;
+        padding-right: 2rem;
+    }
     &__label {
         display: inline;
     }
@@ -200,8 +150,13 @@
         vertical-align: middle;
     }
     .wpcfto-field-description {
-
+        display: block;
+        margin-top: 0.8em;
     }
+}
+
+.wpcfto-field-content {
+    width: $fields_content_width;
 }
 
 .stm_metaboxes_grid {
@@ -385,7 +340,6 @@
                 font-weight: 400;
                 line-height: 16px;
                 position: relative;
-                display: inline-block;
                 vertical-align: middle;
                 font-style: normal;
             }
@@ -462,7 +416,7 @@
         font-weight: 600;
         text-transform: uppercase;
         border-bottom: 1px solid #d6dade;
-        margin: 0 5px 17px;
+        margin: 0 0 17px;
     }
 }
 
@@ -481,7 +435,7 @@
         font-size: 9px;
         font-weight: 500;
         text-transform: uppercase;
-        margin: 0 5px;
+        margin-left: 5px;
         vertical-align: middle;
         border-bottom: 1px dashed $color_muted;
         z-index: 100;

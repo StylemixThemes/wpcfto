@@ -10,16 +10,18 @@ Vue.component('wpcfto_spacing', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto_spacing">
-
-                <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-up"></i><input type="number" name="top" v-model="spacing.top"/></div>
-                <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-right"></i><input type="number" name="right" v-model="spacing.right"/></div>
-                <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-down"></i><input type="number" name="bottom" v-model="spacing.bottom"/></div>
-                <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-left"></i><input type="number" name="left" v-model="spacing.left"/></div>
-
-                <select name="unit" v-model="spacing.unit">
-                    <option v-for="option in fields['units']" v-bind:value="option">{{ option }}</option>
-                </select>
+            <div class="wpcfto-field-content">
+                <div class="wpcfto_spacing">
+    
+                    <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-up"></i><input type="number" name="top" v-model="spacing.top"/></div>
+                    <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-right"></i><input type="number" name="right" v-model="spacing.right"/></div>
+                    <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-down"></i><input type="number" name="bottom" v-model="spacing.bottom"/></div>
+                    <div class="wpcfto-spacing-input-wrap"><i class="fa fa-arrow-left"></i><input type="number" name="left" v-model="spacing.left"/></div>
+    
+                    <select name="unit" v-model="spacing.unit">
+                        <option v-for="option in fields['units']" v-bind:value="option">{{ option }}</option>
+                    </select>
+                </div>
             </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>

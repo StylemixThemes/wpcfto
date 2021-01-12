@@ -14,21 +14,23 @@ Vue.component('wpcfto_color_gradient', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto_color_gradient">
-                <div class="wpcfto_color_gradient_group">
-                    <label>From</label>
-                    <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': gradient.from.input_value}" @click="$refs.field_name_from.focus()"></span>
-                        <input type="text" name="from" v-model="gradient.from.input_value" ref="field_name_from"/>
-                        <div><slider-picker v-model="gradient.from.value"></slider-picker></div>
+            <div class="wpcfto-field-content">
+                <div class="wpcfto_color_gradient">
+                    <div class="wpcfto_color_gradient_group">
+                        <label>From</label>
+                        <div class="stm_colorpicker_wrapper">
+                            <span v-bind:style="{'background-color': gradient.from.input_value}" @click="$refs.field_name_from.focus()"></span>
+                            <input type="text" name="from" v-model="gradient.from.input_value" ref="field_name_from"/>
+                            <div><slider-picker v-model="gradient.from.value"></slider-picker></div>
+                        </div>
                     </div>
-                </div>
-                <div class="wpcfto_color_gradient_group">
-                    <label>To</label>
-                    <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': gradient.to.input_value}" @click="$refs.field_name_to.focus()"></span>
-                        <input type="text" name="to" v-model="gradient.to.input_value" ref="field_name_to" />
-                        <div><slider-picker v-model="gradient.to.value"></slider-picker></div>
+                    <div class="wpcfto_color_gradient_group">
+                        <label>To</label>
+                        <div class="stm_colorpicker_wrapper">
+                            <span v-bind:style="{'background-color': gradient.to.input_value}" @click="$refs.field_name_to.focus()"></span>
+                            <input type="text" name="to" v-model="gradient.to.input_value" ref="field_name_to" />
+                            <div><slider-picker v-model="gradient.to.value"></slider-picker></div>
+                        </div>
                     </div>
                 </div>
             </div>

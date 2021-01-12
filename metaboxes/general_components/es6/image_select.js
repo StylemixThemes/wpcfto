@@ -11,12 +11,14 @@ Vue.component('wpcfto_image_select', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto_image_select">
-                <label v-for="(option, key) in fields['options']" v-bind:class="{'active' : value == key}">
-                    <span class="wpcfto-img-wrap"><img v-bind:src="option.img" v-bind:alt="option.alt" v-bind:style="style"></span>
-                    <input type="radio" v-bind:name="field_name" v-model="value" v-bind:value="key"/>
-                    <span v-html="option.alt" class="wpcfto-img-alt"></span>
-                </label>
+            <div class="wpcfto-field-content">
+                <div class="wpcfto_image_select">
+                    <label v-for="(option, key) in fields['options']" v-bind:class="{'active' : value == key}">
+                        <span class="wpcfto-img-wrap"><img v-bind:src="option.img" v-bind:alt="option.alt" v-bind:style="style"></span>
+                        <input type="radio" v-bind:name="field_name" v-model="value" v-bind:value="key"/>
+                        <span v-html="option.alt" class="wpcfto-img-alt"></span>
+                    </label>
+                </div>
             </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>

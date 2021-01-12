@@ -11,39 +11,39 @@ Vue.component('wpcfto_link_color', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_link_color" v-bind:class="field_id">
-            <div class="wpcfto_field_title">
-                <label v-html="field_label"></label>
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-                <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
-            </div>
-            
-            <div class="wpcfto_link_color">
-                <div class="wpcfto_link_color_group">
-                    <label>Regular</label>
-                    <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.regular.input_value}" @click="$refs.field_regular.focus()"></span>
-                        <input type="text" name="regular" v-model="link.regular.input_value" ref="field_regular" />
-                        <div><slider-picker v-model="link.regular.value"></slider-picker></div>
+            <div class="wpcfto-field-content">
+                
+                <div class="wpcfto_link_color">
+                    <div class="wpcfto_link_color_group">
+                        <label>Regular</label>
+                        <div class="stm_colorpicker_wrapper">
+                            <span v-bind:style="{'background-color': link.regular.input_value}" @click="$refs.field_regular.focus()"></span>
+                            <input type="text" name="regular" v-model="link.regular.input_value" ref="field_regular" />
+                            <div><slider-picker v-model="link.regular.value"></slider-picker></div>
+                        </div>
+                    </div>
+                    
+                    <div class="wpcfto_link_color_group">
+                        <label>Hover</label>
+                        <div class="stm_colorpicker_wrapper">
+                            <span v-bind:style="{'background-color': link.hover.input_value}" @click="$refs.field_hover.focus()"></span>
+                            <input type="text" name="hover" v-model="link.hover.input_value" ref="field_hover" />
+                            <div><slider-picker v-model="link.hover.value"></slider-picker></div>
+                        </div>
+                    </div>
+                    
+                    <div class="wpcfto_link_color_group">
+                        <label>Active</label>
+                        <div class="stm_colorpicker_wrapper">
+                            <span v-bind:style="{'background-color': link.active.input_value}" @click="$refs.field_active.focus()"></span>
+                            <input type="text" name="active" v-model="link.active.input_value" ref="field_active" />
+                            <div><slider-picker v-model="link.active.value"></slider-picker></div>
+                        </div>
                     </div>
                 </div>
                 
-                <div class="wpcfto_link_color_group">
-                    <label>Hover</label>
-                    <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.hover.input_value}" @click="$refs.field_hover.focus()"></span>
-                        <input type="text" name="hover" v-model="link.hover.input_value" ref="field_hover" />
-                        <div><slider-picker v-model="link.hover.value"></slider-picker></div>
-                    </div>
-                </div>
-                
-                <div class="wpcfto_link_color_group">
-                    <label>Active</label>
-                    <div class="stm_colorpicker_wrapper">
-                        <span v-bind:style="{'background-color': link.active.input_value}" @click="$refs.field_active.focus()"></span>
-                        <input type="text" name="active" v-model="link.active.input_value" ref="field_active" />
-                        <div><slider-picker v-model="link.active.value"></slider-picker></div>
-                    </div>
-                </div>
             </div>
         </div>
     `,

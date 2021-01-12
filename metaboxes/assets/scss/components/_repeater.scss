@@ -175,4 +175,12 @@
 
 .wpcfto_generic_field_repeater {
     display: block !important;
+    .wpcfto-field-aside {
+        padding-right: 0;
+        margin-bottom: 1em;
+    }
+    .wpcfto-field-content,
+    .wpcfto-field-aside {
+        width: 100%;
+    }
 }

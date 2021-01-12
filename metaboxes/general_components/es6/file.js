@@ -18,36 +18,38 @@ Vue.component('wpcfto_file', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <label class="file-select" v-if="!value.path">
-
-                <div class="select-button" v-bind:class="{'uploading' : uploading}">
-                    <span v-if="!uploading">
-                        <i class="fa fa-paperclip"></i>
-                        {{field_data.load_labels.label}}
-                    </span>
-                    <span v-html="field_data.load_labels.loading" v-else></span>
+            <div class="wpcfto-field-content">
+                <label class="file-select" v-if="!value.path">
+    
+                    <div class="select-button" v-bind:class="{'uploading' : uploading}">
+                        <span v-if="!uploading">
+                            <i class="fa fa-paperclip"></i>
+                            {{field_data.load_labels.label}}
+                        </span>
+                        <span v-html="field_data.load_labels.loading" v-else></span>
+                    </div>
+    
+                    <input type="file" :accept="field_data['accept'].join(',')" @change="handleFileChange" />
+                </label>
+    
+                <div class="field_label_error" v-if="error" v-html="error"></div>
+    
+                <div class="field_label__file" v-if="value.url">
+                    <a v-bind:href="value.url" target="_blank">
+                        {{generateFileName(value['url'])}}
+                        <i class="fa fa-times" @click.prevent="deleteFile()"></i>
+                    </a>
+    
                 </div>
-
-                <input type="file" :accept="field_data['accept'].join(',')" @change="handleFileChange" />
-            </label>
-
-            <div class="field_label_error" v-if="error" v-html="error"></div>
-
-            <div class="field_label__file" v-if="value.url">
-                <a v-bind:href="value.url" target="_blank">
-                    {{generateFileName(value['url'])}}
-                    <i class="fa fa-times" @click.prevent="deleteFile()"></i>
-                </a>
-
+  
+                <input type="hidden"
+                    v-bind:name="field_name"
+                    v-bind:placeholder="field_label"
+                    v-bind:id="field_id"
+                    v-model="input_value"
+                />
+            
             </div>
-
-
-            <input type="hidden"
-                v-bind:name="field_name"
-                v-bind:placeholder="field_label"
-                v-bind:id="field_id"
-                v-model="input_value"
-            />
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 

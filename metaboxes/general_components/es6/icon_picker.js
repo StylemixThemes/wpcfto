@@ -22,62 +22,64 @@ Vue.component('wpcfto_icon_picker', {
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_iconpicker">
 
-            <div class="wpcfto_generic_field__inner">
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
             
-<!--                <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>-->
-            
-                <div class="wpcfto_generic_field">
-                    <label>Icon picker</label>
-                    <input ref="picker"
-                    v-model="search"
-                    @blur="blur"
-                    @focus="focus"
-                    type="email"
-                    class="form-control"
-                    placeholder="Search an icon">
+            <div class="wpcfto-field-content">
+                <div class="wpcfto_generic_field__inner">
+    
+                    <div class="wpcfto_generic_field">
+                        <label>Icon picker</label>
+                        <input ref="picker"
+                        v-model="search"
+                        @blur="blur"
+                        @focus="focus"
+                        type="email"
+                        class="form-control"
+                        placeholder="Search an icon">
+                    </div>
+    
+                    <wpcfto_color @wpcfto-get-value="value['color'] = $event"
+                        :fields="{position: 'bottom'}"
+                        v-if="inited"
+                        :field_label="'Icon color'"
+                        :field_value="value['color']">
+    
+                    </wpcfto_color>
+    
+                    <wpcfto_range_slider :fields="fields"
+                        v-if="inited"
+                        :field_label="'Icon size'"
+                        :field_name="field_name"
+                        :field_description="'Icon size set in pixels'"
+                        :field_id="field_id"
+                        :field_value="value['size']"
+                        :field_data="{min:1,max:200}"
+                        @wpcfto-get-value="value['size'] = $event">
+                    </wpcfto_range_slider>
+    
                 </div>
-
-                <wpcfto_color @wpcfto-get-value="value['color'] = $event"
-                    :fields="{position: 'bottom'}"
-                    v-if="inited"
-                    :field_label="'Icon color'"
-                    :field_value="value['color']">
-
-                </wpcfto_color>
-
-                <wpcfto_range_slider :fields="fields"
-                    v-if="inited"
-                    :field_label="'Icon size'"
-                    :field_name="field_name"
-                    :field_description="'Icon size set in pixels'"
-                    :field_id="field_id"
-                    :field_value="value['size']"
-                    :field_data="{min:1,max:200}"
-                    @wpcfto-get-value="value['size'] = $event">
-                </wpcfto_range_slider>
-
-            </div>
-
-            <transition name="icon-preview-fade">
-                <div v-if="focusOn" class="preview-container">
-                    <div @click="select(undefined)" @mouseover="hoverPanel = true" @mouseout="hoverPanel = false" :class="['previewer', 'rounded', {'custom-shadow-sm': !hoverPanel}, {'custom-shadow': hoverPanel} ]">
-                        <div v-for="(i, index) in iconsFiltered" :key="index" class="icon-preview">
-                            <div @click.prevent.stop="select(i)" :class="['icon-wrapper','rounded','shadow-sm', {selected: i.title == selected}]" >
-                                <i :class="i.title" />
+    
+                <transition name="icon-preview-fade">
+                    <div v-if="focusOn" class="preview-container">
+                        <div @click="select(undefined)" @mouseover="hoverPanel = true" @mouseout="hoverPanel = false" :class="['previewer', 'rounded', {'custom-shadow-sm': !hoverPanel}, {'custom-shadow': hoverPanel} ]">
+                            <div v-for="(i, index) in iconsFiltered" :key="index" class="icon-preview">
+                                <div @click.prevent.stop="select(i)" :class="['icon-wrapper','rounded','shadow-sm', {selected: i.title == selected}]" >
+                                    <i :class="i.title" />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </transition>
-        
-             <div class="icon-preview-wrap">
-                <label>Preview</label>
-                <div class="icon-preview-inner">
-                    <i class="wpcfto_generic_field__iconpicker__icon"
-                    v-bind:class="value.icon"
-                    v-bind:style="{ color: value.color, 'font-size' : value.size + 'px'}"
-                    v-if="value.icon"></i>    
-                </div>        
+                </transition>
+            
+                 <div class="icon-preview-wrap">
+                    <label>Preview</label>
+                    <div class="icon-preview-inner">
+                        <i class="wpcfto_generic_field__iconpicker__icon"
+                        v-bind:class="value.icon"
+                        v-bind:style="{ color: value.color, 'font-size' : value.size + 'px'}"
+                        v-if="value.icon"></i>    
+                    </div>        
+                 </div>
              </div>
 
         </div>

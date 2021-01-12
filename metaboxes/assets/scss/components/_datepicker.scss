@@ -7,45 +7,6 @@
             min-width: 30%;
         }
     }
-    &.column-1 {
-        .wpcfto_generic_field.wpcfto_generic_field_date {
-            & {
-                display: flex;
-                flex-direction: row;
-                padding: 20px;
-                position: relative;
-                align-items: center;
-            }
-            .wpcfto_field_title {
-                display: flex;
-                width: 20%;
-                order: 1;
-            }
-            .wpcfto_field_hint {
-                position: absolute;
-                top: 0;
-                right: 0;
-            }
-            .field-description {
-                order: 2;
-            }
-            .mx-datepicker {
-                width: 30% !important;
-                margin-left: 15px;
-                order: 3;
-            }
-        }
-    }
-    &:not(.column-1) {
-        .wpcfto_generic_field.wpcfto_generic_field_date {
-            .field-description {
-                margin-top: 10px;
-            }
-            .wpcfto_field_title {
-                margin-bottom: 10px;
-            }
-        }
-    }
 }
 .dates {
     .wpcfto_generic_field.wpcfto_generic_field__date {
@@ -58,7 +19,7 @@
     }
 }
 .mx-datepicker {
-    width: 100% !important;
+    width: 100%;
     margin: 0 0 30px;
     input.mx-input {
         height: 2.6rem;
