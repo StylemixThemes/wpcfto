@@ -5,12 +5,14 @@ class WPCFTO_Settings {
 	public $option_name;
 	public $page_args;
 	public $fields;
+	private $setup;
 
-	function __construct( $option_name, $page_args, $fields ) {
+	function __construct( $option_name, $page_args, $fields, $setup ) {
 
 		$this->option_name = $option_name;
 		$this->page_args   = $page_args;
 		$this->fields      = $fields;
+		$this->setup      = $setup;
 
 		add_action( 'admin_menu', array( $this, 'settings_page' ), 1000 );
 		add_action( 'wp_ajax_stm_save_settings', array( $this, 'stm_save_settings' ) );
@@ -88,6 +90,9 @@ class WPCFTO_Settings {
 		$metabox  = $this->wpcfto_settings();
 		$settings = $this->wpcfto_get_settings();
 		$page     = $this->page_args;
+		$wpcfto_title = (!empty($this->setup['title'])) ? $this->setup['title'] : '';
+		$wpcfto_sub_title = (!empty($this->setup['sub_title'])) ? $this->setup['sub_title'] : '';
+		$wpcfto_logo = (!empty($this->setup['logo'])) ? $this->setup['logo'] : STM_WPCFTO_URL. '/metaboxes/assets/images/stm-logo.svg';
 
 		foreach ( $metabox['args'][ $this->option_name ] as $section_name => $section ) {
 			foreach ( $section['fields'] as $field_name => $field ) {
@@ -138,7 +143,7 @@ add_action( 'init', function () {
 				continue;
 			}
 
-			new WPCFTO_Settings( $setup['option_name'], $setup['page'], $setup['fields'] );
+			new WPCFTO_Settings( $setup['option_name'], $setup['page'], $setup['fields'], $setup );
 		}
 	}
 } );

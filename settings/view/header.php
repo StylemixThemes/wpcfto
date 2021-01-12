@@ -1,7 +1,12 @@
 <?php
 /**
  * @var $id
+ * @var $wpcfto_title
+ * @var $wpcfto_sub_title
+ * @var $wpcfto_logo
  */
+
+$only_logo = empty($wpcfto_title) && empty($wpcfto_sub_title);
 ?>
 
 
@@ -9,13 +14,22 @@
 
 	<div class="wpcfto_settings_head__side">
 
-		<div class="wpcfto_settings_head__logo">
-			<img src="<?php echo apply_filters('wpcfto_header_logo', STM_WPCFTO_URL. '/metaboxes/assets/images/stm-logo.svg'); ?>" alt="Logo">
+		<div class="wpcfto_settings_head__logo <?php if($only_logo) echo esc_attr('wpcfto_settings_head__logo_only') ?>">
+			<img src="<?php echo esc_url($wpcfto_logo); ?>" alt="Logo">
 		</div>
 
 		<div class="wpcfto_settings_head__label">
-			<div class="wpcfto_settings_head__title"><?php echo apply_filters('wpcfto_header_title', esc_html__('Stylemix Themes', 'wp-custom-fields-theme-options')); ?></div>
-			<div class="wpcfto_settings_head__subtitle"><?php echo apply_filters('wpcfto_header_subtitle', esc_html__('Theme Options', 'wp-custom-fields-theme-options')); ?></div>
+            <?php if(!empty($wpcfto_title)): ?>
+                <div class="wpcfto_settings_head__title">
+                    <?php echo esc_attr($wpcfto_title); ?>
+                </div>
+            <?php endif; ?>
+
+            <?php if(!empty($wpcfto_sub_title)): ?>
+                <div class="wpcfto_settings_head__subtitle">
+                    <?php echo esc_attr($wpcfto_sub_title); ?>
+                </div>
+            <?php endif; ?>
 		</div>
 
 	</div>

@@ -583,7 +583,8 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 
 
     <transition name="slide-fade">
-        <div class="<?php echo esc_attr(implode(' ', $classes)); ?>" <?php echo($dependency); ?>
+        <div class="<?php echo esc_attr(implode(' ', $classes)); ?>"
+            <?php echo($dependency); ?>
              data-field="<?php echo esc_attr("wpcfto_addon_option_{$field_name}"); ?>">
 
             <?php do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro); ?>
@@ -621,7 +622,17 @@ function wpcfto_metaboxes_display_group_field($section, $section_name, $field, $
     <?php
     $group_title = (isset($field['group_title']) && !empty($field['group_title'])) ? '<div class="wpcfto_group_title">' . $field['group_title'] . '</div>' : '';
     ?>
-    <?php if ($field['group'] === 'started') : ?><div class="wpcfto-box wpcfto_group_started column-1"><div class="container"><div class="row"><?php echo $group_title; ?><?php endif;
+    <?php if ($field['group'] === 'started') :
+        $group_classes = array('wpcfto-box wpcfto_group_started column-1');
+        if(!empty($field['submenu'])) {
+            $group_classes[] = sanitize_title("{$section_name}_{$field['submenu']}");
+        }
+        ?>
+        <div class="<?php echo esc_attr(implode(' ', $group_classes)); ?>">
+            <div class="container">
+                <div class="row">
+        <?php echo $group_title; ?>
+    <?php endif;
 
     wpcfto_metaboxes_display_single_field($section, $section_name, $field, $field_name);
 

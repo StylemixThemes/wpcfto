@@ -16,11 +16,8 @@ Vue.component('wpcfto_icon_picker', {
             search: "",
             beforeSelect: "",
             selected: "",
-            inited : false
+            inited: false
         }
-    },
-    components: {
-        editor: require('vue2-ace-editor'),
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_iconpicker">
@@ -86,10 +83,18 @@ Vue.component('wpcfto_icon_picker', {
         </div>
   `,
     mounted: function () {
-        if ( typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value) ) {
+        if (typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) {
             this.value = JSON.parse(this.field_value);
         } else if (typeof this.field_value === 'object') {
             this.value = this.field_value;
+        }
+
+        if (!this.value.length) {
+            this.value = {
+                icon: '',
+                color: '#000',
+                size: 15,
+            };
         }
 
         this.selected = this.value.icon;
@@ -126,8 +131,8 @@ Vue.component('wpcfto_icon_picker', {
     },
     watch: {
         value: {
-            deep : true,
-            handler : function (value) {
+            deep: true,
+            handler: function (value) {
                 this.$emit('wpcfto-get-value', value);
             }
         }

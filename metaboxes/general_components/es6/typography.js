@@ -26,7 +26,10 @@ Vue.component('wpcfto_typography', {
                 'word-spacing': '0',
                 'letter-spacing': '0',
                 'backup-font': '',
-                'font-data': {}
+                'font-data': {
+                    'family' : '',
+                    'variants' : []
+                }
             },
         }
     },
@@ -198,6 +201,7 @@ Vue.component('wpcfto_typography', {
             let current_variants = this.typography['font-data']['variants'];
             if (typeof current_variants !== 'undefined' && !current_variants.includes(current_variant)) {
                 this.$set(this.typography, 'google-weight', current_variants[0]);
+                this.weightChanged();
             }
         },
         editSubset() {
