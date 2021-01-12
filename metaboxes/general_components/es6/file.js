@@ -1,5 +1,5 @@
 Vue.component('wpcfto_file', {
-    props: ['field_label', 'field_name', 'field_id', 'field_value', 'field_data', 'field_native_name', 'field_native_name_inner'],
+    props: ['fields','field_label', 'field_name', 'field_id', 'field_value', 'field_data', 'field_native_name', 'field_native_name_inner'],
     data: function () {
         return {
             data: '',

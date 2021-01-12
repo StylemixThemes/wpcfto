@@ -1,4 +1,7 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
+    .wpcfto-box.repeater {
+        padding: 0;
+    }
     .wpcfto-repeater {
 
         > label {
@@ -66,7 +69,7 @@
                 cursor: pointer;
                 transition: 0.2s ease 0s;
                 i {
-                    vertical-align: top;
+                    vertical-align: baseline;
                     margin-right: 8px;
                 }
                 &:hover {

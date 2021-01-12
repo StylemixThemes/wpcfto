@@ -84,3 +84,53 @@
         }
     }
 }
+
+
+.stm_metaboxes_grid {
+    .stm-lms-faq-wrapper,
+    .stm_lms_curriculum_v2_wrapper {
+        width: 100%;
+    }
+    stm-lms-faq-wrapper {
+        padding: 20px;
+    }
+    .stm_lms_faq__single {
+        & {
+            background: transparent !important;
+        }
+        label {
+            display:  block;
+        }
+        textarea {
+            display: block;
+            width: 100%;
+        }
+    }
+    .stm-lms-faq .addArea {
+        margin: 0 20px 20px;
+    }
+}
+body .stm_metaboxes_grid .stm_metaboxes_grid__inner .stm_lms_questions_v2_wrapper {
+    & {
+        max-width: 100%;
+    }
+    .stm_lms_curriculum_v2 .section_data {
+        display: block;
+    }
+    .stm_lms_curriculum_v2 .section_data__title {
+        margin-bottom: 1em;
+        input {
+            max-width: 100%;
+        }
+    }
+}
+
+.stm_metaboxes_grid__inner .container-constructed .row .wpcfto-box.answers {
+    padding: 20px;
+}
+
+.stm_metaboxes_grid__inner {
+    .wpcfto-box.drip_content {
+        padding: 20px;
+    }
+}
