@@ -241,7 +241,8 @@ Vue.component('wpcfto_typography', {
         weightChanged() {
             let typo = this.typography;
             let weight = typo['google-weight'];
-            let multiWeight = weight.match(/[a-zA-Z]+|[0-9]+/g);
+            let multiWeight = (typeof weight !== 'undefined') ?  weight.match(/[a-zA-Z]+|[0-9]+/g) : ['400', 'normal'];
+
             if (weight === 'regular') {
                 this.$set(typo, 'font-weight', 400);
                 this.$set(typo, 'font-style', 'normal');

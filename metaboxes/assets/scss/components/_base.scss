@@ -7,7 +7,7 @@
         max-width: 1240px;
         position: sticky;
         top: 32px;
-        z-index: 99999;
+        z-index: 99;
     }
     &__side {
         padding: 13px 23px 12px;
@@ -79,6 +79,10 @@
     .wpcfto-box-child {
         position: relative;
         margin: 0 10px;
+
+        &.column-1 ~ .wpcfto-box-child.column-1 {
+            margin-top: 1em;
+        }
     }
 
     a {
@@ -480,8 +484,9 @@
         margin: 0 5px;
         vertical-align: middle;
         border-bottom: 1px dashed $color_muted;
-        z-index: 9;
+        z-index: 100;
         display: inline;
+        cursor: pointer;
     }
     &__popup {
         visibility: hidden;
@@ -497,7 +502,7 @@
         transform: translateX(-50%);
         box-shadow: 0 5px 25px rgba(0, 0, 0, 0.16);
         transition: all 0.3s ease 0s;
-        z-index: 10;
+        z-index: 101;
 
         img {
             max-width: inherit;
