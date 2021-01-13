@@ -34,78 +34,78 @@ if ( empty( $id ) ) {
 		<div class="container">
 
             <?php
-                // Hide Tab Nav if Menu Items == 1
-                $hide_tab_nav = false;
-                if(count($sections) == 1) {
-                    foreach ( $sections as $section_name => $section ) {
-                        $submenus = array_unique(array_column( $section['fields'], 'submenu' ));
-                        if(count($submenus) <= 1) {
-                            $hide_tab_nav = true;
-                        }
+            // Hide Tab Nav if Menu Items == 1
+            $hide_tab_nav = false;
+            if(count($sections) == 1) {
+                foreach ( $sections as $section_name => $section ) {
+                    $submenus = array_unique(array_column( $section['fields'], 'submenu' ));
+                    if(count($submenus) <= 1) {
+                        $hide_tab_nav = true;
                     }
                 }
+            }
             ?>
 
             <div class="wpcfto-tab-nav <?php echo ($hide_tab_nav) ? 'hide' : ''; ?>">
-                <?php
-                foreach ( $sections as $section_name => $section ):
+				<?php
+				foreach ( $sections as $section_name => $section ):
 
-                    $section_order = array_search( $section_name, array_keys( $sections ) );
+					$section_order = array_search( $section_name, array_keys( $sections ) );
 
-                    if ( $section_order == 0 ) {
-                        $active = $section_name;
-                    }
+					if ( $section_order == 0 ) {
+						$active = $section_name;
+					}
 
-                    $submenus = array_column( $section['fields'], 'submenu' );
+					$submenus = array_column( $section['fields'], 'submenu' );
 
-                    $section_classes = array();
-                    if ( $active == $section_name ) {
-                        $section_classes[] = 'active';
-                    }
-                    if ( empty( $section['icon'] ) ) {
-                        $section_classes[] = 'no-icon';
-                    }
-                    if ( ! empty( $submenus ) ) {
-                        $section_classes[] = 'has-submenu';
-                    }
+					$section_classes = array();
+					if ( $active == $section_name ) {
+						$section_classes[] = 'active';
+					}
+					if ( empty( $section['icon'] ) ) {
+						$section_classes[] = 'no-icon';
+					}
+					if ( ! empty( $submenus ) ) {
+						$section_classes[] = 'has-submenu';
+					}
 
-                    $submenus = array_unique($submenus);
+					$submenus = array_unique($submenus);
 
-                    ?>
-                    <div class="wpcfto-nav <?php echo esc_attr( implode( ' ', $section_classes ) ); ?>">
+					?>
+					<div class="wpcfto-nav <?php echo esc_attr( implode( ' ', $section_classes ) ); ?>">
 
-                        <div class="wpcfto-nav-title"
-                             data-section="<?php echo esc_attr( $section_name ); ?>"
-                             @click="changeTab('<?php echo esc_attr( $section_name ); ?>')">
-                            <?php if ( ! empty( $section['icon'] ) ) : ?>
-                                <i class="<?php echo esc_attr( $section['icon'] ); ?>"></i>
-                            <?php endif; ?>
+						<div class="wpcfto-nav-title"
+							 data-section="<?php echo esc_attr( $section_name ); ?>"
+							 @click="changeTab('<?php echo esc_attr( $section_name ); ?>')">
+							<?php if ( ! empty( $section['icon'] ) ) : ?>
+								<i class="<?php echo esc_attr( $section['icon'] ); ?>"></i>
+							<?php endif; ?>
 
-                            <?php echo sanitize_text_field( $section['name'] ); ?>
-                        </div>
+							<?php echo sanitize_text_field( $section['name'] ); ?>
+						</div>
 
-                        <?php if ( ! empty( $submenus ) ): ?>
-                            <div class="wpcfto-submenus">
-                                <?php foreach ( $submenus as $key => $submenu ):
-                                    $submenu_classes = array();
-                                    if(in_array('active', $section_classes) && empty($key)) {
-                                        $submenu_classes[] = 'active';
-                                    }
-                                    ?>
-                                    <div data-submenu="<?php echo esc_attr( $section_name . '_' . sanitize_title( $submenu ) ); ?>"
-                                         class="<?php echo esc_attr(implode(' ', $submenu_classes)); ?>"
-                                         @click="changeSubMenu('<?php echo esc_attr( $section_name . '_' . sanitize_title( $submenu ) ); ?>')">
-                                        <?php echo esc_attr( $submenu ); ?>
-                                        <i class="fa fa-chevron-right"></i>
-                                    </div>
-                                <?php endforeach; ?>
-                            </div>
-                        <?php endif; ?>
+						<?php if ( ! empty( $submenus ) ): ?>
+							<div class="wpcfto-submenus">
+								<?php foreach ( $submenus as $key => $submenu ):
+									$submenu_classes = array();
+									if(in_array('active', $section_classes) && empty($key)) {
+										$submenu_classes[] = 'active';
+									}
+									?>
+									<div data-submenu="<?php echo esc_attr( $section_name . '_' . sanitize_title( $submenu ) ); ?>"
+										 class="<?php echo esc_attr(implode(' ', $submenu_classes)); ?>"
+										 @click="changeSubMenu('<?php echo esc_attr( $section_name . '_' . sanitize_title( $submenu ) ); ?>')">
+										<?php echo esc_attr( $submenu ); ?>
+										<i class="fa fa-chevron-right"></i>
+									</div>
+								<?php endforeach; ?>
+							</div>
+						<?php endif; ?>
 
 
-                    </div>
-                <?php endforeach; ?>
-            </div>
+					</div>
+				<?php endforeach; ?>
+			</div>
 
 			<?php foreach ( $sections as $section_name => $section ):
 
