@@ -1,6 +1,6 @@
 .wpcfto_range_slider {
     position: relative;
-    padding: 25px 0 0;
+    padding: 25px 0 20px;
     &__pin {
         position: absolute;
         top: 0;
@@ -29,30 +29,24 @@
 }
 
 .stm_metaboxes_grid .slider_r {
-    &.column-1 {
-        .wpcfto_generic_field_range_slider {
+    .wpcfto_generic_field_range_slider {
+        & {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            padding: 20px;
+        }
+        .wpcfto_field_title {
             & {
-                display: flex;
-                justify-content: space-between;
-                flex-direction: row;
-                align-items: center;
-                padding: 20px;
+                width: 30%;
             }
-            .wpcfto_field_title {
-                & {
-                    width: 30%;
-                }
-                label {
-                    display: block;
-                }
-                .field-description {
-                    display: block;
-                    margin-top: 10px;
-                }
+            label {
+                display: block;
             }
-            .wpcfto_range_slider {
-                width: 60%;
-                margin-left: 10%;
+            .field-description {
+                display: block;
+                margin-top: 10px;
             }
         }
     }

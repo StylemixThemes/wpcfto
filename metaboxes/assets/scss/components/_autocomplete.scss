@@ -1,151 +1,80 @@
-.stm_metaboxes_grid .stm_metaboxes_grid__inner {
-    .wpcfto_generic_field__autocomplete_wrapper {
-        margin-bottom: 0;
-        width: 100%;
-        padding: 20px;
-
-        .wpcfto-field-aside {
-            & {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                margin: 0 0 1em;
-            }
-            .wpcfto-field-aside__label {
-                display: block;
-                margin: 0 1em 0 0;
-            }
+.wpcfto_generic_field_autocomplete {
+    .wpcfto-field-content {
+        & {
+            display: flex;
+            align-items: center;
         }
-
-        .wpcfto_generic_field__autocomplete {
-            background-color: transparent;
-            padding: 0;
-        }
-
         .wpcfto-autocomplete-search {
             width: 100%;
         }
-
-        > label {
-            margin: 0 0 15px;
-            font-size: 18px;
-        }
-
-        .addArea {
-            position: relative;
-            padding: 8px 13px;
-            background-color: #f7f7f7;
-            border: 1px solid #dbdbdb;
-            border-radius: 3px;
-            font-weight: 400;
-            color: #23282d;
-            font-size: 14px;
-            cursor: pointer;
-
-            i {
-                position: relative;
-                top: -1px;
-                width: 16px;
-                height: 16px;
-                margin-right: 4px;
-                color: #fff;
-                font-size: 11px;
-                text-align: center;
-                line-height: 16px;
-                background-color: $main_color;
-                border-radius: 50%;
-            }
-
-            .dropdown {
-                position: absolute;
-                top: 0;
-                left: 0;
-                right: 0;
-                bottom: 0;
-            }
-
-            &:hover {
-                border-color: $main_color;
-                background-color: $main_color;
-                color: #fff;
-
-                i {
-                    background-color: #fff;
-                    color: $main_color;
-                }
-            }
-        }
-
-        .wpcfto-autocomplete {
-            margin-bottom: 0;
-            li {
-                background-color: #ffffff;
-                border: 1px solid #bec5cb;
-                position: relative;
-                margin: 0 0 10px;
-                padding: 0;
-                font-size: 14px;
-                font-weight: 500;
-                border-radius: 5px;
-                i {
-                    position: absolute;
-                    right: -1px;
-                    top: 50%;
-                    margin-top: -17px;
-                    opacity: .4;
-                    font-weight: 900;
-                    padding: 10px;
-                    margin-right: 10px;
-                    cursor: pointer;
-                    &:hover {
-                        opacity: 1;
-                        color: #f32c41;
-                    }
-                }
-                &.hovered {
-                    border-color: #f32c41;
-                }
-                .item-title {
-                    font-size: 15px;
-                    font-weight: 500;
-                    color: $color_main;
-                }
-                .item-excerpt {
-                    font-size: 13px;
-                    font-weight: 400;
-                    color: $color_muted;
-                }
-                .item-wrapper {
-                    display: flex;
-                    padding: 10px 20px;
-                    align-items: center;
-                }
-                .item-image {
-                    width: 36px;
-                    height: auto;
-                    object-fit: cover;
-                    margin-right: 10px;
-                    align-self: start;
-                }
-                .item-data {
-                    padding: 0 40px 0 0;
-                    flex-grow: 1;
-                    span {
-                        display: block;
-                        &.item-label {
-                            margin-bottom: 5px;
-                            font-size: 12px;
-                            line-height: 12px;
-                            color: #aaaaaa;
-                        }
-                    }
-                }
-            }
-        }
-
     }
 }
-
+.wpcfto-autocomplete {
+    margin: 0;
+    li {
+        background-color: #fff !important;
+        border: 1px solid #bec5cb;
+        position: relative;
+        margin: 10px 0 0 !important;
+        padding: 0 !important;
+        font-size: 14px !important;
+        font-weight: 500;
+        border-radius: 5px;
+        i {
+            position: absolute;
+            right: -1px;
+            top: 50%;
+            margin-top: -17px;
+            opacity: .4;
+            font-weight: 900;
+            padding: 10px;
+            margin-right: 10px;
+            cursor: pointer;
+            &:hover {
+                opacity: 1;
+                color: #f32c41;
+            }
+        }
+        &.hovered {
+            border-color: #f32c41;
+        }
+        .item-title {
+            font-size: 15px;
+            font-weight: 500;
+            color: $color_main;
+        }
+        .item-excerpt {
+            font-size: 13px;
+            font-weight: 300;
+            color: $color_muted;
+        }
+        .item-wrapper {
+            display: flex;
+            padding: 10px 20px;
+            align-items: center;
+        }
+        .item-image {
+            width: 36px;
+            height: auto;
+            object-fit: cover;
+            margin-right: 10px;
+            align-self: start;
+        }
+        .item-data {
+            padding: 0 40px 0 0;
+            flex-grow: 1;
+            span {
+                display: block;
+                &.item-label {
+                    margin-bottom: 5px;
+                    font-size: 12px;
+                    line-height: 12px;
+                    color: #aaaaaa;
+                }
+            }
+        }
+    }
+}
 
 .wpcfto-autocomplete-search {
     .v-select-search {

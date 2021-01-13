@@ -1,22 +1,3 @@
-.wpcfto-box {
-    &.column-1,
-    .wpcfto-box-child.column-1 {
-        .wpcfto_generic_field_multi_input {
-            .wpcfto-field-aside {
-                max-width: 70%;
-            }
-        }
-    }
-    &:not(.column-1),
-    .wpcfto-box-child:not(.column-1) {
-        .wpcfto_generic_field_multi_input {
-            .wpcfto-field-aside {
-                max-width: 100%;
-            }
-        }
-    }
-}
-
 .wpcfto_generic_field_multi_input {
     .wpcfto-field-aside {
         align-self: start;

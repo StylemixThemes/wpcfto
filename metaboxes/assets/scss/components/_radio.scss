@@ -1,14 +1,14 @@
-.wpcfto-box {
-    &:not(.column-1),
-    .wpcfto-box-child:not(.column-1) {
-        .wpcfto_generic_radio {
-            .wpcfto-admin-radio > label {
-                display: block;
-                margin-bottom: .8em;
-            }
-        }
-    }
-}
+//.wpcfto-box {
+//    &:not(.column-1),
+//    .wpcfto-box-child:not(.column-1) {
+//        .wpcfto_generic_radio {
+//            .wpcfto-admin-radio > label {
+//                display: block;
+//                margin-bottom: .8em;
+//            }
+//        }
+//    }
+//}
 
 .stm_metaboxes_grid__inner {
     input[type="checkbox"],
@@ -37,12 +37,23 @@
             background-color: #fff;
             padding: 11px 13px;
             display: inline-block;
-            margin: 0 18px 15px 0;
+            margin: 7px 18px 7px 0;
             position: relative;
             transition: background-color 0.3s ease 0s;
             border-radius: 5px;
 
-            &:hover {
+            .radio-option-text {
+                vertical-align: middle;
+                margin-left: 5px;
+            }
+            .wpcfto_preview {
+                vertical-align: middle;
+                //top: 2px;
+            }
+            input {
+            }
+
+            &:hover, &.active {
                 background-color: #f6f9fc;
             }
         }

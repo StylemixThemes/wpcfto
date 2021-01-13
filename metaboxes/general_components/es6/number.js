@@ -10,13 +10,15 @@ Vue.component('wpcfto_number', {
         <div class="wpcfto_generic_field wpcfto_generic_field_flex_input wpcfto_generic_field__number">
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <input type="number"
-                v-bind:name="field_name"
-                v-bind:placeholder="field_data.placeholder"
-                v-bind:id="field_id"
-                :step="step"
-                v-model="value"
-            />
+            <div class="wpcfto-field-content">
+                <input type="number"
+                    v-bind:name="field_name"
+                    v-bind:placeholder="field_data.placeholder"
+                    v-bind:id="field_id"
+                    :step="step"
+                    v-model="value"
+                />
+            </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
         </div>

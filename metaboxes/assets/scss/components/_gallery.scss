@@ -1,29 +1,9 @@
-.wpcfto-box {
-    &.column-1,
-    .wpcfto-box-child.column-1 {
-        .wpcfto_generic_field_gallery {
-            & {
-                padding: 27px 20px;
-            }
-            .wpcfto-field-aside {
-                max-width: 40%;
-                align-self: self-start;
-            }
-            .wpcfto_gallery {
-                max-width: 60%;
-            }
-        }
-    }
-    &:not(.column-1),
-    .wpcfto-box-child:not(.column-1) {
-        .wpcfto_generic_field_gallery {
-            .wpcfto-field-aside {
-                max-width: 100%;
-            }
-        }
+.wpcfto_generic_field_gallery {
+    .wpcfto-field-content {
+        display: flex;
+        align-items: center;
     }
 }
-
 .wpcfto_gallery {
     &__items {
         display: flex;
@@ -100,5 +80,11 @@
             display: inline;
             margin-right: 10px;
         }
+    }
+}
+
+@media(max-width: 1200px) {
+    .wpcfto_gallery .button {
+        margin-bottom: 10px;
     }
 }

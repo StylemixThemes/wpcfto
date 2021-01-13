@@ -3,18 +3,21 @@
         padding: 27px 20px 20px;
     }
     .wpcfto-field-aside {
-        align-self: start;
-        max-width: 30%;
+        //align-self: start;
+        //max-width: 30%;
     }
     .wpcfto-typography-fields-wrap {
-        max-width: 70%;
+        //max-width: 70%;
         & > .row > .column {
-            padding: 0 0 0 1rem !important;
+            padding: 0 !important;
         }
         .column {
             & > .column-1,
             & > .column-50 {
                 padding-bottom: 1em;
+            }
+            & > .column-50 {
+                width: calc(50% - 10px);
             }
             .row {
                 .column {
@@ -35,7 +38,7 @@
             margin-bottom: 1em;
             display: block;
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 500;
         }
     }
     &__preview {

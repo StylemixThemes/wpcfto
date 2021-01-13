@@ -21,14 +21,18 @@ Vue.component('wpcfto_date', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <date-picker v-model="value" lang="en" @change="dateChanged(value)"></date-picker>
-
-            <input type="hidden"
-                v-bind:name="field_name"
-                v-bind:placeholder="field_label"
-                v-bind:id="field_id"
-                v-model="input_value"
-            />
+            <div class="wpcfto-field-content">
+            
+                <date-picker v-model="value" lang="en" @change="dateChanged(value)"></date-picker>
+    
+                <input type="hidden"
+                    v-bind:name="field_name"
+                    v-bind:placeholder="field_label"
+                    v-bind:id="field_id"
+                    v-model="input_value"
+                />
+            
+            </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 

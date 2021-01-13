@@ -26,15 +26,15 @@
     background-color: #ffffff;
     z-index: 9999999;
 
-    &::before {
-        content: "";
-        border: 10px solid transparent;
-        border-bottom-color: #fff;
-        position: absolute;
-        top: -40px;
-        left: 40px;
-        z-index: 9;
-    }
+    //&::before {
+    //    content: "";
+    //    border: 10px solid transparent;
+    //    border-bottom-color: #fff;
+    //    position: absolute;
+    //    top: -40px;
+    //    left: 40px;
+    //    z-index: 9;
+    //}
 }
 
 .previewer {
@@ -63,7 +63,7 @@
         height: 45px;
         padding: 10px;
         margin: 0;
-        line-height: 40px;
+        line-height: 30px;
         cursor: pointer;
         border-radius: 5px;
         color: $color_muted;
@@ -108,32 +108,41 @@
     & {
         position: relative;
     }
+    & > .wpcfto-field-content {
+        display: flex;
+    }
+    .wpcfto-field-aside {
+
+    }
     .wpcfto_generic_field__inner {
         width: 100%;
-        display: block;
-        align-self: start;
-        padding-right: 35px;
+
         .wpcfto_generic_field {
             padding: 0;
             display: block;
-            float: left;
             width: 50%;
-            min-height: 80px;
-            padding-right: 25px;
+            float: left;
+            padding-right: 20px;
+            margin-bottom: 1.8em;
+            .wpcfto-field-aside {
+                width: 100%;
+                padding-right: 0;
+            }
+            .wpcfto-field-content {
+                width: 100%;
+            }
             label {
-                display: block !important;
-                margin: 0 0 0.8em !important;
+                display: block;
+                margin: 0 0 0.8em;
             }
             input:not(.range-slider-hidden) {
                 width: 100%;
             }
             &.wpcfto_generic_field_range_slider {
                 width: 100%;
-                display: flex;
-                align-self: start;
-                justify-content: space-between;
-
-                .wpcfto_field_title {
+                display: block;
+                margin-bottom: 0;
+                .wpcfto-field-aside {
                     label {
                         margin: 0 !important;
                     }
@@ -147,7 +156,7 @@
         }
     }
     .wpcfto_range_slider {
-        min-width: 335px;
+        min-width: 290px;
         width: 100%;
         max-width: 420px;
         padding-top: 0;
@@ -179,9 +188,10 @@
             margin: 0 0 0.8em;
         }
         .icon-preview-inner {
-            min-width: 118px;
-            min-height: 118px;
+            width: 121px;
+            height: 121px;
             display: flex;
+            overflow: hidden;
             align-items: center;
             justify-content: space-around;
             border-radius: 5px;

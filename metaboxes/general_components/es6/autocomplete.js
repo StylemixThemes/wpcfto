@@ -13,11 +13,11 @@ Vue.component('wpcfto_autocomplete', {
         }
     },
     template: `
-        <div class="wpcfto_generic_field__autocomplete_wrapper">
+        <div class="wpcfto_generic_field wpcfto_generic_field_autocomplete">
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto_generic_field wpcfto_generic_field__autocomplete">
+            <div class="wpcfto-field-content">
 
                 <div class="wpcfto-autocomplete-search" v-bind:class="{'loading': loading}">
 
@@ -31,10 +31,6 @@ Vue.component('wpcfto_autocomplete', {
                                   :options="options"
                                   @search="onSearch($event)">
                         </v-select>
-
-<!--                        <span class="v-select-search-label">-->
-<!--                            Add {{field_label}}-->
-<!--                        </span>-->
 
                     </div>
 
@@ -51,12 +47,12 @@ Vue.component('wpcfto_autocomplete', {
                         </li>
                     </ul>
 
-
                     <input type="hidden"
                            v-bind:name="field_name"
                            v-model="value"/>
 
                 </div>
+            
             </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>

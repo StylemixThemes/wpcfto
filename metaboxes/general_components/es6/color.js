@@ -36,7 +36,9 @@ Vue.component('wpcfto_color', {
         
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
             
-            <div class="stm_colorpicker_wrapper" v-bind:class="['picker-position-' + position]">
+            <div class="wpcfto-field-content">
+            
+                <div class="stm_colorpicker_wrapper" v-bind:class="['picker-position-' + position]">
 
                 <span v-bind:style="{'background-color': input_value}" @click="$refs.field_name.focus()"></span>
 
@@ -52,6 +54,8 @@ Vue.component('wpcfto_color', {
                     <slider-picker v-model="value"></slider-picker>
                 </div>
 
+            </div>
+            
             </div>
             
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>

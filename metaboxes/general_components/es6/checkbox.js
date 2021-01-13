@@ -10,7 +10,8 @@ Vue.component('wpcfto_checkbox', {
         
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
             
-            <div class="wpcfto-admin-checkbox" v-bind:class="field_id">
+            <div class="wpcfto-field-content">
+                <div class="wpcfto-admin-checkbox" v-bind:class="field_id">
 
                <label>
                     <div class="wpcfto-admin-checkbox-wrapper" v-bind:class="{'active' : value, 'is_toggle' : (typeof fields.toggle == 'undefined' || fields.toggle) }">
@@ -21,7 +22,8 @@ Vue.component('wpcfto_checkbox', {
                                v-model="value"/>
                     </div>
                 </label>
-            </div>            
+            </div>
+            </div>
             
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 

@@ -17,34 +17,32 @@ Vue.component('wpcfto_image', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto-image" :class="{ 'has-image' : image_url && wpcfto_checkURL(image_url) }">
-                <input type="text" v-model="image_url" class="wpcfto-input-url" placeholder="Enter image URL or click upload..." />
-
-                <div class="image-field" v-if="image_url && wpcfto_checkURL(image_url)">
-
-                    <img v-bind:src="image_url" v-if="wpcfto_checkURL(image_url)"/>
-                    <!-- <div class="image-field-file" v-else>
-                        <i class="fa fa-file-alt"></i>
-                        {{image_url}}
-                    </div> -->
-                </div>
-                <div class="actions">
-                    <div class="button" v-if="!image_url || !wpcfto_checkURL(image_url)" @click="addImage()">
-                        <i class="fa fa-upload"></i>Upload
+            <div class="wpcfto-field-content">
+                <div class="wpcfto-image" :class="{ 'has-image' : image_url && wpcfto_checkURL(image_url) }">
+                    <input type="text" v-model="image_url" class="wpcfto-input-url" placeholder="Enter image URL or click upload..." />
+    
+                    <div class="image-field" v-if="image_url && wpcfto_checkURL(image_url)">
+                        <img v-bind:src="image_url" v-if="wpcfto_checkURL(image_url)"/>
                     </div>
-                    <div class="button" v-if="image_url && wpcfto_checkURL(image_url)" @click="addImage()">
-                    <i class="fa fa-upload"></i>Replace
-                    </div>
-                    <div class="button button-remove" v-if="image_url && wpcfto_checkURL(image_url)" @click="removeImage()">
-                        <i class="fa fa-times"></i>Remove
+                    <div class="actions">
+                        <div class="button" v-if="!image_url || !wpcfto_checkURL(image_url)" @click="addImage()">
+                            <i class="fa fa-upload"></i>Upload
+                        </div>
+                        <div class="button" v-if="image_url && wpcfto_checkURL(image_url)" @click="addImage()">
+                        <i class="fa fa-upload"></i>Replace
+                        </div>
+                        <div class="button button-remove" v-if="image_url && wpcfto_checkURL(image_url)" @click="removeImage()">
+                            <i class="fa fa-times"></i>Remove
+                        </div>
                     </div>
                 </div>
-            </div>
-
-
-            <input type="hidden"
-                   v-bind:name="field_name"
-                   v-model="value" />
+    
+    
+                <input type="hidden"
+                       v-bind:name="field_name"
+                       v-model="value" />
+                       
+           </div>
 
             <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 

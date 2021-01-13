@@ -1,28 +1,6 @@
-.wpcfto-box {
-    &.column-1,
-    .wpcfto-box-child.column-1 {
-        .wpcfto_generic_field_textarea {
-            & {
-                align-items: initial;
-                display: flex;
-            }
-            textarea {
-                height: auto;
-                width: 60%;
-                min-height: 58px;
-            }
-            .wpcfto-field-aside {
-                max-width: 40%;
-            }
-        }
-    }
-    &:not(.column-1),
-    .wpcfto-box-child:not(.column-1) {
-        .wpcfto_generic_field_textarea {
-            textarea {
-                width: 100%;
-                margin-bottom: .5em;
-            }
-        }
+.wpcfto_generic_field_textarea {
+    textarea {
+        height: auto;
+        min-height: 58px;
     }
 }

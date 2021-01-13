@@ -33,7 +33,20 @@ if ( empty( $id ) ) {
 
 		<div class="container">
 
-			<div class="wpcfto-tab-nav">
+            <?php
+            // Hide Tab Nav if Menu Items == 1
+            $hide_tab_nav = false;
+            if(count($sections) == 1) {
+                foreach ( $sections as $section_name => $section ) {
+                    $submenus = array_unique(array_column( $section['fields'], 'submenu' ));
+                    if(count($submenus) <= 1) {
+                        $hide_tab_nav = true;
+                    }
+                }
+            }
+            ?>
+
+            <div class="wpcfto-tab-nav <?php echo ($hide_tab_nav) ? 'hide' : ''; ?>">
 				<?php
 				foreach ( $sections as $section_name => $section ):
 

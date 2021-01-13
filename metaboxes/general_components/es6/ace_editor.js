@@ -10,16 +10,20 @@ Vue.component('wpcfto_ace_editor', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field_ace_editor">
-            <label v-html="field_label" class="wpcfto_field_title"></label>
-            <editor
-                v-model="value"
-                @init="editorInit"
-                :lang="field_data['lang']"
-                theme="chrome"
-                width="100%"
-                height="400"></editor>
+        
+            <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <span v-if="fields.description" v-html="fields.description" class="field-description description"></span>
+            <div class="wpcfto-field-content">
+                <editor
+                    v-model="value"
+                    @init="editorInit"
+                    :lang="field_data['lang']"
+                    theme="chrome"
+                    width="100%"
+                    height="400"></editor>
+            </div>
+
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
         </div>
     `,
     mounted: function () {

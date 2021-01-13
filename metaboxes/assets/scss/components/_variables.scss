@@ -19,6 +19,12 @@ $color_muted: #8c99a5;
 $side_width: 273px;
 $content_width: unquote('calc(100% - ' + $side_width + ')');
 
+$fields_aside_width: 40%;
+$fields_content_width: 60%;
+
 // Other
 $main_color: #195ec8;
 $secondary_color: #2c3e50;
+
+// Fonts
+$main_font: 'Roboto', sans-serif;
