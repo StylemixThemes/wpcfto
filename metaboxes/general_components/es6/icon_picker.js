@@ -77,7 +77,8 @@ Vue.component('wpcfto_icon_picker', {
                         <i class="wpcfto_generic_field__iconpicker__icon"
                         v-bind:class="value.icon"
                         v-bind:style="{ color: value.color, 'font-size' : value.size + 'px'}"
-                        v-if="value.icon"></i>    
+                        v-if="value.icon && value.icon !== ''"></i>  
+                        <span v-else>--</span>  
                     </div>        
                  </div>
              </div>
@@ -106,6 +107,7 @@ Vue.component('wpcfto_icon_picker', {
         blur() {
             timeout = setTimeout(() => {
                 this.focusOn = false;
+                this.value.icon = '';
             }, 100);
         },
         focus() {

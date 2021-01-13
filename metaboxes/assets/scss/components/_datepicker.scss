@@ -32,6 +32,20 @@
     &-popup {
         left: 0;
     }
+    .mx-input-icon {
+        &__calendar {
+            background: transparent;
+            color: $color_muted;
+            font-family: 'Font Awesome 5 Free';
+            font-weight: 900;
+            line-height: 40px;
+            text-align: center;
+            &::after {
+                content: "\f073";
+                display: inline;
+            }
+        }
+    }
 }
 
 .mx-calendar-content {

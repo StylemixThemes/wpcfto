@@ -16,13 +16,13 @@
         &-single {
             position: relative;
             padding: 0;
-            margin: 0 0 25px;
+            margin: 0 0 2.5rem;
             background-color: transparent;
             border-radius: 3px;
 
             .wpcfto_group_title {
                 padding: 0 0px 10px;
-                margin: 15px 0 15px;
+                margin: 0 0 15px;
                 width: auto;
             }
 
@@ -48,9 +48,7 @@
 
             .repeater_inner {
                 & {
-                    display: flex;
-                    align-items: center;
-                    justify-content: space-between;
+                    display: block;
                 }
 
                 &.closed {
@@ -63,17 +61,19 @@
                 position: absolute;
                 top: 0;
                 right: 0;
-                padding: 5px 7px;
-                opacity: .3;
-                font-size: 16px;
+                padding: 0px;
+                color: $color_muted;
+                font-size: 13px;
                 cursor: pointer;
+                text-transform: uppercase;
+                font-weight: 400;
                 transition: 0.2s ease 0s;
                 i {
                     vertical-align: baseline;
                     margin-right: 8px;
                 }
                 &:hover {
-                    opacity: 1;
+                    color: $color_main;
                 }
             }
 
@@ -114,11 +114,8 @@
 
         .wpcfto-repeater-field {
             width: 100%;
-            &:first-of-type {
-                padding-right: 25px;
-            }
-            &:last-of-type {
-                padding-left: 25px;
+            .wpcfto-field-aside {
+                align-self: center;
             }
             .wpcfto-admin-checkbox,
             .wpcfto-radio {
@@ -173,14 +170,3 @@
     }
 }
 
-.wpcfto_generic_field_repeater {
-    display: block !important;
-    .wpcfto-field-aside {
-        padding-right: 0;
-        margin-bottom: 1em;
-    }
-    .wpcfto-field-content,
-    .wpcfto-field-aside {
-        width: 100%;
-    }
-}

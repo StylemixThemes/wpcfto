@@ -8,6 +8,8 @@
         position: sticky;
         top: 32px;
         z-index: 99;
+        font-family: $main_font;
+        font-weight: 400;
     }
     &__side {
         padding: 13px 23px 12px;
@@ -78,6 +80,8 @@
     position: relative;
     min-height: 80px;
     border-radius: 10px;
+    font-family: $main_font;
+    font-weight: 400;
 
     .wpcfto-box-child {
         position: relative;
@@ -166,6 +170,8 @@
     &__inner {
         & {
             max-width: 1240px;
+            font-family: $main_font;
+            font-weight: 400;
         }
         .container {
             background-color: transparent;
@@ -249,7 +255,7 @@
                     position: relative;
                     padding: 0;
                     font-size: 14px;
-                    font-weight: 600;
+                    font-weight: 400;
                     text-transform: uppercase;
                     color: $color_tab_nav;
                     cursor: pointer;
@@ -337,7 +343,7 @@
             & {
                 color: $color_muted;
                 font-size: 13px;
-                font-weight: 400;
+                font-weight: 300;
                 line-height: 16px;
                 position: relative;
                 vertical-align: middle;
@@ -359,7 +365,7 @@
             color: $white;
             padding: 13px 18px;
             font-size: 13px;
-            font-weight: 600;
+            font-weight: 400;
             line-height: 19px;
             text-transform: uppercase;
             border-radius: 4px;
@@ -413,10 +419,11 @@
         padding: 0 0 12px;
         color: $color_muted;
         font-size: 14px;
-        font-weight: 600;
+        font-weight: 400;
         text-transform: uppercase;
         border-bottom: 1px solid #d6dade;
         margin: 0 0 17px;
+        letter-spacing: 1.4px;
     }
 }
 
@@ -433,7 +440,8 @@
         position:relative;
         color: $color_muted;
         font-size: 9px;
-        font-weight: 500;
+        font-weight: 300;
+        letter-spacing: 0.9px;
         text-transform: uppercase;
         margin-left: 5px;
         vertical-align: middle;

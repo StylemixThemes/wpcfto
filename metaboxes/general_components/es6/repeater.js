@@ -50,6 +50,8 @@ Vue.component('wpcfto_repeater', {
             </div>
         
         </div>
+        
+        <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 
     </div>
     `,
