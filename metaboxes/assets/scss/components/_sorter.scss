@@ -50,6 +50,10 @@
         color: $color_main;
         padding: 10px;
 
+        &.sortable-chosen {
+            opacity: 0.3;
+        }
+
         &:not(:last-of-type) {
             margin-bottom: 5px;
         }

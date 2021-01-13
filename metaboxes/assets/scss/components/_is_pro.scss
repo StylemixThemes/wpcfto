@@ -9,13 +9,17 @@
                 color: $color_muted;
                 position: relative;
                 z-index: 101;
-                margin: 0 10px;
+                margin: 0 20px 0 0;
                 white-space: nowrap;
-                order: 2;
+                width: 20%;
+                order: 3;
 
                 a {
                     margin-left: 4px;
                     color: $accent;
+                }
+                .wpcfto_field_hint {
+                    z-index: 99;
                 }
             }
 
