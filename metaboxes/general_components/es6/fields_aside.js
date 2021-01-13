@@ -22,12 +22,6 @@ Vue.component('wpcfto_fields_aside_before', {
             <div v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__before description"></div>
         </div>
     `,
-    methods: {},
-    watch: {
-        value: function (value) {
-
-        }
-    }
 });
 
 
@@ -41,10 +35,4 @@ Vue.component('wpcfto_fields_aside_after', {
     template: ` 
 <!--        <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>-->
     `,
-    methods: {},
-    watch: {
-        value: function (value) {
-
-        }
-    }
 });

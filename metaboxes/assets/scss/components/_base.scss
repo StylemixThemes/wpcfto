@@ -76,7 +76,7 @@
 
 .wpcfto-box {
     background-color: $bg_blocks;
-    margin: 0 5px 10px;
+    margin: 0 0 10px;
     position: relative;
     min-height: 80px;
     border-radius: 10px;
@@ -138,6 +138,9 @@
     }
 }
 
+.postbox .stm_metaboxes_grid {
+    background-color: $bg_content;
+}
 
 .wpcfto-field-aside {
     & {
@@ -248,6 +251,9 @@
                 width: $side_width;
                 padding: 21px 0;
                 flex-grow: 1;
+            }
+            &.hide {
+                display: none;
             }
             .wpcfto-nav {
                 & {

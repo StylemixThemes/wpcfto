@@ -588,7 +588,7 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
             <?php echo($dependency); ?>
              data-field="<?php echo esc_attr("wpcfto_addon_option_{$field_name}"); ?>">
 
-            <?php do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro); ?>
+            <?php //do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro); ?>
 
             <?php
 
@@ -598,6 +598,17 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
                 $field_data['placeholder'] = $label;
             }
             $field_type = $field['type'];
+
+//            ob_start();
+//            do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro);
+//            if(class_exists('STM_LMS_WPCFTO_HELPERS')) {
+//                $wpcfto_help = new STM_LMS_WPCFTO_HELPERS();
+//                $is_pro_cont = $wpcfto_help->start_field($classes, $field_name, $field, $is_pro);
+//            }
+//            $is_pro_content = ob_get_contents();
+//            ob_end_clean();
+
+//            $field_data['is_pro_content'] = $is_pro_content;
 
             $field = "data['{$section_name}']['fields']['{$field_name}']";
 
