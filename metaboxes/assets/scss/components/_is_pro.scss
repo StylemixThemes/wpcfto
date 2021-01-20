@@ -1,6 +1,17 @@
 .stm_metaboxes_grid {
 
     &__inner {
+        .stm_lms_certificate_banner {
+            .certificate_banner {
+                width: 100%;
+                padding: 0 20px;
+                img {
+                    margin-bottom: 0 !important;
+                    max-width: 100%;
+                }
+            }
+        }
+
         .is_pro {
             position: relative;
             .pro-notice {
@@ -50,6 +61,8 @@
                 }
             }
             &.certificate_banner {
+                width: 100%;
+                padding: 20px;
                 & {
                     padding: 20px;
                 }
@@ -66,6 +79,7 @@
                     box-shadow: none;
                     img {
                         max-width: 100%;
+                        margin-bottom: 0;
                     }
                 }
                 &:hover {
