@@ -32,6 +32,14 @@ Vue.component('wpcfto_spacing', {
     mounted: function () {
         // JSON parse for Post Meta
         this.spacing = (typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) ? JSON.parse(this.field_value) : this.field_value;
+        if (typeof this.spacing !== 'object') {
+            this.spacing = {
+                top: '',
+                left: '',
+                right: '',
+                bottom: '',
+            };
+        }
     },
     methods: {},
     watch: {
