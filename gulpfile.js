@@ -107,6 +107,9 @@ gulp.task('build_wpcfto', function (done) {
             .pipe(babel({
                 presets: ['@babel/env']
             }))
+            .on('error', function(error) {
+                console.log(error)
+            })
             .pipe(browserify({
                 transform: ['babelify'],
             }))
