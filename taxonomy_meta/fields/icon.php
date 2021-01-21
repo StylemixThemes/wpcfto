@@ -26,7 +26,7 @@ function wpcfto_term_meta_field_icon($field_key, $value)
 	}
 
 	$lr_icons = stm_wpcfto_add_vc_icons_linear(array());
-	$lr_icons = $lr_icons['Linear Icons'];
+	$lr_icons = $lr_icons['Linear'];
 	$lr_icons_i = array("");
 	foreach ($lr_icons as $icon) {
 		$icons = array_keys($icon);
