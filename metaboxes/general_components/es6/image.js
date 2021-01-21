@@ -19,7 +19,8 @@ Vue.component('wpcfto_image', {
 
             <div class="wpcfto-field-content">
                 <div class="wpcfto-image" :class="{ 'has-image' : image_url && wpcfto_checkURL(image_url) }">
-                    <input type="text" v-model="image_url" class="wpcfto-input-url" placeholder="Enter image URL or click upload..." />
+                    <input type="text" v-model="image_url" class="wpcfto-input-url" 
+                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter image URL or click upload...'" />
     
                     <div class="image-field" v-if="image_url && wpcfto_checkURL(image_url)">
                         <img v-bind:src="image_url" v-if="wpcfto_checkURL(image_url)"/>

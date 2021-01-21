@@ -54,6 +54,7 @@ Vue.component('wpcfto_icon_picker', {
                         :field_id="field_id"
                         :field_value="value['size']"
                         :field_data="{min:1,max:200}"
+                        :field_input_addon="{label:'px'}"
                         @wpcfto-get-value="value['size'] = $event">
                     </wpcfto_range_slider>
     

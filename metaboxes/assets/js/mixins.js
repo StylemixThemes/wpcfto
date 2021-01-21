@@ -16,7 +16,7 @@ var wpcfto_get_image_mixin = {
             });
         },
         wpcfto_checkURL(url) {
-            return (url.match(/\.(jpeg|jpg|gif|png)$/) != null);
+            return (url.match(/\.(jpeg|jpg|gif|png|svg)$/) != null);
         }
     }
 };
