@@ -92,7 +92,7 @@ Vue.component('wpcfto_icon_picker', {
             this.value = this.field_value;
         }
 
-        if (!this.value.length) {
+        if (!this.value.icon) {
             this.value = {
                 icon: '',
                 color: '#000',
