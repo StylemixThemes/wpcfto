@@ -473,7 +473,8 @@
         z-index: 101;
 
         img {
-            max-width: inherit;
+            max-width: calc(297px - 10px);
+            border-radius: 10px;
         }
     }
     &::after {

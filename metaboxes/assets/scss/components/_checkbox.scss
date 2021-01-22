@@ -239,16 +239,16 @@
         background-color: #00b163;
         border-color: #00b163;
         .wpcfto-checkbox-switcher {
-            transform: translateX(16px);
-            background-color: #fff;
+            //transform: translateX(16px);
+            //background-color: #fff;
         }
 
         &.active {
             border-color: #bfbfbf;
             background-color: #bfbfbf;
             .wpcfto-checkbox-switcher {
-                transform: translateX(0);
-                background-color: #f6f6f6;
+                //transform: translateX(0);
+                //background-color: #f6f6f6;
             }
             +span {
                 opacity: .6;

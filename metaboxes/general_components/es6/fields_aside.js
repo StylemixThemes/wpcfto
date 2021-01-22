@@ -26,13 +26,11 @@ Vue.component('wpcfto_fields_aside_before', {
 
 
 Vue.component('wpcfto_fields_aside_after', {
-    props: ['fields'],
+    props: ['fields', 'field_data'],
     data: function () {
         return {
             fields: {},
         }
     },
-    template: ` 
-<!--        <span v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__after description"></span>-->
-    `,
+    template: `<div class="wpcfto-field-pro-content" v-if="field_data.pro_content" v-html="field_data.pro_content"></div>`,
 });
