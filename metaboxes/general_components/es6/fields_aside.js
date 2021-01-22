@@ -32,5 +32,7 @@ Vue.component('wpcfto_fields_aside_after', {
             fields: {},
         }
     },
-    template: `<div class="wpcfto-field-pro-content" v-if="field_data.pro_content" v-html="field_data.pro_content"></div>`,
+    template: `gulp 
+<!--<div class="wpcfto-field-pro-content" v-if="field_data.pro_content" v-html="field_data.pro_content"></div>-->
+`,
 });

@@ -55,7 +55,7 @@ Vue.component('wpcfto_autocomplete', {
             
             </div>
 
-            <wpcfto_fields_aside_after :fields="fields" :field_data="field_data"></wpcfto_fields_aside_after>
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 
         </div>
     `,

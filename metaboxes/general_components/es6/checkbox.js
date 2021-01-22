@@ -1,5 +1,5 @@
 Vue.component('wpcfto_checkbox', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
     data: function () {
         return {
             value : '',
@@ -25,7 +25,7 @@ Vue.component('wpcfto_checkbox', {
             </div>
             </div>
             
-            <wpcfto_fields_aside_after :fields="fields" :field_data="field_data"></wpcfto_fields_aside_after>
+            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
 
         </div>
     `,
