@@ -1,5 +1,5 @@
 Vue.component('wpcfto_select', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
         return {
             value : '',
@@ -20,7 +20,7 @@ Vue.component('wpcfto_select', {
                 </div>
             </div>
 
-            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+            <wpcfto_fields_aside_after :fields="fields" :field_data="field_data"></wpcfto_fields_aside_after>
 
         </div>
     `,

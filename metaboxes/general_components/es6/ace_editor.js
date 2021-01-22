@@ -23,7 +23,7 @@ Vue.component('wpcfto_ace_editor', {
                     height="400"></editor>
             </div>
 
-            <wpcfto_fields_aside_after :fields="fields"></wpcfto_fields_aside_after>
+            <wpcfto_fields_aside_after :fields="fields" :field_data="field_data"></wpcfto_fields_aside_after>
         </div>
     `,
     mounted: function () {

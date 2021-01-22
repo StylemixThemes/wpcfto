@@ -6,6 +6,7 @@
  * @var $field_value
  * @var $field_label
  * @var $field_name
+ * @var $field_data
  * @var $section_name
  *
  */
