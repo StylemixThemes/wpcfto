@@ -13,7 +13,7 @@ Vue.component('wpcfto_text', {
             <div class="wpcfto-field-content">
                 <input type="text"
                     v-bind:name="field_name"
-                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter something...'"
+                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter ' + field_label "
                     v-bind:id="field_id"
                     v-model="value"
                 />
