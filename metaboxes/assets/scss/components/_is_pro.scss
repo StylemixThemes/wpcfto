@@ -14,6 +14,10 @@
 
         .is_pro {
             position: relative;
+
+            .wpcfto-field-aside {
+                align-self: center;
+            }
             .pro-notice {
                 font-size: 13px;
                 font-weight: 400;
@@ -28,10 +32,12 @@
                 a {
                     margin-left: 4px;
                     color: $accent;
+                    text-decoration: none !important;
                 }
-                .wpcfto_field_hint {
-                    z-index: 99;
-                }
+            }
+
+            .wpcfto_field_hint {
+                display: none;
             }
 
             .wpcfto_generic_field {

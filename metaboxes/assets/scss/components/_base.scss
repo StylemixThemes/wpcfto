@@ -7,7 +7,7 @@
         max-width: 1240px;
         position: sticky;
         top: 32px;
-        z-index: 99;
+        z-index: 9999;
         font-family: $main_font;
         font-weight: 400;
     }
@@ -58,6 +58,7 @@
         display: flex;
         justify-content: space-between;
         border-radius: 0 10px 10px 0;
+        box-shadow: -2px 2px 5px rgba(0,0,0,0.08);
     }
     .wpcfto_search_group {
         opacity: 0;
@@ -246,6 +247,7 @@
         }
 
         .wpcfto-tab-nav {
+            position: relative;
             & {
                 background-color: $bg_tab_nav;
                 width: $side_width;
@@ -254,6 +256,11 @@
             }
             &.hide {
                 display: none;
+            }
+            &--inner {
+                position: sticky;
+                top: 133px;
+                z-index: 99;
             }
             .wpcfto-nav {
                 & {
