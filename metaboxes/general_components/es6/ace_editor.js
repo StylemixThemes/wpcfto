@@ -1,5 +1,5 @@
 Vue.component('wpcfto_ace_editor', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
     data: function () {
         return {
             value: '',

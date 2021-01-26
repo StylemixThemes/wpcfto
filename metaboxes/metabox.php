@@ -589,11 +589,21 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
             <?php echo($dependency); ?>
              data-field="<?php echo esc_attr("wpcfto_addon_option_{$field_name}"); ?>">
 
-            <?php do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro, $pro_url); ?>
+            <?php
+
+                do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro, $pro_url);
+
+                // !!! This block for insert pro notice html to component "wpcfto_fields_aside_after"
+//                ob_start();
+//                do_action('stm_wpcfto_single_field_before_start', $classes, $field_name, $field, $is_pro, $pro_url);
+//                $pro_content = ob_get_contents();
+//                ob_end_clean();
+            ?>
 
             <?php
 
             $field_data = $field;
+//            $field_data['pro_content'] = $pro_content;
 
             $label = (!empty($field_data['label'])) ? $field_data['label'] : '';
             if (empty($field_data['placeholder'])) {

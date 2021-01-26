@@ -13,7 +13,7 @@ Vue.component('wpcfto_number', {
             <div class="wpcfto-field-content">
                 <input type="number"
                     v-bind:name="field_name"
-                    v-bind:placeholder="field_data.placeholder"
+                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter numbers...'"
                     v-bind:id="field_id"
                     :step="step"
                     v-model="value"

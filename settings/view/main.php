@@ -12,9 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } //Exit if accessed directly
 
-?>
+if(empty($wpcfto_title)) $wpcfto_title = $page['page_title'];
 
-	<h1><?php echo sanitize_text_field( $page['page_title'] ); ?></h1>
+?>
 
 <?php
 $id        = $metabox['id'];
