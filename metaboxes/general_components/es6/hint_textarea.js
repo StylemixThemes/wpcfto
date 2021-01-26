@@ -8,24 +8,29 @@ Vue.component('wpcfto_hint_textarea', {
     template: `
         <div class="wpcfto_generic_field">
         
-            <label v-html="field_label"></label>
-            
-            <div class="hints">
-                <span @click="enterHint(hint_key)" v-for="(hint_text, hint_key) in fields.hints">{{hint_text}}</span>
+            <div class="wpcfto-field-aside">
+                <label v-html="field_label" class="wpcfto-field-aside__label"></label>
             </div>
             
-            <textarea v-bind:name="field_name"
-                      v-bind:placeholder="field_label"
-                      v-bind:id="field_id"
-                      v-model="value">
-            </textarea>
+            <div class="wpcfto-field-content">
+                <div class="hints">
+                    <span @click="enterHint(hint_key)" v-for="(hint_text, hint_key) in fields.hints">{{hint_text}}</span>
+                </div>
+                
+                <textarea v-bind:name="field_name"
+                          v-bind:placeholder="field_label"
+                          v-bind:id="field_id"
+                          v-model="value">
+                </textarea>
+            </div>
+            
         </div>
     `,
     mounted: function () {
         this.value = this.field_value;
     },
     methods: {
-        enterHint : function(hint) {
+        enterHint: function (hint) {
             this.value += ' {{' + hint + '}}';
         }
     },

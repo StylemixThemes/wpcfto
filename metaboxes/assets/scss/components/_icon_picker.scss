@@ -163,16 +163,33 @@
         .range-slider-hidden {
             position: absolute;
             display: block !important;
-            width: 85px;
+            width: 100px;
+            padding-right: 50px;
             top: 0;
-            right: -105px;
+            right: -120px;
+            text-align: center;
         }
         .wpcfto_range_slider__pin {
             display: none;
         }
+        .wpcfto_field_addon {
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 40px;
+            line-height: 26px;
+            padding: 6px 10px;
+            font-size: 14px;
+            font-weight: 400;
+            color: $color_muted;
+            text-align: center;
+            background-color: #fff;
+            border: 1px solid #bec5cb;
+            border-radius: 0 5px 5px 0;
+        }
         .range-slider {
             & {
-                padding-right: 105px;
+                padding-right: 120px;
             }
             .range-slider-inner {
                 padding-top: 40px;
