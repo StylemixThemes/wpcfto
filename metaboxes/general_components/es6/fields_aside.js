@@ -9,17 +9,17 @@ Vue.component('wpcfto_fields_aside_before', {
         <div class="wpcfto-field-aside" v-if="field_label || fields.preview || fields.description || fields.hint">
             <label v-html="field_label" class="wpcfto-field-aside__label"></label>
 
-            <div v-if="fields.hint" class="wpcfto_field_hint text">
+            <div v-if="fields && fields.hint" class="wpcfto_field_hint text">
                 <i class="fa fa-info-circle"></i><div v-html="fields.hint" class="hint"></div>
             </div>
                      
             <div
-            v-if="fields.preview"
+            v-if="fields && fields.preview"
             class="wpcfto_preview"><span class="wpcfto_preview__text">Preview</span><span
             class="wpcfto_preview__popup"><img
             :src="fields.preview" /></span></div>
             
-            <div v-if="fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__before description"></div>
+            <div v-if="fields && fields.description" v-html="fields.description" class="wpcfto-field-description wpcfto-field-description__before description"></div>
         </div>
     `,
 });
@@ -32,7 +32,7 @@ Vue.component('wpcfto_fields_aside_after', {
             fields: {},
         }
     },
-    template: `gulp 
-<!--<div class="wpcfto-field-pro-content" v-if="field_data.pro_content" v-html="field_data.pro_content"></div>-->
+    template: ` 
+        <div>&nbsp</div>
 `,
 });
