@@ -1,7 +1,7 @@
 <?php
 
 /***
- * $deprecated 3.0
+ * @deprecated 3.0
  */
 
 if ( ! class_exists( 'STM_LMS_Settings' ) ) {
