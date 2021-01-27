@@ -20,7 +20,7 @@ Vue.component('wpcfto_repeater', {
                 <div class="repeater_inner">
     
                     <div class="wpcfto-repeater-field" v-for="(field, field_name_inner) in fields.fields">
-    
+                    
                         <component :is="'wpcfto_' + field.type"
                                    :fields="field"
                                    :field_name="field_name + '_' + area_key + '_' + field_name_inner"
