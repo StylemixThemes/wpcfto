@@ -185,6 +185,11 @@ Vue.component('wpcfto_typography', {
     },
     methods: {
         isFontWeightDisabled: function (variant) {
+
+            if(typeof this.field_data['excluded'] !== 'undefined' && this.field_data['excluded'].includes('font-family')) {
+                return false;
+            }
+
             let current_variants = this.typography['font-data']['variants'];
             if (typeof current_variants === 'undefined') return false;
             return (!current_variants.includes(variant));
