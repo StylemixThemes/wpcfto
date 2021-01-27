@@ -3,7 +3,7 @@
  */
 
 Vue.component('wpcfto_typography', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
         return {
             inited: false,
@@ -42,6 +42,7 @@ Vue.component('wpcfto_typography', {
                 <div class="wpcfto-typography-fields-wrap">
                     <div class="row">
                         <div class="column">
+                        
                             <div class="column-1" v-if="typography['font-family'].length">
                                 <div v-if="typography['font-family'].length">
                                     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -49,7 +50,7 @@ Vue.component('wpcfto_typography', {
                                 </div>
                             </div>
                 
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('font-family')">
                                 <label class="field-label" v-html="translations['font_family']"></label>                        
                                 <select v-model="typography['font-data']" @change="fontChanged()">
                                     <option value="">Select font</option>
@@ -57,7 +58,7 @@ Vue.component('wpcfto_typography', {
                                 </select>
                             </div>        
                 
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('backup-font')">
                                 <label class="field-label" v-html="translations['backup_font_family']"></label>       
                                 <select v-model="typography['backup-font']">
                                     <option value="">Select backup font</option>
@@ -65,7 +66,7 @@ Vue.component('wpcfto_typography', {
                                 </select>
                             </div>        
         
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('google-weight')">
                                 <label class="field-label" v-html="translations['font_weight']"></label>       
                                 <select v-model="typography['google-weight']" @change="weightChanged()">
                                     <option value="">Select font weight</option>
@@ -76,7 +77,7 @@ Vue.component('wpcfto_typography', {
                                 </select>
                             </div>        
         
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('subset')">
                                 <label class="field-label" v-html="translations['font_subset']"></label>       
                                 <select v-model="typography['subset']">
                                     <option value="">Select subset</option>
@@ -87,7 +88,7 @@ Vue.component('wpcfto_typography', {
                                 </select>
                             </div>        
         
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('text-align')">
                                 <label class="field-label" v-html="translations['text_align']"></label> 
                                 <select v-model="typography['text-align']">
                                     <option
@@ -99,7 +100,7 @@ Vue.component('wpcfto_typography', {
                             <div class="column-50">
                                 <div class="row">
                                     <div class="column">
-                                        <div class="column-50">
+                                        <div class="column-50" v-if="notExcluded('font-size')">
                                             <label>
                                                 <span class="field-label" v-html="translations['font_size']"></span>
                                                 <div class="input-group">
@@ -108,7 +109,7 @@ Vue.component('wpcfto_typography', {
                                                 </div>                                                
                                             </label>                                
                                         </div>
-                                        <div class="column-50">
+                                        <div class="column-50" v-if="notExcluded('line-height')">
                                             <label>
                                                 <span class="field-label" v-html="translations['line_height']"></span>
                                                 <div class="input-group">
@@ -124,7 +125,7 @@ Vue.component('wpcfto_typography', {
                             <div class="column-50">
                                 <div class="row">
                                     <div class="column">
-                                        <div class="column-50">
+                                        <div class="column-50" v-if="notExcluded('word-spacing')">
                                             <label>
                                                 <span class="field-label" v-html="translations['word_spacing']"></span>
                                                 <div class="input-group">
@@ -133,7 +134,7 @@ Vue.component('wpcfto_typography', {
                                                 </div>
                                             </label>                                
                                         </div>
-                                        <div class="column-50">
+                                        <div class="column-50" v-if="notExcluded('letter-spacing')">
                                             <label>
                                                 <span class="field-label" v-html="translations['letter_spacing']"></span>
                                                 <div class="input-group">
@@ -146,7 +147,7 @@ Vue.component('wpcfto_typography', {
                                 </div>                          
                             </div>     
         
-                            <div class="column-50">
+                            <div class="column-50" v-if="notExcluded('color')">
                                 <label class="field-label" v-html="translations['font_color']"></label> 
                                 <wpcfto_color @wpcfto-get-value="typography['color'] = $event"
                                         :fields="{position: 'bottom'}"
@@ -155,7 +156,7 @@ Vue.component('wpcfto_typography', {
                                 </wpcfto_color>
                             </div>            
                 
-                            <div class="column-1">
+                            <div class="column-1" v-if="notExcluded('preview')">
                                 <div class="wpcfto_generic_field__typography__preview" :style="previewStyles()">
                                     ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 1234567890 ‘?’“!”(%)[#]{@}/&\\<-+÷×=>®©$€£¥¢:;,.*
                                 </div>            
@@ -258,6 +259,15 @@ Vue.component('wpcfto_typography', {
                 this.$set(typo, 'font-weight', weight);
                 this.$set(typo, 'font-style', 'normal');
             }
+        },
+        notExcluded(option) {
+
+            if(typeof this.field_data['excluded'] === 'undefined') return true;
+
+            let excluded = this.field_data['excluded'];
+
+            return !excluded.includes(option);
+
         }
     },
     watch: {
