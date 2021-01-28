@@ -75,6 +75,13 @@
                             this.changeSubMenu($submenu.attr('data-submenu'));
                         }
 
+                        /*Scroll top*/
+                        $("html, body").animate(
+                            {
+                                scrollTop: $tab.closest('.stm_metaboxes_grid__inner').offset().top - 100
+                            },
+                            "fast");
+
                     },
                     changeSubMenu(sub_menu) {
                         let $submenu = $('[data-submenu="' + sub_menu + '"]');
@@ -148,15 +155,15 @@
                         Vue.nextTick()
                             .then(function () {
                                 (function ($) {
-									$('.wpcfto_group_started').each(function(){
-										let $group = $(this);
-										let $childs = $group.find('.wpcfto-box-child');
-										if(!$childs.length) {
-											$group.addClass('no-childs-visible');
-										} else {
-											$group.removeClass('no-childs-visible');
-										}
-									})
+                                    $('.wpcfto_group_started').each(function () {
+                                        let $group = $(this);
+                                        let $childs = $group.find('.wpcfto-box-child');
+                                        if (!$childs.length) {
+                                            $group.addClass('no-childs-visible');
+                                        } else {
+                                            $group.removeClass('no-childs-visible');
+                                        }
+                                    })
                                 })(jQuery);
                             });
                     }
@@ -165,10 +172,10 @@
                     data: {
                         deep: true,
                         handler: function () {
-                        	let _this = this;
-							setTimeout(function(){
-								_this.clearEmptyGroups();
-							}, 100);
+                            let _this = this;
+                            setTimeout(function () {
+                                _this.clearEmptyGroups();
+                            }, 100);
                         }
                     }
                 }
