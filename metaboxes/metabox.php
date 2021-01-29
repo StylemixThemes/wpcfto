@@ -497,6 +497,8 @@ function wpcfto_metaboxes_deps($field, $section_name)
     if (empty($field['dependency'])) {
         return $dependency;
     }
+	
+	if(!empty($field['dependency']['section'])) $section_name = $field['dependency']['section'];
 
     if (!empty($field['dependencies'])) {
         $mode = $field['dependencies'];
