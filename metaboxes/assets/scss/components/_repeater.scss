@@ -2,12 +2,14 @@
     .wpcfto-box.repeater {
         padding: 0;
     }
+
     .wpcfto-repeater {
 
         > label {
             margin: 0 0 15px;
             font-size: 18px;
         }
+
         .separator {
             border-bottom: 1px solid #d6dade;
             margin-bottom: 20px;
@@ -36,6 +38,7 @@
 
             .wpcfto-admin-select {
                 width: 100%;
+
                 select {
                     max-width: 100%
                 }
@@ -68,10 +71,12 @@
                 text-transform: uppercase;
                 font-weight: 400;
                 transition: 0.2s ease 0s;
+
                 i {
                     vertical-align: baseline;
                     margin-right: 8px;
                 }
+
                 &:hover {
                     color: $color_main;
                 }
@@ -114,31 +119,60 @@
 
         .wpcfto-repeater-field {
             width: 100%;
+            margin: 0 0 30px;
+
             .wpcfto-field-aside {
                 align-self: center;
             }
+
             .wpcfto-admin-checkbox,
             .wpcfto-radio {
                 & {
                     position: relative;
                 }
+
                 label {
                     margin-bottom: 0;
                 }
             }
+
             input[type=radio],
-            input[type=checkbox]{
+            input[type=checkbox] {
                 width: auto;
                 margin-bottom: 0;
             }
+
             &:last-child {
                 > div {
                     margin-bottom: 0;
+
                     .field_label__file {
                         margin-bottom: 0;
                     }
                 }
             }
+
+            .wpcfto_generic_field__typography,
+            .wpcfto_generic_field_iconpicker {
+                display: block;
+                > .wpcfto-field-aside {
+                    label {
+                        display: block;
+                        margin-bottom: 20px;
+                    }
+                }
+                .wpcfto-field-content {
+                    width: 100%;
+                    .field-label,
+                    label {
+                        font-size: 12px;
+                    }
+                    .wpcfto_generic_field {
+                        padding-right: 20px;
+                    }
+                }
+            }
+
         }
 
         .addArea {

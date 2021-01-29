@@ -1,12 +1,10 @@
-.wpcfto_generic_field__file {
-	margin-bottom: 30px;
-}
-
 .file-select {
 	margin-bottom: 20px;
 }
 
 .file-select > .select-button {
+	display: inline-block;
+	vertical-align: top;
 	padding: 10px 15px;
 
 	color: white;
@@ -47,13 +45,13 @@
 }
 
 .field_label__file {
-	margin: 0 0 20px;
+
 	> a {
 		display: inline-block;
 		margin-right: 10px;
 		padding: 5px 10px;
 		border-radius: 4px;
-		background-color: rgb(255, 255, 255);
+		background-color: #f1f1f1;
 		box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
 		color: #23282d !important;
 		i {
@@ -66,6 +64,7 @@
 
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
 	.field_label_error {
+		margin: 30px 0 0;
 		background: #fd3753;
 		color: #fff;
 		padding: 17px 15px;
