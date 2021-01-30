@@ -649,3 +649,39 @@
         transform: translateY(0px);
     }
 }
+
+.stm_metaboxes_grid .wpcfto_generic_field {
+    &.preopen_field_wrapper {
+        background-color: #fff;
+        margin: 0 0 10px;
+        border-radius: 10px;
+        .wpcfto-admin-checkbox {
+            align-self: flex-end;
+            margin-bottom: 0;
+            label {
+                .wpcfto-admin-checkbox-wrapper {
+                    margin: -2px 15px 0 0;
+                    &.active {
+                        margin-bottom: 15px;
+                    }
+                    &:after {
+                        top: 4px;
+                    }
+                    &:before {
+                        top: 4px;
+                    }
+                }
+            }
+        }
+        .preopen_field {
+            width: 100%;
+            .wpcfto-box {
+                margin: 0;
+                align-items: flex-end;
+            }
+            .wpcfto_generic_field {
+                margin-top: 0;
+            }
+        }
+    }
+}
