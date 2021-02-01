@@ -1,3 +1,11 @@
+.wpcfto-box {
+    &.checkbox {
+        .wpcfto-field-aside {
+            margin: 3px 0 0;
+        }
+    }
+}
+
 .wpcfto-admin-checkbox {
 
     + p {

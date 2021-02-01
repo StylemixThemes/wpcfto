@@ -117,3 +117,28 @@
 //        }
 //    }
 //}
+
+
+/*First hint shows on bottom*/
+.wpcfto-tab {
+    .container {
+        .row {
+            .column {
+                .wpcfto-box {
+                    &:first-child {
+                        .wpcfto_field_hint>.hint {
+                            top: 100%;
+                            bottom: auto;
+                            transform: translate(-50%,10px);
+                            &:after {
+                                bottom: auto;
+                                top: -10px;
+                                transform: translateX(2px) rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
