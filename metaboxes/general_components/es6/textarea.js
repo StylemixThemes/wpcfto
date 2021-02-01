@@ -11,7 +11,7 @@ Vue.component('wpcfto_textarea', {
             
             <div class="wpcfto-field-content">
                 <textarea v-bind:name="field_name"
-                          v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter something...'"
+                          v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter ' + field_label"
                           v-bind:id="field_id"
                           v-model="value">
                 </textarea>

@@ -15,7 +15,7 @@ Vue.component('wpcfto_file', {
     },
     template: `
         <div class="wpcfto_generic_field wpcfto_generic_field__file">
-
+        
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
             <div class="wpcfto-field-content">
