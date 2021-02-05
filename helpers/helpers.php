@@ -28,7 +28,7 @@ add_action( 'admin_head', 'stm_wpcfto_wp_head' );
 function stm_wpcfto_nonces() {
 
 	$nonces = array(
-		'stm_save_settings',
+		'wpcfto_save_settings',
 		'get_image_url',
 		'wpcfto_upload_file',
 		'wpcfto_search_posts'

@@ -184,17 +184,29 @@ Vue.component('wpcfto_typography', {
     mounted: function () {
 
         if (typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) {
-            this.typography = JSON.parse(this.field_value)
-        } else if (typeof this.field_value === 'object') {
-            this.typography = this.field_value;
+            this.field_value = JSON.parse(this.field_value)
         }
+
+        this.fillTypography();
 
         this.inited = true;
 
         this.editVariant();
         this.editSubset();
+
     },
     methods: {
+        fillTypography : function() {
+            let _this = this;
+            for (const [key, value] of Object.entries(_this.typography)) {
+                if(typeof _this.field_value[key] !== 'undefined') {
+                    _this.$set(_this.typography, key, _this.field_value[key]);
+                    if(key === 'font-family') {
+                        _this.setGoogleFontFamily(_this.field_value[key]);
+                    };
+                }
+            }
+        },
         isFontWeightDisabled: function (variant) {
 
             if (typeof this.field_data['excluded'] !== 'undefined' && this.field_data['excluded'].includes('font-family')) {
@@ -285,13 +297,24 @@ Vue.component('wpcfto_typography', {
 
             return !excluded.includes(option);
 
+        },
+        setGoogleFontFamily(font_family) {
+            let _this = this;
+            _this.google_fonts.forEach(function (value) {
+                if(value.family === font_family) {
+                    _this.$set(_this.typography, 'font-data', value);
+                    _this.editVariant();
+                    _this.editSubset();
+                }
+            })
+
+
         }
     },
     watch: {
         typography: {
             deep: true,
             handler: function (typography) {
-                console.log(typography);
                 this.$emit('wpcfto-get-value', typography);
             }
         }
