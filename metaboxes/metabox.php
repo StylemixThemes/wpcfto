@@ -198,6 +198,7 @@ class STM_Metaboxes
             'font_subset' => esc_html__('Font Subsets', 'wpcfto'),
             'text_align' => esc_html__('Text Align', 'wpcfto'),
             'font_color' => esc_html__('Font Color', 'wpcfto'),
+            'text-transform' => esc_html__('Text transform', 'wpcfto'),
         );
     }
 
@@ -226,7 +227,8 @@ class STM_Metaboxes
             'variants' => WPCFTO_Gfonts::variants(),
             'subsets' => WPCFTO_Gfonts::subsets(),
             'align' => WPCFTO_Gfonts::align(),
-            'translations' => self::translations()
+            'translations' => self::translations(),
+            'transform' => WPCFTO_Gfonts::transform(),
         ));
 
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
