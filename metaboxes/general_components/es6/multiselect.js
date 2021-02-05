@@ -37,7 +37,6 @@ Vue.component('wpcfto_multiselect', {
     `,
     mounted: function () {
 
-        console.log(this.field_data);
         if(typeof this.field_data['track_by'] !== 'undefined') {
             this.track_by = this.field_data['track_by'];
         }

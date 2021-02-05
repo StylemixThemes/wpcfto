@@ -46,11 +46,9 @@ Vue.component('wpcfto_dates', {
     `,
     methods: {
         dateChanged(newDate) {
-            console.log(newDate);
             var customDate = [];
             customDate.push(new Date(newDate[0]).getTime());
             customDate.push(new Date(newDate[1]).getTime());
-            console.log(customDate);
             this.$emit('wpcfto-get-value', customDate);
 
             this.$set(this, 'saveValue', customDate);
