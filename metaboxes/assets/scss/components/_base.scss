@@ -71,8 +71,8 @@
     }
 
     .wpcfto_search_group {
-        opacity: 0;
-        visibility: hidden;
+        //opacity: 0;
+        //visibility: hidden;
     }
 
     .wpcfto-search-field {
@@ -575,10 +575,19 @@
 }
 
 .wpcfto-settings.data-0 {
+    position: relative;
+    min-height: 200px;
+    max-width: 1240px;
+    background: #fff;
+    border-radius: 10px;
     &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
         content: '';
-        width: 10px;
-        height: 10px;
+        width: 30px;
+        height: 30px;
+        margin: -15px 0 0 -15px;
         display: inline-block;
         border: 5px solid $accent;
         border-right-color: transparent;
