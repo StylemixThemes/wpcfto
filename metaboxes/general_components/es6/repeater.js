@@ -46,7 +46,7 @@ Vue.component('wpcfto_repeater', {
     
             <div class="addArea" @click="addArea">
                 <i class="fa fa-plus-circle"></i>
-                <span v-html="'Add'"></span>
+                <span v-html="'Add ' + field_label"></span>
             </div>
         
         </div>
