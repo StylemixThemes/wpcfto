@@ -232,6 +232,7 @@ class STM_Metaboxes
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
         wp_enqueue_style('linear-icons', $base . 'css/linear-icons.css', array('wpcfto-metaboxes.css'), $v);
         wp_enqueue_style('font-awesome-min', $assets . '/vendors/font-awesome.min.css', null, $v, 'all');
+        wp_enqueue_style('vue-multiselect-min', $assets . '/vendors/vue-multiselect.min.css', null, $v, 'all');
 
         /*GENERAL COMPONENTS*/
         $components = array(
@@ -266,6 +267,7 @@ class STM_Metaboxes
             'icon_picker',
             'range_slider',
             'typography',
+            'multiselect',
         );
 
         foreach ($components as $component) {
