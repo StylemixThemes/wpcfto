@@ -17,7 +17,7 @@ class WPCFTO_Settings
         $this->setup = $setup;
 
         add_action('admin_menu', array($this, 'settings_page'), 1000);
-        add_action('wp_ajax_stm_save_settings', array($this, 'stm_save_settings'));
+        add_action('wp_ajax_wpcfto_save_settings', array($this, 'stm_save_settings'));
     }
 
     function settings_page()
@@ -118,7 +118,7 @@ class WPCFTO_Settings
     function stm_save_settings()
     {
 
-        check_ajax_referer('stm_save_settings', 'nonce');
+        check_ajax_referer('wpcfto_save_settings', 'nonce');
 
         if (!current_user_can('manage_options')) {
             die;
