@@ -501,20 +501,22 @@ function wpcfto_metaboxes_deps($field, $section_name)
     if (empty($field['dependency'])) {
         return $dependency;
     }
-	
-	if(!empty($field['dependency']['section'])) $section_name = $field['dependency']['section'];
-
-    if (!empty($field['dependencies'])) {
+    
+	if (!empty($field['dependencies'])) {
         $mode = $field['dependencies'];
 
         foreach ($field['dependency'] as $dep) {
-            $dependencies[] = wpcfto_metaboxes_generate_deps($section_name, $dep);
+			$sectionName = (isset($dep['section'])) ? $dep['section'] : $section_name;
+			
+            $dependencies[] = wpcfto_metaboxes_generate_deps($sectionName, $dep);
         }
-
+        
         $dependencies = implode(" {$mode} ", $dependencies);
 
     } else {
-        $dependencies = wpcfto_metaboxes_generate_deps($section_name, $field['dependency']);
+		if(!empty($field['dependency']['section'])) $section_name = $field['dependency']['section'];
+		
+		$dependencies = wpcfto_metaboxes_generate_deps($section_name, $field['dependency']);
     }
 
     $dependency = "v-if=\"{$dependencies}\"";
