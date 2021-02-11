@@ -189,10 +189,14 @@ Vue.component('wpcfto_typography', {
 
         this.fillTypography();
 
+        console.log(this.typography);
+
         this.inited = true;
 
         this.editVariant();
         this.editSubset();
+
+        console.log(this.typography);
 
     },
     methods: {
@@ -201,9 +205,15 @@ Vue.component('wpcfto_typography', {
             for (const [key, value] of Object.entries(_this.typography)) {
                 if(typeof _this.field_value[key] !== 'undefined') {
                     _this.$set(_this.typography, key, _this.field_value[key]);
+
                     if(key === 'font-family') {
                         _this.setGoogleFontFamily(_this.field_value[key]);
-                    };
+                    }
+
+                    if(key === 'font-weight') {
+                        this.$set(_this.typography, 'google-weight', _this.field_value[key]);
+                    }
+
                 }
             }
         },
