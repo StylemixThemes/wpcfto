@@ -11,6 +11,11 @@
 //}
 
 .stm_metaboxes_grid__inner {
+    .wpcfto_generic_radio {
+        .wpcfto-field-aside {
+            align-self: center;
+        }
+    }
     input[type="checkbox"],
     input[type="radio"] {
         display: inline-block !important;

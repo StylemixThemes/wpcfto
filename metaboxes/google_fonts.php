@@ -46,6 +46,15 @@ class WPCFTO_Gfonts
         );
     }
 
+    static function transform() {
+        return array(
+            "normal" => esc_html__('Normal', 'wpcfto'),
+            "uppercase" => esc_html__('Uppercase', 'wpcfto'),
+            "lowercase" => esc_html__('Lowercase', 'wpcfto'),
+            "capitalize" => esc_html__('Capitalize', 'wpcfto'),
+        );
+    }
+
     static function fonts_json()
     {
         return STM_WPCFTO_PATH . '/metaboxes/assets/webfonts/google-fonts.json';

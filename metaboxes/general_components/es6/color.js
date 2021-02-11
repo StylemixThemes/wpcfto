@@ -1,7 +1,7 @@
 Vue.component('wpcfto_color', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
     components: {
-        'slider-picker': VueColor.Photoshop
+        'slider-picker': VueColor.Chrome
     },
     data: function () {
         return {
