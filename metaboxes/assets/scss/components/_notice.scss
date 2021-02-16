@@ -28,4 +28,17 @@
         padding: 20px;
     }
 
+    .wpcfto-box-notice {
+        min-height: auto;
+        background-color: transparent;
+        .wpcfto_generic_field__notice {
+            margin: 15px 0;
+            padding: 0;
+            label {
+                font-size: 18px;
+                line-height: 24px;
+            }
+        }
+    }
+
 }
