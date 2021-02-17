@@ -576,6 +576,7 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 
     $classes[] = $width;
     $classes[] = $is_pro;
+    $classes[] = "wpcfto-box-{$field['type']}";
 
     $classes[] = $field_name;
 
