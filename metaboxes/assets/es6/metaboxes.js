@@ -175,6 +175,7 @@
                             let _this = this;
                             setTimeout(function () {
                                 _this.clearEmptyGroups();
+                                _this.initSubmenu();
                             }, 100);
                         }
                     }
