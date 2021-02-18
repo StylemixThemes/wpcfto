@@ -314,6 +314,7 @@ class STM_Metaboxes
             'searchTerms' => ['here', 'array', 'of', 'terms', 'to', 'search']
         );
 
+        do_action('wpcfto_enqueue_scripts');
     }
 
     function wpcfto_post_types()
