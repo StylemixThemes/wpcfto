@@ -39,7 +39,7 @@ Vue.component('wpcfto_typography', {
         <div class="wpcfto_generic_field wpcfto_generic_field__typography" v-bind:class="field_id">
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
-
+            
             <div class="wpcfto-field-content">
                 <div class="wpcfto-typography-fields-wrap">
                     <div class="row">
@@ -69,7 +69,7 @@ Vue.component('wpcfto_typography', {
                             </div>        
         
                             <div class="column-50" v-if="notExcluded('google-weight')">
-                                <label class="field-label" v-html="translations['font_weight']"></label>       
+                                <label class="field-label" v-html="translations['font_weight']"></label>     
                                 <select v-model="typography['google-weight']" @change="weightChanged()">
                                     <option value="">Select font weight</option>
                                     <option
@@ -189,29 +189,34 @@ Vue.component('wpcfto_typography', {
 
         this.fillTypography();
 
-        console.log(this.typography);
-
         this.inited = true;
 
         this.editVariant();
         this.editSubset();
 
-        console.log(this.typography);
-
     },
     methods: {
-        fillTypography : function() {
-            let _this = this;
-            for (const [key, value] of Object.entries(_this.typography)) {
-                if(typeof _this.field_value[key] !== 'undefined') {
-                    _this.$set(_this.typography, key, _this.field_value[key]);
+        fillTypography: function () {
+            const _this = this;
+            for (const [key, ] of Object.entries(_this.typography)) {
+                const value = _this.field_value[key];
 
-                    if(key === 'font-family') {
-                        _this.setGoogleFontFamily(_this.field_value[key]);
+                if (typeof value !== 'undefined') {
+                    _this.$set(_this.typography, key, value);
+
+
+
+                    if (key === 'font-family') {
+                        _this.setGoogleFontFamily(value);
                     }
 
-                    if(key === 'font-weight') {
-                        this.$set(_this.typography, 'google-weight', _this.field_value[key]);
+                    if (key === 'font-weight') {
+
+                        setTimeout(function() {
+                            _this.$set(_this.typography, 'font-weight', value);
+                            _this.$set(_this.typography, 'google-weight', value);
+                        })
+
                     }
 
                 }
@@ -311,7 +316,7 @@ Vue.component('wpcfto_typography', {
         setGoogleFontFamily(font_family) {
             let _this = this;
             _this.google_fonts.forEach(function (value) {
-                if(value.family === font_family) {
+                if (value.family === font_family) {
                     _this.$set(_this.typography, 'font-data', value);
                     _this.editVariant();
                     _this.editSubset();
