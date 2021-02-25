@@ -81,7 +81,7 @@ function wpcfto_get_settings_map($source, $name) {
 			}
 		}
 		
-		wp_send_json( $settings );
+		return $settings;
 		
 	} else {
 		$post_id = intval( $source );
@@ -119,7 +119,7 @@ function wpcfto_get_settings_map($source, $name) {
 			}
 		}
 		
-		return( $sections );
+		return $sections;
 		
 	}
 	
