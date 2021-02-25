@@ -67,7 +67,7 @@ Vue.component('wpcfto_typography', {
                                     <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
                                 </select>
                             </div>        
-        
+                                  
                             <div class="column-50" v-if="notExcluded('google-weight')">
                                 <label class="field-label" v-html="translations['font_weight']"></label>     
                                 <select v-model="typography['google-weight']" @change="weightChanged()">
@@ -214,7 +214,9 @@ Vue.component('wpcfto_typography', {
 
                         setTimeout(function() {
                             _this.$set(_this.typography, 'font-weight', value);
-                            _this.$set(_this.typography, 'google-weight', value);
+                            if(typeof _this.field_value['google-weight'] !== 'undefined') {
+                                _this.$set(_this.typography, 'google-weight', _this.field_value['google-weight']);
+                            }
                         })
 
                     }
@@ -293,7 +295,7 @@ Vue.component('wpcfto_typography', {
             if (weight === 'regular') {
                 this.$set(typo, 'font-weight', 400);
                 this.$set(typo, 'font-style', 'normal');
-            } else if (weight === 'regular') {
+            } else if (weight === 'italic') {
                 this.$set(typo, 'font-weight', 400);
                 this.$set(typo, 'font-style', 'italic');
             } else if (multiWeight.length === 2) {
