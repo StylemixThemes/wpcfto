@@ -23,6 +23,19 @@ if (empty($id)) {
     $active = '';
     $vue_id = "data-vue='" . $id . "'";
     $source_id = "data-source='" . $post_id . "'";
+} else {
+    if(apply_filters('wpcfto_enable_export_import', true)) {
+        $sections['wpcfto_import_export'] = array(
+            'name' => esc_html__('Import/Export', 'wpcfto'),
+            'icon' => 'fa fa-sync',
+            'fields' => array(
+                'wpcfto_import_export_field' => array(
+                    'type' => 'import_export',
+                    'id' => $metabox['id']
+                )
+            )
+        );
+    }
 }
 
 ?>
