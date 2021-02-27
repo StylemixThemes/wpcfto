@@ -140,8 +140,12 @@ class WPCFTO_Settings
         }
 
         do_action('wpcfto_settings_saved', $id, $settings);
-
-        wp_send_json(update_option($id, $settings));
+        
+        $updateOption = update_option($id, $settings);
+        
+		do_action('wpcfto_after_settings_saved', $id, $settings);
+		
+        wp_send_json($updateOption);
     }
 }
 
