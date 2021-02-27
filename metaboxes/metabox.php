@@ -199,6 +199,13 @@ class STM_Metaboxes
             'text_align' => esc_html__('Text Align', 'wpcfto'),
             'font_color' => esc_html__('Font Color', 'wpcfto'),
             'text-transform' => esc_html__('Text transform', 'wpcfto'),
+            'export' => esc_html__('Copy settings', 'wpcfto'),
+            'import' => esc_html__('Import settings', 'wpcfto'),
+            'import_notice' => esc_html__('WARNING! This will overwrite all existing option values, please proceed with caution!', 'wpcfto'),
+            'exported_data' => esc_html__('Settings copied to buffer', 'wpcfto'),
+            'exported_data_error' => esc_html__('Couldn\'t copy settings', 'wpcfto'),
+            'export_data_label' => esc_html__('Export options', 'wpcfto'),
+            'import_data_label' => esc_html__('Import options', 'wpcfto'),
         );
     }
 
@@ -270,6 +277,7 @@ class STM_Metaboxes
             'range_slider',
             'typography',
             'multiselect',
+            'import_export',
         );
 
         foreach ($components as $component) {
