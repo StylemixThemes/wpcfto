@@ -25,7 +25,7 @@ Vue.component('wpcfto_import_export', {
                 <h3 v-html="translations.import_data_label"></h3>
                 <textarea v-model="importData"></textarea>
                 <div class="wpcfto_import_export__import_notice" v-html="translations.import_notice"></div>
-                <a href="#" class="button" @click.prevent="proceedData">{{translations.import}}</a>
+                <a href="#" class="button" :disabled="Object.keys(importData).length === 0" @click.prevent="proceedData">{{translations.import}}</a>
                 <span class="loading_import" v-if="loading">
                     <i class="loading_v2"></i>
                 </span>
@@ -56,6 +56,9 @@ Vue.component('wpcfto_import_export', {
         },
         proceedData() {
             var vm = this;
+
+            if(Object.keys(vm.importData).length === 0) return false;
+
             vm.loading = true;
             let url = stm_wpcfto_ajaxurl + '?action=wpcfto_save_settings&nonce=' + stm_wpcfto_nonces['wpcfto_save_settings'] + '&name=' + vm.id;
             this.$http.post(url, vm.importData).then(function (response) {
