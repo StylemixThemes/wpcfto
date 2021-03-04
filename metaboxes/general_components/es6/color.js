@@ -53,10 +53,12 @@ Vue.component('wpcfto_color', {
                     <div>
                         <slider-picker v-model="value"></slider-picker>
                     </div>
+
+                      <a href="#" @click.prevent="input_value=''" v-if="input_value" class="wpcfto_generic_field_color__clear">
+                        <i class="fa fa-times"></i>
+                      </a>
     
                 </div>
-                
-                <a href="#" @click.prevent="input_value=''" class="wpcfto_generic_field_color__clear">Clear</a>
             
             </div>
             

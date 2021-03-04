@@ -431,7 +431,8 @@ class STM_Metaboxes
         /*If somebody applied custom filter just return custom array*/
         if (!empty($_GET['name'])) {
             $name = sanitize_text_field($_GET['name']);
-            $r = apply_filters("stm_wpcfto_autocomplete_{$name}", array(), $args);
+            $filtered = apply_filters("stm_wpcfto_autocomplete_{$name}", null, $args);
+            $r = $filtered;
 
             if (!empty($args['post__in'])) {
 
@@ -448,7 +449,7 @@ class STM_Metaboxes
                 $r = $data;
             }
 
-            if (!empty($r)) {
+            if (!empty($r) || isset($filtered)) {
                 wp_send_json($r);
             }
         }
