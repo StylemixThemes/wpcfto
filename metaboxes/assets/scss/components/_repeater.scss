@@ -204,6 +204,25 @@
                 color: $white;
             }
         }
+
+        .wpcfto_generic_field_iconpicker {
+            .wpcfto_generic_field {
+                padding-right: 10px !important;
+            }
+            .stm_colorpicker_wrapper {
+                width: 138px;
+                > span {
+                    margin-right: 5px;
+                }
+                > input[type="text"] {
+                    padding: 0 5px;
+                }
+            }
+            .wpcfto_generic_field_color__clear {
+                margin-left: 0;
+            }
+        }
+
     }
 }
 
