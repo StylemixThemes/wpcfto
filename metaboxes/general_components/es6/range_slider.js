@@ -52,7 +52,7 @@ Vue.component('wpcfto_range_slider', {
         },
 
         change() {
-            if ( +this.value > 200  )
+            if ( this.value > 200  )
                 this.value = 200
         }
     },
