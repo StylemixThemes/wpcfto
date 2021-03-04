@@ -29,6 +29,7 @@ Vue.component('wpcfto_range_slider', {
                         v-model="value">
                         </range-slider>
                         <template v-if="field_input_addon">
+                            <input type="number" @input="change" @change="change" v-model="value" :max="max" class="wpcfto_range_slider_custom_input" />
                             <span v-if="field_input_addon.label" v-html="field_input_addon.label" class="wpcfto_field_addon"></span>
                         </template>
                     </div>
@@ -48,6 +49,11 @@ Vue.component('wpcfto_range_slider', {
             return {
                 left: ((this.value - this.min) * 100 / (this.max - this.min)) + '%'
             }
+        },
+
+        change() {
+            if ( +this.value > 200  )
+                this.value = 200
         }
     },
     watch: {
