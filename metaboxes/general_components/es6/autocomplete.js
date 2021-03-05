@@ -68,7 +68,7 @@ Vue.component('wpcfto_autocomplete', {
             this.isLoading(false);
         }
 
-        if(typeof this.field_data.limit !== 'undefined') {
+        if(typeof this.field_data !== 'undefined' && typeof this.field_data.limit !== 'undefined') {
             this.limit = this.field_data.limit;
         }
     },

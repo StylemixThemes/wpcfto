@@ -1,9 +1,10 @@
 Vue.component('wpcfto_repeater', {
-    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
+    props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value', 'field_data'],
     data: function () {
         return {
             repeater: [],
-            repeater_values: {}
+            repeater_values: {},
+            disable_scroll: false
         }
     },
     template: `
@@ -69,6 +70,11 @@ Vue.component('wpcfto_repeater', {
                 _this.repeater.push({});
             });
         }
+
+        console.log(_this.field_data);
+
+        if(typeof _this.field_data !== 'undefined' && typeof _this.field_data['disable_scroll'] !== 'undefined') _this.disable_scroll = true;
+
     },
     methods: {
         addArea: function () {
@@ -76,16 +82,19 @@ Vue.component('wpcfto_repeater', {
                 closed_tab : true
             });
 
-            var el = 'wpcfto-repeater_' + this.field_name + '_' + (this.repeater.length - 1);
 
-            Vue.nextTick(function () {
-                if (typeof jQuery !== 'undefined') {
-                    var $ = jQuery;
-                    $([document.documentElement, document.body]).animate({
-                        scrollTop: $("." + el).offset().top - 40
-                    }, 400);
-                }
-            })
+            if(!this.disable_scroll) {
+                var el = 'wpcfto-repeater_' + this.field_name + '_' + (this.repeater.length - 1);
+
+                Vue.nextTick(function () {
+                    if (typeof jQuery !== 'undefined') {
+                        var $ = jQuery;
+                        $([document.documentElement, document.body]).animate({
+                            scrollTop: $("." + el).offset().top - 40
+                        }, 400);
+                    }
+                })
+            }
 
         },
         toggleArea: function(area) {
