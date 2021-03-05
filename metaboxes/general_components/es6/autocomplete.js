@@ -41,7 +41,7 @@ Vue.component('wpcfto_autocomplete', {
                                 <img v-bind:src="item.image" v-if="item.image" class="item-image">
                                 <div class="item-data">
                                     <span v-html="item.title" class="item-title"></span>
-                                    <span v-html="item.excerpt" class="item-excerpt"></span>
+                                    <span v-html="item.excerpt" class="item-excerpt" v-if="item.excerpt"></span>
                                 </div>
                             </div>
                             <i class="fa fa-trash-alt" @click="removeItem(index)" @mouseover="itemHovered = index" @mouseleave="itemHovered = null"></i>
