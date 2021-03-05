@@ -71,8 +71,6 @@ Vue.component('wpcfto_repeater', {
             });
         }
 
-        console.log(_this.field_data);
-
         if(typeof _this.field_data !== 'undefined' && typeof _this.field_data['disable_scroll'] !== 'undefined') _this.disable_scroll = true;
 
     },
