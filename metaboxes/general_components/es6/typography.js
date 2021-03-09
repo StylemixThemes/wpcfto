@@ -67,8 +67,8 @@ Vue.component('wpcfto_typography', {
                                     <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
                                 </select>
                             </div>        
-                                  
-                            <div class="column-50" v-if="notExcluded('google-weight')">
+                                 
+                            <div class="column-50" v-if="notExcluded('font-weight')">
                                 <label class="field-label" v-html="translations['font_weight']"></label>     
                                 <select v-model="typography['google-weight']" @change="weightChanged()">
                                     <option value="">Select font weight</option>
@@ -248,7 +248,9 @@ Vue.component('wpcfto_typography', {
             let current_variant = this.typography['google-weight'];
             let current_variants = this.typography['font-data']['variants'];
             if (typeof current_variants !== 'undefined' && !current_variants.includes(current_variant)) {
-                this.$set(this.typography, 'google-weight', current_variants[0]);
+                if(typeof current_variants[0] !== 'undefined') {
+                    this.$set(this.typography, 'google-weight', current_variants[0]);
+                }
                 this.weightChanged();
             }
         },
