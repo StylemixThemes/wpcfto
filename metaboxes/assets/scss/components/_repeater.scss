@@ -1,4 +1,5 @@
 .stm_metaboxes_grid .stm_metaboxes_grid__inner {
+
     .wpcfto-box.repeater {
         padding: 0;
     }
@@ -183,7 +184,7 @@
             padding: 13px;
             font-size: 13px;
             font-weight: 600;
-            line-height: 1;
+            line-height: 14px;
             display: inline-block;
             width: auto;
             text-transform: uppercase;
@@ -192,6 +193,9 @@
             cursor: pointer;
 
             i {
+                position: relative;
+                top: 1px;
+                margin-right: 5px;
                 font-size: 14px;
             }
 
@@ -201,6 +205,8 @@
                 color: $white;
             }
         }
+        
+
     }
 }
 

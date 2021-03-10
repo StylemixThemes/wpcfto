@@ -13,6 +13,7 @@ Vue.component('wpcfto_typography', {
             subsets: wpcfto_global_settings['subsets'],
             align: wpcfto_global_settings['align'],
             translations: wpcfto_global_settings['translations'],
+            transform: wpcfto_global_settings['transform'],
             typography: {
                 'font-family': '',
                 'google-weight': 'regular',
@@ -24,11 +25,12 @@ Vue.component('wpcfto_typography', {
                 'line-height': '20',
                 'text-align': 'left',
                 'word-spacing': '0',
+                'text-transform': 'normal',
                 'letter-spacing': '0',
                 'backup-font': '',
                 'font-data': {
-                    'family' : '',
-                    'variants' : []
+                    'family': '',
+                    'variants': []
                 }
             },
         }
@@ -37,7 +39,7 @@ Vue.component('wpcfto_typography', {
         <div class="wpcfto_generic_field wpcfto_generic_field__typography" v-bind:class="field_id">
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
-
+            
             <div class="wpcfto-field-content">
                 <div class="wpcfto-typography-fields-wrap">
                     <div class="row">
@@ -65,9 +67,9 @@ Vue.component('wpcfto_typography', {
                                     <option v-bind:value="font" v-for="font in web_safe_fonts" v-html="font"></option>
                                 </select>
                             </div>        
-        
+                                  
                             <div class="column-50" v-if="notExcluded('google-weight')">
-                                <label class="field-label" v-html="translations['font_weight']"></label>       
+                                <label class="field-label" v-html="translations['font_weight']"></label>     
                                 <select v-model="typography['google-weight']" @change="weightChanged()">
                                     <option value="">Select font weight</option>
                                     <option
@@ -155,6 +157,15 @@ Vue.component('wpcfto_typography', {
                                         :field_value="typography['color']">
                                 </wpcfto_color>
                             </div>            
+                            
+                            <div class="column-50" v-if="notExcluded('text-transform')"> 
+                                <label class="field-label" v-html="translations['text-transform']"></label>
+                                <select v-model="typography['text-transform']">
+                                    <option
+                                        v-bind:value="transform_key"
+                                        v-for="(transform_label, transform_key) in transform" v-html="transform_label"></option>
+                                </select>
+                            </div>
                 
                             <div class="column-1" v-if="notExcluded('preview')">
                                 <div class="wpcfto_generic_field__typography__preview" :style="previewStyles()">
@@ -173,20 +184,49 @@ Vue.component('wpcfto_typography', {
     mounted: function () {
 
         if (typeof this.field_value === 'string' && WpcftoIsJsonString(this.field_value)) {
-            this.typography = JSON.parse(this.field_value)
-        } else if (typeof this.field_value === 'object') {
-            this.typography = this.field_value;
+            this.field_value = JSON.parse(this.field_value)
         }
+
+        this.fillTypography();
 
         this.inited = true;
 
         this.editVariant();
         this.editSubset();
+
     },
     methods: {
+        fillTypography: function () {
+            const _this = this;
+            for (const [key, ] of Object.entries(_this.typography)) {
+                const value = _this.field_value[key];
+
+                if (typeof value !== 'undefined') {
+                    _this.$set(_this.typography, key, value);
+
+
+
+                    if (key === 'font-family') {
+                        _this.setGoogleFontFamily(value);
+                    }
+
+                    if (key === 'font-weight') {
+
+                        setTimeout(function() {
+                            _this.$set(_this.typography, 'font-weight', value);
+                            if(typeof _this.field_value['google-weight'] !== 'undefined') {
+                                _this.$set(_this.typography, 'google-weight', _this.field_value['google-weight']);
+                            }
+                        })
+
+                    }
+
+                }
+            }
+        },
         isFontWeightDisabled: function (variant) {
 
-            if(typeof this.field_data['excluded'] !== 'undefined' && this.field_data['excluded'].includes('font-family')) {
+            if (typeof this.field_data['excluded'] !== 'undefined' && this.field_data['excluded'].includes('font-family')) {
                 return false;
             }
 
@@ -226,7 +266,7 @@ Vue.component('wpcfto_typography', {
 
             base += (isItalic) ? ':ital,' : ':';
             base += 'wght@';
-            if(isItalic) base += '1,';
+            if (isItalic) base += '1,';
             base += this.typography['font-weight'];
             base += '&display=swap';
 
@@ -244,20 +284,21 @@ Vue.component('wpcfto_typography', {
                 'text-align': typo['text-align'],
                 'font-weight': typo['font-weight'],
                 'font-style': typo['font-style'],
+                'text-transform': typo['text-transform'],
             }
         },
         weightChanged() {
             let typo = this.typography;
             let weight = typo['google-weight'];
-            let multiWeight = (typeof weight !== 'undefined') ?  weight.match(/[a-zA-Z]+|[0-9]+/g) : ['400', 'normal'];
+            let multiWeight = (typeof weight !== 'undefined') ? weight.match(/[a-zA-Z]+|[0-9]+/g) : ['400', 'normal'];
 
             if (weight === 'regular') {
                 this.$set(typo, 'font-weight', 400);
                 this.$set(typo, 'font-style', 'normal');
-            } else if (weight === 'regular') {
+            } else if (weight === 'italic') {
                 this.$set(typo, 'font-weight', 400);
                 this.$set(typo, 'font-style', 'italic');
-            } else if(multiWeight.length === 2) {
+            } else if (multiWeight.length === 2) {
                 this.$set(typo, 'font-weight', multiWeight[0]);
                 this.$set(typo, 'font-style', multiWeight[1]);
             } else {
@@ -267,11 +308,23 @@ Vue.component('wpcfto_typography', {
         },
         notExcluded(option) {
 
-            if(typeof this.field_data['excluded'] === 'undefined') return true;
+            if (typeof this.field_data['excluded'] === 'undefined') return true;
 
             let excluded = this.field_data['excluded'];
 
             return !excluded.includes(option);
+
+        },
+        setGoogleFontFamily(font_family) {
+            let _this = this;
+            _this.google_fonts.forEach(function (value) {
+                if (value.family === font_family) {
+                    _this.$set(_this.typography, 'font-data', value);
+                    _this.editVariant();
+                    _this.editSubset();
+                }
+            })
+
 
         }
     },

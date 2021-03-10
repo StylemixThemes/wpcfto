@@ -198,6 +198,14 @@ class STM_Metaboxes
             'font_subset' => esc_html__('Font Subsets', 'wpcfto'),
             'text_align' => esc_html__('Text Align', 'wpcfto'),
             'font_color' => esc_html__('Font Color', 'wpcfto'),
+            'text-transform' => esc_html__('Text transform', 'wpcfto'),
+            'export' => esc_html__('Copy settings', 'wpcfto'),
+            'import' => esc_html__('Import settings', 'wpcfto'),
+            'import_notice' => esc_html__('WARNING! This will overwrite all existing option values, please proceed with caution!', 'wpcfto'),
+            'exported_data' => esc_html__('Settings copied to buffer', 'wpcfto'),
+            'exported_data_error' => esc_html__('Couldn\'t copy settings', 'wpcfto'),
+            'export_data_label' => esc_html__('Export options', 'wpcfto'),
+            'import_data_label' => esc_html__('Import options', 'wpcfto'),
         );
     }
 
@@ -226,12 +234,14 @@ class STM_Metaboxes
             'variants' => WPCFTO_Gfonts::variants(),
             'subsets' => WPCFTO_Gfonts::subsets(),
             'align' => WPCFTO_Gfonts::align(),
-            'translations' => self::translations()
+            'translations' => self::translations(),
+            'transform' => WPCFTO_Gfonts::transform(),
         ));
 
         wp_enqueue_style('wpcfto-metaboxes.css', $base . 'css/main.css', array(), $v);
         wp_enqueue_style('linear-icons', $base . 'css/linear-icons.css', array('wpcfto-metaboxes.css'), $v);
         wp_enqueue_style('font-awesome-min', $assets . '/vendors/font-awesome.min.css', null, $v, 'all');
+        wp_enqueue_style('vue-multiselect-min', $assets . '/vendors/vue-multiselect.min.css', null, $v, 'all');
 
         /*GENERAL COMPONENTS*/
         $components = array(
@@ -266,6 +276,8 @@ class STM_Metaboxes
             'icon_picker',
             'range_slider',
             'typography',
+            'multiselect',
+            'import_export',
         );
 
         foreach ($components as $component) {
@@ -310,6 +322,7 @@ class STM_Metaboxes
             'searchTerms' => ['here', 'array', 'of', 'terms', 'to', 'search']
         );
 
+        do_action('wpcfto_enqueue_scripts');
     }
 
     function wpcfto_post_types()
@@ -418,7 +431,8 @@ class STM_Metaboxes
         /*If somebody applied custom filter just return custom array*/
         if (!empty($_GET['name'])) {
             $name = sanitize_text_field($_GET['name']);
-            $r = apply_filters("stm_wpcfto_autocomplete_{$name}", array(), $args);
+            $filtered = apply_filters("stm_wpcfto_autocomplete_{$name}", null, $args);
+            $r = $filtered;
 
             if (!empty($args['post__in'])) {
 
@@ -435,7 +449,7 @@ class STM_Metaboxes
                 $r = $data;
             }
 
-            if (!empty($r)) {
+            if (!empty($r) || isset($filtered)) {
                 wp_send_json($r);
             }
         }
@@ -497,23 +511,29 @@ function wpcfto_metaboxes_deps($field, $section_name)
     if (empty($field['dependency'])) {
         return $dependency;
     }
-	
-	if(!empty($field['dependency']['section'])) $section_name = $field['dependency']['section'];
-
-    if (!empty($field['dependencies'])) {
+    
+	if (!empty($field['dependencies'])) {
         $mode = $field['dependencies'];
 
         foreach ($field['dependency'] as $dep) {
-            $dependencies[] = wpcfto_metaboxes_generate_deps($section_name, $dep);
+			$sectionName = (isset($dep['section'])) ? $dep['section'] : $section_name;
+			
+            $dependencies[] = wpcfto_metaboxes_generate_deps($sectionName, $dep);
         }
-
+        
         $dependencies = implode(" {$mode} ", $dependencies);
 
     } else {
-        $dependencies = wpcfto_metaboxes_generate_deps($section_name, $field['dependency']);
+		if(!empty($field['dependency']['section'])) $section_name = $field['dependency']['section'];
+		
+		$dependencies = wpcfto_metaboxes_generate_deps($section_name, $field['dependency']);
     }
 
     $dependency = "v-if=\"{$dependencies}\"";
+
+    if(!empty($field['dependency_mode']) && $field['dependency_mode'] === 'disabled') {
+        $dependency = "v-bind:class=\"{'wpcfto-disabled-field' : {$dependencies}}\"";
+    }
 
     return $dependency;
 }
@@ -566,6 +586,7 @@ function wpcfto_metaboxes_display_single_field($section, $section_name, $field, 
 
     $classes[] = $width;
     $classes[] = $is_pro;
+    $classes[] = "wpcfto-box-{$field['type']}";
 
     $classes[] = $field_name;
 

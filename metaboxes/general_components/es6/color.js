@@ -1,7 +1,7 @@
 Vue.component('wpcfto_color', {
     props: ['fields', 'field_label', 'field_name', 'field_id', 'field_value'],
     components: {
-        'slider-picker': VueColor.Photoshop
+        'slider-picker': VueColor.Chrome
     },
     data: function () {
         return {
@@ -37,24 +37,28 @@ Vue.component('wpcfto_color', {
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
             
             <div class="wpcfto-field-content">
-            
+                        
                 <div class="stm_colorpicker_wrapper" v-bind:class="['picker-position-' + position]">
 
-                <span v-bind:style="{'background-color': input_value}" @click="$refs.field_name.focus()"></span>
+                    <span v-bind:style="{'background-color': input_value}" @click="$refs.field_name.focus()"></span>
+    
+                    <input type="text"
+                           v-bind:name="field_name"
+                           v-bind:placeholder="field_label"
+                           v-bind:id="field_id"
+                           v-model="input_value"
+                           ref="field_name"
+                    />
+    
+                    <div>
+                        <slider-picker v-model="value"></slider-picker>
+                    </div>
 
-                <input type="text"
-                       v-bind:name="field_name"
-                       v-bind:placeholder="field_label"
-                       v-bind:id="field_id"
-                       v-model="input_value"
-                       ref="field_name"
-                />
-
-                <div>
-                    <slider-picker v-model="value"></slider-picker>
+                      <a href="#" @click.prevent="input_value=''" v-if="input_value" class="wpcfto_generic_field_color__clear">
+                        <i class="fa fa-times"></i>
+                      </a>
+    
                 </div>
-
-            </div>
             
             </div>
             

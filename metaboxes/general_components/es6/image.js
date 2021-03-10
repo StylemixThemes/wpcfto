@@ -17,10 +17,10 @@ Vue.component('wpcfto_image', {
 
             <wpcfto_fields_aside_before :fields="fields" :field_label="field_label"></wpcfto_fields_aside_before>
 
-            <div class="wpcfto-field-content">
+            <div class="wpcfto-field-content" v-bind:class="{'not_image' : (image_url && !wpcfto_checkURL(image_url))}">
                 <div class="wpcfto-image" :class="{ 'has-image' : image_url && wpcfto_checkURL(image_url) }">
-                    <input type="text" v-model="image_url" class="wpcfto-input-url" 
-                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Enter image URL or click upload...'" />
+                    <input type="text" v-model="image_url" class="wpcfto-input-url" readonly
+                    v-bind:placeholder="fields.placeholder ? fields.placeholder : 'Image URL'" />
     
                     <div class="image-field" v-if="image_url && wpcfto_checkURL(image_url)">
                         <img v-bind:src="image_url" v-if="wpcfto_checkURL(image_url)"/>
@@ -32,7 +32,7 @@ Vue.component('wpcfto_image', {
                         <div class="button" v-if="image_url && wpcfto_checkURL(image_url)" @click="addImage()">
                         <i class="fa fa-upload"></i>Replace
                         </div>
-                        <div class="button button-remove" v-if="image_url && wpcfto_checkURL(image_url)" @click="removeImage()">
+                        <div class="button button-remove" v-if="image_url" @click="removeImage()">
                             <i class="fa fa-times"></i>Remove
                         </div>
                     </div>

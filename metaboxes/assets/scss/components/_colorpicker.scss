@@ -7,6 +7,16 @@
     .wpcfto-field-aside {
         align-self: center;
     }
+    &__clear {
+        display: inline-block;
+        margin: 6px 0 0 11px;
+        padding: 5px 10px;
+        font-size: 13px;
+        vertical-align: top;
+        text-decoration: none;
+        background-color: #f1f1f1;
+        border-radius: 5px;
+    }
 }
 .stm_colorpicker_wrapper {
     position: relative;
@@ -54,6 +64,7 @@
         margin-bottom: 7px;
     }
     > input[type='text'] {
+        padding-right: 20px;
         & {
             vertical-align: middle;
             width: calc(100% - 52px) !important;
@@ -78,5 +89,20 @@
         cursor: pointer;
         vertical-align: top;
         border-radius: 5px;
+    }
+
+    .wpcfto_generic_field_color__clear {
+        position: absolute;
+        right: 7px;
+        top: 5px;
+        padding: 0;
+        width: 18px;
+        height: 18px;
+        text-align: center;
+        line-height: 19px;
+        border-radius: 50%;
+        font-size: 11px;
+        background: #ccc;
+        color: #fff;
     }
 }

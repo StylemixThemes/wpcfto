@@ -6,6 +6,16 @@
         }
         .wpcfto-autocomplete-search {
             width: 100%;
+            &.loading {
+                opacity: .5;
+            }
+        }
+    }
+    .limited {
+        li {
+            &:first-child {
+                margin-top: 0 !important;
+            }
         }
     }
 }
@@ -42,6 +52,9 @@
             font-size: 15px;
             font-weight: 500;
             color: $color_main;
+            &:last-child {
+                margin-bottom: 0;
+            }
         }
         .item-excerpt {
             font-size: 13px;

@@ -55,6 +55,27 @@
         display: block;
     }
 
+    .not_image {
+        .wpcfto-image {
+            align-items: flex-start;
+        }
+        .actions {
+            .button {
+                width: 100%;
+                margin-bottom: 10px;
+                text-align: center;
+                &.button-remove {
+                    background-color: $color_muted;
+                    border-color: $color_muted;
+                    &:hover {
+                        background-color: darken($color_muted, 5%) !important;
+                        border-color: darken($color_muted, 5%) !important;
+                    }
+                }
+            }
+        }
+    }
+
 }
 .wpcfto-image {
     .image-field {
@@ -104,4 +125,5 @@
             }
         }
     }
+
 }

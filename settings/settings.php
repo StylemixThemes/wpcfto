@@ -17,7 +17,47 @@ class WPCFTO_Settings
         $this->setup = $setup;
 
         add_action('admin_menu', array($this, 'settings_page'), 1000);
-        add_action('wp_ajax_stm_save_settings', array($this, 'stm_save_settings'));
+        add_action('wp_ajax_wpcfto_save_settings', array($this, 'stm_save_settings'));
+
+        if (!empty($this->setup['admin_bar_title'])) {
+            add_action('admin_bar_menu', array($this, 'admin_bar_button'), 40);
+            add_action('wp_head', array($this, 'admin_bar_styles'));
+            add_action('admin_head', array($this, 'admin_bar_styles'));
+        }
+
+    }
+
+    function admin_bar_styles() {
+        $selector = "#wp-admin-bar-{$this->setup['option_name']}";
+        ?>
+        <style>
+            <?php echo esc_attr($selector) ?> img {
+                max-width: 25px;
+                vertical-align: top;
+                position: relative;
+                top: 3px;
+            }
+        </style>
+    <?php }
+
+    function admin_bar_button($wp_admin_bar)
+    {
+
+
+        $url = add_query_arg('page', $this->setup['page']['menu_slug'], admin_url());
+        $wpcfto_logo = (!empty($this->setup['logo'])) ? $this->setup['logo'] : STM_WPCFTO_URL . '/metaboxes/assets/images/stm-logo.svg';
+        $title = $this->setup['admin_bar_title'];
+        $menu = "<img src='{$wpcfto_logo}' /> {$title}";
+
+        $args = array(
+            'id' => $this->setup['option_name'],
+            'title' => $menu,
+            'href' => $url,
+            'meta' => array(
+                'title' => $title
+            )
+        );
+        $wp_admin_bar->add_node($args);
     }
 
     function settings_page()
@@ -118,7 +158,7 @@ class WPCFTO_Settings
     function stm_save_settings()
     {
 
-        check_ajax_referer('stm_save_settings', 'nonce');
+        check_ajax_referer('wpcfto_save_settings', 'nonce');
 
         if (!current_user_can('manage_options')) {
             die;
@@ -141,7 +181,11 @@ class WPCFTO_Settings
 
         do_action('wpcfto_settings_saved', $id, $settings);
 
-        wp_send_json(update_option($id, $settings));
+        $updateOption = update_option($id, $settings);
+
+        do_action('wpcfto_after_settings_saved', $id, $settings);
+
+        wp_send_json($updateOption);
     }
 }
 

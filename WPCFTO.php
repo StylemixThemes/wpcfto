@@ -3,7 +3,7 @@
  * Plugin Name: WordPress Custom Fields & Theme Options
  * Plugin URI:  https://github.com/StylemixThemes/wp-custom-fields-theme-options
  * Description: WordPress Custom Fields & Theme Options with Vue.js.
- * Version:     3.0
+ * Version:     3.1.1
  * Author:      StylemixThemes
  * Author URI:  https://stylemixthemes.com
  *

@@ -187,9 +187,21 @@
             border: 1px solid #bec5cb;
             border-radius: 0 5px 5px 0;
         }
+        .wpcfto_range_slider_custom_input {
+            position: absolute;
+            right: 35px;
+            top: 0;
+            padding-right: 6px;
+            border-radius: 4px 0 0 4px;
+            max-width: 70px;
+            height: 40px;
+        }
         .range-slider {
             & {
                 padding-right: 120px;
+                .range-slider-hidden {
+                    display: none !important;
+                }
             }
             .range-slider-inner {
                 padding-top: 40px;
@@ -214,6 +226,16 @@
             border-radius: 5px;
             border: 1px solid #bec5cb;
             background-color: #ffffff;
+        }
+    }
+}
+
+.wpcfto_group_started {
+    .wpcfto_generic_field_iconpicker {
+        .wpcfto_generic_field__inner {
+            .wpcfto_generic_field {
+                padding-right: 20px;
+            }
         }
     }
 }
