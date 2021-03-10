@@ -13,8 +13,6 @@ Today we have a lot of frameworks for adding options pages and custom metaboxes 
 Yet, we wanted to create a framework where you can create fields to use on options pages, post types, and even in categories or taxonomies.
 In one framework you can create all options-related things for different plugins and themes and have unlimited content possibilities.
 
-## Documentation
-
 ## [Full Documentation](https://docs.stylemixthemes.com/wpcfto)
 
 - [Installation](https://docs.stylemixthemes.com/wpcfto/installation)
