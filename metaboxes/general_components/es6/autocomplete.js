@@ -94,6 +94,7 @@ Vue.component('wpcfto_autocomplete', {
             vm.$set(vm, 'items', filtered);
         },
         underLimit : function() {
+            if(this.limit === 0) return true;
             return this.items.length < this.limit;
         },
         onSearch(search) {
