@@ -68,7 +68,7 @@ Vue.component('wpcfto_autocomplete', {
             this.isLoading(false);
         }
 
-        if(typeof this.field_data.limit !== 'undefined') {
+        if(typeof this.field_data !== 'undefined' && typeof this.field_data.limit !== 'undefined') {
             this.limit = this.field_data.limit;
         }
     },
@@ -94,6 +94,7 @@ Vue.component('wpcfto_autocomplete', {
             vm.$set(vm, 'items', filtered);
         },
         underLimit : function() {
+            if(this.limit === 0) return true;
             return this.items.length < this.limit;
         },
         onSearch(search) {

@@ -6,6 +6,7 @@
  * @var $field_value
  * @var $field_label
  * @var $field_name
+ * @var $field_data
  * @var $section_name
  *
  */
@@ -21,6 +22,7 @@ wp_enqueue_script('my-super-component', STM_WPCFTO_URL . '/metaboxes/general_com
                  v-bind:field_name="'<?php echo esc_attr($field_name); ?>'"
                  v-bind:field_id="'<?php echo esc_attr($field_id); ?>'"
                  v-bind:field_value="<?php echo esc_attr($field_value); ?>"
+                 v-bind:field_data='<?php echo str_replace("'", "", json_encode($field_data)); ?>'
                  @wpcfto-get-value="$set(<?php echo esc_attr($field) ?>, 'value', $event)">
 </wpcfto_repeater>
 
